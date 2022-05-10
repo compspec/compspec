@@ -78,7 +78,7 @@ class Graph:
         self.relations.append(relation)
         return relation
 
-    def gen(self, name, value, parent, nodeid=None):
+    def gen(self, name, value, parent, nodeid=None, relation="has"):
         """
         Generate a node and relation in one swoop!
         A parent is required.
@@ -86,8 +86,10 @@ class Graph:
         if not nodeid:
             nodeid = self.next()
         node = entity.node(nodeid, name, value)
-        relation = self.new_relation(parent, node.uid)
-        return ["node", node.args], relation
+        self.nodes[nodeid] = node
+        relation = self.new_relation(parent, relation, node.nodeid)
+        self.relations.append(relation)
+        return node, relation
 
     def iter_nodes(self):
         """
