@@ -41,9 +41,10 @@ $ pip install compspec
 For full examples, try running the scripts under [examples](examples) after you install
 compspec. More complex examples (with DWARF, etc) are coming soon.
 
- - [Creating a basic graph](examples/basic-graph/run.py) (a composition)
- - [Calculating a Diff](examples/basic-diff/run.py) (a difference between two compositions)
+ - [Creating a basic graph](examples/basic-graph/run.py): (a composition)
+ - [Calculating a Diff](examples/basic-diff/run.py): (a difference between two compositions)
  - [Combining Graphs](examples/combine-graphs/run.py)
+ - [Calculating a DWARF diff](examples/dwarf): a set of more real world examples
 
 ```bash
 $ python examples/basic-graph/run.py

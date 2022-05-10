@@ -60,8 +60,7 @@ class FactGenerator:
         """
         Generate facts for a namespaced graph
         """
-        # Add nodes then relations
-        for node in g.iter_nodes():
-            self.gen.fact(fn.node(ns, *node))
         for relation in g.iter_relations():
             self.gen.fact(fn.relation(ns, *relation))
+        for node in g.iter_nodes():
+            self.gen.fact(fn.node(ns, *node))
