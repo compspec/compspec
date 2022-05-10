@@ -118,6 +118,18 @@ class DwarfParser(compspec.graph.Graph):
         if die.tag == "DW_TAG_pointer_type":
             return self.parse_pointer_type(die)
 
+        if die.tag == "DW_TAG_structure_type":
+            return self.parse_structure_type(die)
+
+        if die.tag == "DW_TAG_member":
+            return self.parse_member(die)
+
+        if die.tag == "DW_TAG_array_type":
+            return self.parse_array_type(die)
+
+        if die.tag == "DW_TAG_subrange_type":
+            return self.parse_subrange_type(die)
+
         # TODO haven't seen these yet
         print(die)
         import IPython
@@ -130,17 +142,8 @@ class DwarfParser(compspec.graph.Graph):
         if die.tag == "DW_TAG_enumeration_type":
             return self.parse_enumeration_type(die)
 
-        if die.tag == "DW_TAG_array_type":
-            return self.parse_array_type(die)
-
-        if die.tag == "DW_TAG_structure_type":
-            return self.parse_structure_type(die)
-
         if die.tag == "DW_TAG_lexical_block":
             return self.parse_die(die)
-
-        if die.tag == "DW_TAG_member":
-            return self.parse_member(die)
 
         if die.tag == "DW_TAG_base_type":
             return self.parse_base_type(die)
@@ -187,6 +190,21 @@ class DwarfParser(compspec.graph.Graph):
         """
         return self.parse_sized_generic(die, "pointer")
 
+    def parse_member(self, die):
+        """
+        Parse a member, typically belonging to a union
+        Note these can have DW_AT_data_member_location but we arn't parsing
+        """
+        self.new_node("member", get_name(die), self.ids[die])
+        self.gen("type", self.get_underlying_type(die), parent=self.ids[die])
+        self.generate_parent(die)
+
+    def parse_structure_type(self, die):
+        """
+        Parse a structure type.
+        """
+        self.parse_sized_generic(die, "structure")
+
     def parse_variable(self, die):
         """
         Parse a formal parameter
@@ -206,6 +224,24 @@ class DwarfParser(compspec.graph.Graph):
         self.generate_parent(die)
         self.gen("type", self.get_underlying_type(die), parent=self.ids[die])
 
+    def parse_array_type(self, die):
+        """
+        Get an entry for an array.
+        """
+        self.new_node("array", get_name(die), self.ids[die])
+        self.generate_parent(die)
+        self.gen("membertype", self.get_underlying_type(die), parent=self.ids[die])
+
+        if "DW_AT_ordering" in die.attributes:
+            self.gen(
+                "order", die.attributes["DW_AT_ordering"].value, parent=self.ids[die]
+            )
+
+        # Case 1: the each member of the array uses a non-traditional storage
+        member_size = self._find_nontraditional_size(die)
+        if member_size:
+            self.gen("membersize", member_size, parent=self.ids[die])
+
     def parse_compile_unit(self, die):
         """
         Parse a top level compile unit.
@@ -220,6 +256,16 @@ class DwarfParser(compspec.graph.Graph):
             die_lang = describe_attr_value(lang, die, die.offset)
             node = self.new_node("language", die_lang)
             self.new_relation(self.ids[die], "has", node.nodeid)
+
+    def _find_nontraditional_size(self, die):
+        """
+        Tag DIEs can have attributes to indicate their members use a nontraditional
+        amount of storage, in which case we find this. Otherwise, look at member size.
+        """
+        if "DW_AT_byte_stride" in die.attributes:
+            return die.attributes["DW_AT_byte_stride"].value
+        if "DW_AT_bit_stride" in die.attributes:
+            return die.attributes["DW_AT_bit_stride"].value * 8
 
     def get_underlying_type(self, die, pointer=False):
         """
@@ -265,6 +311,67 @@ class DwarfParser(compspec.graph.Graph):
         if type_die:
             return self.get_underlying_type(type_die, pointer)
         return "unknown"
+
+    def parse_subrange_type(self, die):
+        """
+        Parse a subrange type
+        """
+        self.new_node("subrange", get_name(die), self.ids[die])
+        self.generate_parent(die)
+        self.gen("membertype", self.get_underlying_type(die), parent=self.ids[die])
+
+        # If the upper bound and count are missing, then the upper bound value is unknown.
+        count = "unknown"
+
+        # If we have DW_AT_count, this is the length of the subrange
+        if "DW_AT_count" in die.attributes:
+            count = die.attributes["DW_AT_count"].value
+
+        # If we have both upper and lower bound
+        elif (
+            "DW_AT_upper_bound" in die.attributes
+            and "DW_AT_lower_bound" in die.attributes
+        ):
+            count = (
+                die.attributes["DW_AT_upper_bound"].value
+                - die.attributes["DW_AT_lower_bound"].value
+            )
+
+        # If the lower bound value is missing, the value is assumed to be a language-dependent default constant.
+        elif "DW_AT_upper_bound" in die.attributes:
+
+            # TODO need to get language in here to derive
+            # TODO: size seems one off.
+            # The default lower bound is 0 for C, C++, D, Java, Objective C, Objective C++, Python, and UPC.
+            # The default lower bound is 1 for Ada, COBOL, Fortran, Modula-2, Pascal and PL/I.
+            lower_bound = 0
+            count = die.attributes["DW_AT_upper_bound"].value - lower_bound
+        self.gen("count", count, parent=self.ids[die])
+
+    def parse_location(self, die):
+        """
+        Look to see if the DIE has DW_AT_location, and if so, parse to get
+        registers. The loc_parser is called by elf.py (once) and addde
+        to the corpus here when it is parsing DIEs.
+        """
+        if "DW_AT_location" not in die.attributes:
+            return
+        attr = die.attributes["DW_AT_location"]
+        if self.loc_parser.attribute_has_location(attr, die.cu["version"]):
+            loc = self.loc_parser.parse_from_attribute(attr, die.cu["version"])
+
+            # Attribute itself contains location information
+            if isinstance(loc, LocationExpr):
+                loc = location.get_register_from_expr(
+                    loc.loc_expr, die.dwarfinfo.structs, die.cu.cu_offset
+                )
+                # The first entry is the register
+                return location.parse_register(loc[0])
+
+            # List is reference to .debug_loc section
+            elif isinstance(loc, list):
+                loc = location.get_loclist(loc, die)
+                return location.parse_register(loc[0][0])
 
     ############################ UNDER
 
@@ -324,26 +431,6 @@ class DwarfParser(compspec.graph.Graph):
                     return
                 return self.parse_lexical_block(die)
 
-    def parse_structure_type(self, die):
-        """
-        Parse a structure type.
-        """
-        # The size here includes padding
-        entry = {
-            "name": self.get_name(die),
-            "size": self.get_size(die),
-            "class": "Struct",
-        }
-
-        # Parse children (members of the union)
-        fields = []
-        for child in die.iter_children():
-            fields.append(self.parse_member(child))
-
-        if fields:
-            entry["fields"] = fields
-        return entry
-
     def parse_union_type(self, die):
         """
         Parse a union type.
@@ -367,108 +454,6 @@ class DwarfParser(compspec.graph.Graph):
             entry["fields"] = fields
         return entry
 
-    def parse_location(self, die):
-        """
-        Look to see if the DIE has DW_AT_location, and if so, parse to get
-        registers. The loc_parser is called by elf.py (once) and addde
-        to the corpus here when it is parsing DIEs.
-        """
-        if "DW_AT_location" not in die.attributes:
-            return
-        attr = die.attributes["DW_AT_location"]
-        if self.loc_parser.attribute_has_location(attr, die.cu["version"]):
-            loc = self.loc_parser.parse_from_attribute(attr, die.cu["version"])
-
-            # Attribute itself contains location information
-            if isinstance(loc, LocationExpr):
-                loc = location.get_register_from_expr(
-                    loc.loc_expr, die.dwarfinfo.structs, die.cu.cu_offset
-                )
-                # The first entry is the register
-                return self.parse_register(loc[0])
-
-            # List is reference to .debug_loc section
-            elif isinstance(loc, list):
-                loc = self.get_loclist(loc, die)
-                return self.parse_register(loc[0][0])
-
-    def parse_register(self, register):
-        """
-        Given the first register entry, remove dwarf
-        """
-        # DW_OP_fbreg is signed LEB128 offset from  the DW_AT_frame_base address of the current function.
-        if "DW_OP_fbreg" in register:
-            return "framebase" + register.split(":")[-1].strip()
-        # If we have a ( ) this is the register name
-        if re.search(r"\((.*?)\)", register):
-            return "%" + re.sub(
-                "(\(|\))", "", re.search(r"\((.*?)\)", register).group(0)
-            )
-        # Still need to parse
-        if register == "null":
-            return None
-        return register
-
-    def parse_member(self, die):
-        """
-        Parse a member, typically belonging to a union (something else?)
-        """
-        entry = {"name": self.get_name(die)}
-        underlying_type = self.parse_underlying_type(die)
-        if underlying_type:
-            entry.update(underlying_type)
-        return entry
-
-    def parse_array_type(self, die):
-        """
-        Get an entry for an array.
-        """
-        # TODO what should I do if there is DW_AT_sibling? Use it for something instead?
-        entry = {"class": "Array", "name": self.get_name(die)}
-
-        # Get the type of the members
-        member_type = self.parse_underlying_type(die)
-
-        # TODO we might want to handle order
-        # This can be DW_AT_col_order or DW_AT_row_order, and if not present
-        # We use the language default
-        if "DW_AT_ordering" in die.attributes:
-            entry["order"] = die.attributes["DW_AT_ordering"].value
-
-        # Case 1: the each member of the array uses a non-traditional storage
-        member_size = self._find_nontraditional_size(die)
-
-        # Children are the members of the array
-        entries = []
-        children = list(die.iter_children())
-
-        size = 0
-        total_size = 0
-        total_count = 0
-        for child in children:
-            member = None
-
-            # Each array dimension is DW_TAG_subrange_type or DW_TAG_enumeration_type
-            if child.tag == "DW_TAG_subrange_type":
-                member = self.parse_subrange_type(child)
-            elif child.tag == "DW_TAG_enumeration_type":
-                member = self.parse_enumeration_type(child)
-            else:
-                print("Unknown array member tag %s" % child.tag)
-
-            if not member:
-                continue
-
-            count = member.get("count", 0)
-            size = member.get("size") or member_size
-            if count != "unknown" and size:
-                total_size += count * size
-            entries.append(member)
-
-        entry["size"] = total_size
-        entry["count"] = total_count
-        return entry
-
     def parse_enumeration_type(self, die):
         entry = {
             "name": self.get_name(die),
@@ -489,42 +474,6 @@ class DwarfParser(compspec.graph.Graph):
             entry["fields"] = fields
         return entry
 
-    def parse_subrange_type(self, die):
-        """
-        Parse a subrange type
-        """
-        entry = {"name": self.get_name(die)}
-        entry.update(self.parse_underlying_type(die))
-
-        # If we have DW_AT_count, this is the length of the subrange
-        if "DW_AT_count" in die.attributes:
-            entry["count"] = die.attributes["DW_AT_count"].value
-
-        # If we have both upper and lower bound
-        elif (
-            "DW_AT_upper_bound" in die.attributes
-            and "DW_AT_lower_bound" in die.attributes
-        ):
-            entry["count"] = (
-                die.attributes["DW_AT_upper_bound"].value
-                - die.attributes["DW_AT_lower_bound"].value
-            )
-
-        # If the lower bound value is missing, the value is assumed to be a language-dependent default constant.
-        elif "DW_AT_upper_bound" in die.attributes:
-
-            # TODO need to get language in here to derive
-            # TODO: size seems one off.
-            # The default lower bound is 0 for C, C++, D, Java, Objective C, Objective C++, Python, and UPC.
-            # The default lower bound is 1 for Ada, COBOL, Fortran, Modula-2, Pascal and PL/I.
-            lower_bound = 0
-            entry["count"] = die.attributes["DW_AT_upper_bound"].value - lower_bound
-
-        # If the upper bound and count are missing, then the upper bound value is unknown.
-        else:
-            entry["count"] = "unknown"
-        return entry
-
     def parse_sibling(self, die):
         """
         Try parsing a sibling.
@@ -543,16 +492,6 @@ class DwarfParser(compspec.graph.Graph):
         if die.tag == "DW_TAG_array_type":
             return "Array"
         return "Unknown"
-
-    def _find_nontraditional_size(self, die):
-        """
-        Tag DIEs can have attributes to indicate their members use a nontraditional
-        amount of storage, in which case we find this. Otherwise, look at member size.
-        """
-        if "DW_AT_byte_stride" in die.attributes:
-            return die.attributes["DW_AT_byte_stride"].value
-        if "DW_AT_bit_stride" in die.attributes:
-            return die.attributes["DW_AT_bit_stride"].value * 8
 
 
 # Helper functions to parse a die

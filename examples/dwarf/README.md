@@ -28,6 +28,7 @@ And then run the examples!
 
 ```bash
 $ python libmath-example.py
+$ python array-example.py
 ```
 
 Or an inline function:
