@@ -112,14 +112,17 @@ class DwarfParser(compspec.graph.Graph):
         if die.tag == "DW_TAG_base_type":
             return self.parse_base_type(die)
 
+        if die.tag == "DW_TAG_variable":
+            return self.parse_variable(die)
+
+        if die.tag == "DW_TAG_pointer_type":
+            return self.parse_pointer_type(die)
+
         # TODO haven't seen these yet
         print(die)
         import IPython
 
         IPython.embed()
-
-        if die.tag == "DW_TAG_variable":
-            return self.parse_variable(die)
 
         if die.tag == "DW_TAG_union_type":
             return self.parse_union_type(die)
@@ -178,14 +181,27 @@ class DwarfParser(compspec.graph.Graph):
             return
         self.gen("location", loc, parent=self.ids[die])
 
+    def parse_pointer_type(self, die):
+        """
+        Parse a pointer.
+        """
+        return self.parse_sized_generic(die, "pointer")
+
+    def parse_variable(self, die):
+        """
+        Parse a formal parameter
+        """
+        self.parse_sized_generic(die, "variable")
+        self.gen("type", self.get_underlying_type(die), parent=self.ids[die])
+        loc = self.parse_location(die)
+        if not loc:
+            return
+        self.gen("location", loc, parent=self.ids[die])
+
     def parse_subprogram(self, die):
         """
         Add a function (subprogram) parsed from DWARF
         """
-        # If has DW_TAG_external, we know it's external outside of this CU
-        if "DW_AT_external" not in die.attributes:
-            return
-
         self.new_node("function", get_name(die), self.ids[die])
         self.generate_parent(die)
         self.gen("type", self.get_underlying_type(die), parent=self.ids[die])
@@ -507,20 +523,6 @@ class DwarfParser(compspec.graph.Graph):
         # If the upper bound and count are missing, then the upper bound value is unknown.
         else:
             entry["count"] = "unknown"
-        return entry
-
-    def parse_pointer(self, die):
-        """
-        Parse a pointer.
-        """
-        if "DW_AT_type" not in die.attributes:
-            print("Cannot parse pointer %s without a type." % die)
-            return
-
-        entry = {"class": "Pointer", "size": self.get_size(die)}
-
-        # We already have one pointer indirection
-        entry["underlying_type"] = self.parse_underlying_type(die, 1)
         return entry
 
     def parse_sibling(self, die):
