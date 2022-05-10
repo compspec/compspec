@@ -30,5 +30,47 @@ And then run the examples!
 $ python libmath-example.py
 ```
 
+Or an inline function:
+
+```bash
+$ python callsite-example.py
+```
+```
+{
+    "is_a": [
+        [
+            "libcallsite.v1.so"
+        ]
+    ],
+    "is_b": [
+        [
+            "libcallsite.v2.so"
+        ]
+    ],
+    "is_different": [
+        [
+            "libcallsite.v1.so",
+            "libcallsite.v2.so"
+        ]
+    ],
+    "removed_node": [
+        [
+            "libcallsite.v1.so",
+            "libcallsite.v2.so",
+            "function",
+            "inline_that"
+        ]
+    ],
+    "added_node": [
+        [
+            "libcallsite.v1.so",
+            "libcallsite.v2.so",
+            "function",
+            "inline_this"
+        ]
+    ]
+}
+```
+
 **more coming soon!** @vsoch will be adding more simple examples to parse different
 DWARF information entries.

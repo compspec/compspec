@@ -5,6 +5,7 @@ import os
 
 here = os.path.dirname(os.path.abspath(__file__))
 
+
 def main():
 
     A = Graph()
@@ -36,8 +37,8 @@ def main():
     c.run()
 
     # We can also provide an example logic program!
-    lp = os.path.join(here, "show-uniques.lp") 
-    res = c.run(lp)    
+    lp = os.path.join(here, "show-uniques.lp")
+    res = c.run(lp)
     print(res)
 
 
