@@ -40,6 +40,7 @@ jobs:
           python examples/basic-diff/run.py
           python examples/combine-graphs/run.py
           cd examples/dwarf 
+          pip install -r requirements.txt
           make
           python libmath-example.py
           python callsite-example.py
