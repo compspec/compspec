@@ -39,5 +39,10 @@ jobs:
           python examples/basic-graph/run.py
           python examples/basic-diff/run.py
           python examples/combine-graphs/run.py
+          cd examples/dwarf 
+          make
+          python libmath-example.py
+          python callsite-example.py
+          python array-example.py
 
           # pytest -sv compspec
