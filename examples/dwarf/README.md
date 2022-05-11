@@ -30,11 +30,68 @@ These libraries will be required for the examples, so make sure you have them!
 ## Usage
 
 This assumes you have a Python environment with compspec installed.
-And then run the examples!
+And then run the examples! The libmath shows a table output:
+
 
 ```bash
 $ python libmath-example.py
+```
+
+| Name | Value | Change Type | A | B | Description |
+|------|-------|-------------|---|---|-------------|
+|function|_ZN11MathLibrary10Arithmetic3AddEdd -> _ZN11MathLibrary10Arithmetic3AddEii|change|A|B|compileunit:MathLibrary.cpp->namespace:MathLibrary->class:Arithmetic->function:_ZN11MathLibrary10Arithmetic3AddEdd -> compileunit:MathLibrary.cpp->namespace:MathLibrary->class:Arithmetic->function:_ZN11MathLibrary10Arithmetic3AddEii|
+|type|double -> int|change|A|B|compileunit:MathLibrary.cpp->namespace:MathLibrary->class:Arithmetic->function:_ZN11MathLibrary10Arithmetic3AddEdd->type:double -> compileunit:MathLibrary.cpp->namespace:MathLibrary->class:Arithmetic->function:_ZN11MathLibrary10Arithmetic3AddEii->type:int|
+|type|double -> int|change|A|B|compileunit:MathLibrary.cpp->namespace:MathLibrary->class:Arithmetic->function:_ZN11MathLibrary10Arithmetic3AddEdd->parameter:unknown->type:double -> compileunit:MathLibrary.cpp->namespace:MathLibrary->class:Arithmetic->function:_ZN11MathLibrary10Arithmetic3AddEii->parameter:unknown->type:int|
+|type|double -> int|change|A|B|compileunit:MathLibrary.cpp->namespace:MathLibrary->class:Arithmetic->function:_ZN11MathLibrary10Arithmetic3AddEdd->parameter:unknown->type:double -> compileunit:MathLibrary.cpp->namespace:MathLibrary->class:Arithmetic->function:_ZN11MathLibrary10Arithmetic3AddEii->parameter:unknown->type:int|
+|basetype|double -> int|change|A|B|compileunit:MathLibrary.cpp->basetype:double -> compileunit:MathLibrary.cpp->basetype:int|
+|size|8 -> 4|change|A|B|compileunit:MathLibrary.cpp->basetype:double->size:8 -> compileunit:MathLibrary.cpp->basetype:int->size:4|
+|location|framebase-20|add|A|B|compileunit:MathLibrary.cpp->function:unknown->parameter:a->location:framebase-20|
+|function||remove|A|B|compileunit:MathLibrary.cpp->function:unknown|
+|location||remove|A|B|compileunit:MathLibrary.cpp->function:unknown->parameter:a->location:framebase-24|
+|size||remove|A|B|compileunit:MathLibrary.cpp->function:unknown->parameter:b->size:0|
+|location||remove|A|B|compileunit:MathLibrary.cpp->function:unknown->parameter:b->location:framebase-32|
+|location||remove|A|B|compileunit:MathLibrary.cpp->function:unknown->parameter:a->location:framebase-24|
+|size||remove|A|B|compileunit:MathLibrary.cpp->function:unknown->parameter:b->size:0|
+|location||remove|A|B|compileunit:MathLibrary.cpp->function:unknown->parameter:b->location:framebase-32|
+|location||remove|A|B|compileunit:MathLibrary.cpp->function:unknown->parameter:a->location:framebase-24|
+|size||remove|A|B|compileunit:MathLibrary.cpp->function:unknown->parameter:b->size:0|
+|location||remove|A|B|compileunit:MathLibrary.cpp->function:unknown->parameter:b->location:framebase-32|
+|location||remove|A|B|compileunit:MathLibrary.cpp->function:unknown->parameter:a->location:framebase-24|
+|size||remove|A|B|compileunit:MathLibrary.cpp->function:unknown->parameter:b->size:0|
+|location||remove|A|B|compileunit:MathLibrary.cpp->function:unknown->parameter:b->location:framebase-32|
+
+And try running for an array:
+
+```bash
 $ python array-example.py
+```
+```bash
+{
+    "changed_node_value": [
+        [
+            "A",
+            "B",
+            "id3",
+            "id3",
+            "size",
+            "36",
+            "104",
+            "compileunit:array.cpp->structure:Foo->size:36",
+            "compileunit:array.cpp->structure:Foo->size:104"
+        ],
+        [
+            "A",
+            "B",
+            "id14",
+            "id14",
+            "count",
+            "31",
+            "99",
+            "compileunit:array.cpp->array:unknown->subrange:unknown->count:31",
+            "compileunit:array.cpp->array:unknown->subrange:unknown->count:99"
+        ]
+    ]
+}
 ```
 
 Or an inline function:
@@ -44,36 +101,17 @@ $ python callsite-example.py
 ```
 ```
 {
-    "is_a": [
+    "changed_node_value": [
         [
-            "libcallsite.v1.so"
-        ]
-    ],
-    "is_b": [
-        [
-            "libcallsite.v2.so"
-        ]
-    ],
-    "is_different": [
-        [
-            "libcallsite.v1.so",
-            "libcallsite.v2.so"
-        ]
-    ],
-    "removed_node": [
-        [
-            "libcallsite.v1.so",
-            "libcallsite.v2.so",
+            "A",
+            "B",
+            "id52",
+            "id52",
             "function",
-            "inline_that"
-        ]
-    ],
-    "added_node": [
-        [
-            "libcallsite.v1.so",
-            "libcallsite.v2.so",
-            "function",
-            "inline_this"
+            "inline_this",
+            "inline_that",
+            "compileunit:callsite.cpp->function:inline_this",
+            "compileunit:callsite.cpp->function:inline_that"
         ]
     ]
 }

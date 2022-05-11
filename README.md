@@ -120,4 +120,4 @@ do this creation on behalf of the user.
 
 - look into Go library?
 - we need to be able to print out the result (based on graph relationships)
-- add identifiers to add/remove node cases
+- create compspec.yaml where we can explicitly define kinds of ABI breaks

@@ -4,6 +4,7 @@ __license__ = "MPL 2.0"
 
 import compspec.solver
 from compspec.solver import fn
+import compspec.utils as utils
 from .base import CompositionBase, FactGenerator
 
 
@@ -22,6 +23,41 @@ class Difference(CompositionBase):
             A, B, namespaceA=namespaceA, namespaceB=namespaceB
         )
         self.set_verbosity(out, quiet)
+
+    @classmethod
+    def table(cls, result):
+        """
+        Generate a table from results
+        """
+        out = "| Name | Value | Change Type | A | B | Description |\n"
+        out += "|------|-------|-------------|---|---|-------------|\n"
+
+        if "changed_node_value" in result:
+            for entry in result["changed_node_value"]:
+                out += utils.row(
+                    [
+                        entry[4],
+                        entry[5] + " -> " + entry[6],
+                        "change",
+                        entry[0],
+                        entry[1],
+                        entry[-2] + " -> " + entry[-1],
+                    ]
+                )
+
+        if "added_node" in result:
+            for entry in result["added_node"]:
+                out += utils.row(
+                    [entry[3], entry[4], "add", entry[0], entry[1], entry[-1]]
+                )
+
+        if "removed_node" in result:
+            for entry in result["removed_node"]:
+                out += utils.row(
+                    [entry[3], "", "remove", entry[0], entry[1], entry[-1]]
+                )
+
+        return out
 
     def prepare_result(self, result):
         """

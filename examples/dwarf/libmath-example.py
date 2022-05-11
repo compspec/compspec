@@ -30,6 +30,10 @@ def main():
     result = runner.run()
     print(json.dumps(result, indent=4))
 
+    # example to print table
+    table = Difference.table(result)
+    print(table)
+
 
 if __name__ == "__main__":
     main()

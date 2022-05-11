@@ -1,0 +1,7 @@
+compositions:
+  - name: changed_node_value
+    description: "The value of a {} is changed from {} to {}"
+  - name: removed_node
+    description: "The node {} has been removed"
+  - name: changed_node
+    description: "The node {} has been removed"
