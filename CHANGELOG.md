@@ -14,6 +14,7 @@ and **Merged pull requests**. Critical items to know are:
 The versions coincide with releases on pip. Only major versions will be released as tags on Github.
 
 ## [0.0.x](https://github.com/compspec/compspec/tree/main) (0.0.x)
+ - adding identifiers to diff fact output (0.0.12)
  - python example and group graph class (0.0.11)
  - adding dwarf first example and small bugfix (0.0.1)
  - Initial creation of project skeleton (0.0.0)
