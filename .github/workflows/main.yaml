@@ -39,6 +39,8 @@ jobs:
           python examples/basic-graph/run.py
           python examples/basic-diff/run.py
           python examples/combine-graphs/run.py
+          python examples/python/tensorflow-example.py
+
           cd examples/dwarf 
           pip install -r requirements.txt
           make

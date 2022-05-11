@@ -54,11 +54,12 @@ class FactGenerator(FactGeneratorBase):
         self.gen.fact(fn.is_a(self.A.basename))
         self.gen.fact(fn.is_b(self.B.basename))
 
-        self.gen.h2("Library: %s" % self.A.basename)
-
         # Dwarf information entry parser to yield information
         # This is a subclass of compspec.graph.Graph
         A = DwarfParser(self.A)
         B = DwarfParser(self.B)
+        self.gen.h2("Library: %s" % self.A.basename)
         self.generate_facts(A, self.A.basename)
+
+        self.gen.h2("Library: %s" % self.B.basename)
         self.generate_facts(B, self.B.basename)

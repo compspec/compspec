@@ -16,7 +16,7 @@ class Difference(CompositionBase):
 
     _logic_programs = ["is-compatible.lp"]
 
-    def __init__(self, A, B, out=None, namespaceA=None, namespaceB=None, quiet=False):
+    def __init__(self, A, B, namespaceA=None, namespaceB=None, out=None, quiet=False):
         self.driver = compspec.solver.PyclingoDriver(out=out)
         self.facts = DiffFactsGenerator(
             A, B, namespaceA=namespaceA, namespaceB=namespaceB
@@ -37,7 +37,8 @@ class DiffFactsGenerator(FactGenerator):
 
     def setup(self, driver):
         """
-        Setup data for one library
+        Setup data for one library.
+        This is called by the PyclingoDriver
         """
         self.gen = driver
         self.gen.h1(f"Difference Betweeen {self.nsA} and {self.nsB}")

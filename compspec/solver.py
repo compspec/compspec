@@ -86,7 +86,7 @@ class Result:
 
 
 class PyclingoDriver:
-    def __init__(self, cores=True, out=None):
+    def __init__(self, cores=True, out=None, quiet=False):
         """
         Driver for the Python clingo interface.
         Arguments:
@@ -95,14 +95,14 @@ class PyclingoDriver:
             out (file-like): optional stream to write a text-based ASP program
                 for debugging or verification.
         """
-        self.set_verbosity(out)
+        self.set_verbosity(out, quiet)
         self.cores = cores
 
-    def set_verbosity(self, out):
+    def set_verbosity(self, out, quiet=False):
         """
         Set (or update) verbosity or output stream.
         """
-        if out:
+        if out and not quiet:
             self.out = out
         else:
             self.devnull()

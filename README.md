@@ -51,6 +51,12 @@ $ python examples/basic-graph/run.py
 $ python examples/basic-diff/run.py
 $ python examples/combine-graphs/run.py
 ```
+We also have an example that takes an iterative approach to compare groups:
+
+```bash
+$ python examples/python/tensorflow-example.py
+```
+
 
 ### Additional Functionality
 

@@ -31,7 +31,8 @@ class SingleCorpusGenerator(FactGenerator):
 
     def setup(self, driver):
         """
-        Setup data for one library
+        Setup data for one library.
+        This is called by the PyclingoDriver
         """
         self.gen = driver
         self.gen.h1(f"Composition Namespace {self.ns}")
