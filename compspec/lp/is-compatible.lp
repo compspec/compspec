@@ -34,26 +34,28 @@ has_parents(Namespace, Node) :- N = #count{ 1 : get_node_parents(Namespace, _, N
 is_root(Namespace, Node) :- N = #count{ 1 : get_node_parents(Namespace, _, Node)}, node(Namespace, Node, _, _), N == 0.
  
 % What is removed if we move from A to B? 
+% present in A but not B
 % This covers anything with a parent (not a root)
-removed_node(A, B, Name) :-
+removed_node(A, B, NodeA, Name) :-
     is_a(A), is_b(B),
     node(A, NodeA, Name, _),
     not node(B, NodeB, Name, _),
     shared_parent_missing(NodeA, NodeB, Name).
 
 % This covers top level cases (no parents)
-removed_node(A, B, Name, Value) :-
+removed_node(A, B, NodeA, Name, Value) :-
     is_a(A), is_b(B),
-    node(B, _, Name, Value),
-    not node(A, _, Name, Value),
+    node(A, NodeA, Name, Value),
+    not node(B, _, Name, Value),
     not changed_node_value(A, B, _, _, Name, _, _).
 
 % What is added if we move from A to B?
+% present in B but not A?
 % We have the entity in B but not A
-added_node(A, B, Name, Value) :- 
+added_node(A, B, EntityB, Name, Value) :- 
     is_a(A), is_b(B),
-    node(A, _, Name, Value),
-    not node(B, _, Name, Value),
+    node(B, EntityB, Name, Value),
+    not node(A, _, Name, Value),
     not changed_node_value(A, B, _, _, Name, _, _).    
 
 % What nodes are shared (at the highest level) 
@@ -107,8 +109,9 @@ shared_parent_missing(NodeA, NodeB, Name) :-
 
 #defined relation/4.
 #defined node/4.
-#show added_node/4.
-#show removed_node/3.
+#show added_node/5.
+#show removed_node/4.
+#show removed_node/5.
 #show changed_node_value/7.
 %#show is_parent/4.
 %#show is_child/4.

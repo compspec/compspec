@@ -156,6 +156,6 @@ def run(lib1, lib2, GraphClass=AstGraphs):
                 or "added_node" in result
                 or "changed_node_value" in result
             ):
-                # We are interested in changes TO a                
+                # We are interested in changes TO a
                 print("Detected ABI break in subgraph, stopping.")
                 break

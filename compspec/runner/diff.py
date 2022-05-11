@@ -5,7 +5,6 @@ __license__ = "MPL 2.0"
 import compspec.solver
 from compspec.solver import fn
 from .base import CompositionBase, FactGenerator
-import copy
 
 
 class Difference(CompositionBase):
@@ -31,9 +30,27 @@ class Difference(CompositionBase):
         This preparation is based on the default compsec diff is-compatible facts:
 
         """
-        updated = copy.deepcopy(result)
-        changed_node_values = []
+        # An added node is in B but not A
+        if "added_node" in result:
+            added_nodes = []
+            for entry in result["added_node"]:
+                entry.append(self.facts.B.lookup[entry[2]])
+                added_nodes.append(entry)
+            result["added_node"] = added_nodes
+
+        # An removed node is in A but not B
+        if "removed_node" in result:
+            removed_nodes = []
+            for entry in result["removed_node"]:
+
+                # Do we ever hit other case when N=4?
+                assert len(entry) == 5
+                entry.append(self.facts.A.lookup[entry[2]])
+                removed_nodes.append(entry)
+            result["removed_node"] = removed_nodes
+
         if "changed_node_value" in result:
+            changed_node_values = []
             for entry in result["changed_node_value"]:
 
                 # Add what was changed for a human to read
