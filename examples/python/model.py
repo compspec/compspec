@@ -8,10 +8,12 @@ from compspec.utils import read_json
 import compspec.graph
 import compspec.solver
 
+
 class AstGraphs(compspec.graph.GraphGroup):
     """
     A namespace to hold more than one graph (can this be generalized?)
     """
+
     def __init__(self, lib, module_name):
         self.ast = read_json(lib)
         self.module_name = module_name
@@ -24,7 +26,7 @@ class AstGraphs(compspec.graph.GraphGroup):
         # We should have only one version!
         assert len(self.ast) == 1
         version = list(self.ast.keys())[0]
- 
+
         # Initialize groups
         groups = ["module", "function", "parameter"]
 

@@ -12,6 +12,12 @@ for using compspec for your own needs.
 
  - [The Spec](https://github.com/compspec/spec): read about the background, concepts, and design of the specification.
 
+Conceptually, for a:
+
+ - Diff: we will create two graphs and subtract one from the other
+ - Composition: we will create one graph and display it
+ 
+
 **under development**
 
 ## Usage
