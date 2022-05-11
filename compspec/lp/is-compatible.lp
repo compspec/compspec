@@ -34,26 +34,28 @@ has_parents(Namespace, Node) :- N = #count{ 1 : get_node_parents(Namespace, _, N
 is_root(Namespace, Node) :- N = #count{ 1 : get_node_parents(Namespace, _, Node)}, node(Namespace, Node, _, _), N == 0.
  
 % What is removed if we move from A to B? 
+% present in A but not B
 % This covers anything with a parent (not a root)
-removed_node(A, B, Name) :-
+removed_node(A, B, NodeA, Name) :-
     is_a(A), is_b(B),
     node(A, NodeA, Name, _),
     not node(B, NodeB, Name, _),
     shared_parent_missing(NodeA, NodeB, Name).
 
 % This covers top level cases (no parents)
-removed_node(A, B, Name, Value) :-
+removed_node(A, B, NodeA, Name, Value) :-
     is_a(A), is_b(B),
-    node(B, _, Name, Value),
-    not node(A, _, Name, Value),
+    node(A, NodeA, Name, Value),
+    not node(B, _, Name, Value),
     not changed_node_value(A, B, _, _, Name, _, _).
 
 % What is added if we move from A to B?
+% present in B but not A?
 % We have the entity in B but not A
-added_node(A, B, Name, Value) :- 
+added_node(A, B, EntityB, Name, Value) :- 
     is_a(A), is_b(B),
-    node(A, _, Name, Value),
-    not node(B, _, Name, Value),
+    node(B, EntityB, Name, Value),
+    not node(A, _, Name, Value),
     not changed_node_value(A, B, _, _, Name, _, _).    
 
 % What nodes are shared (at the highest level) 
@@ -69,16 +71,6 @@ changed_node_value(A, B, EntityA, EntityB, Name, ValueA, ValueB) :-
     node(B, EntityB, Name, ValueB),
     shared_parent(EntityA, EntityB, Name),
     ValueA != ValueB.
-
-% A removed relation
-removed_relation(A, B, EntityA, EntityB, Type, Name, Relation, Value) :-
-    is_a(A), is_b(B),
-    node(A, EntityA, Type, Name),
-    node(B, EntityB, Type, Name),
-    relation(A, EntityA, Relation, Value),
-    not relation(B, EntityB, Relation, _).
-
-% IF up to the root we can say the relationship holds...
 
 % Two nodes have a shared parent (across states A and B) if:
 shared_parent(NodeA, NodeB, Name) :-
@@ -115,13 +107,12 @@ shared_parent_missing(NodeA, NodeB, Name) :-
     NamespaceA != NamespaceB,
     NodeA == NodeB.
 
-#show is_different/2.
-#show is_a/1.
-#show is_b/1.
-#show added_node/4.
+#defined relation/4.
+#defined node/4.
+#show added_node/5.
 #show removed_node/4.
+#show removed_node/5.
 #show changed_node_value/7.
-%#show removed_relation/8.
 %#show is_parent/4.
 %#show is_child/4.
 %#show has_parents/2.

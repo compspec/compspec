@@ -27,6 +27,8 @@ class CompositionBase:
         Run the solve, optionally with extra logic programs.
         """
         result = self.driver.solve(self.facts, logic_programs=logic_programs)
+        if result.answers and hasattr(self, "prepare_result"):
+            result.answers = self.prepare_result(result.answers)
         return result.answers
 
     def _load_logic_programs(self, logic_programs=None):

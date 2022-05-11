@@ -69,6 +69,9 @@ class node:
     def __str__(self):
         return f"{self.nodeid}.{self.name}:{self.value}"
 
+    def describe(self):
+        return f"{self.name}:{self.value}"
+
     def __iter__(self):
         return iter((self.nodeid, self.name, self.value))
 

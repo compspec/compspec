@@ -17,17 +17,14 @@ def main():
         ["id3", "parameter", "name"],
         ["id4", "default", "Vanessa"],
     ]:
-        A.new_node(name, value, node_id)
+        A.new_node(name=name, value=value, nodeid=node_id)
 
     # Add relations to A
     for fromid, relation, toid in [
         ["id1", "has", "id3"],
         ["id3", "has", "id4"],
-        ["id3", "has", "id5"],
-        ["id1", "has", "id6"],
-        ["id6", "has", "id7"],
     ]:
-        A.new_relation(fromid, toid, relation)
+        A.new_relation(fromid=fromid, toid=toid, relation=relation)
 
     # Here is the output in dict form
     print(json.dumps(A.to_dict(), indent=4))
