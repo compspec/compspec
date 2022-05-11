@@ -42,9 +42,6 @@ class Difference(CompositionBase):
         if "removed_node" in result:
             removed_nodes = []
             for entry in result["removed_node"]:
-
-                # Do we ever hit other case when N=4?
-                assert len(entry) == 5
                 entry.append(self.facts.A.lookup[entry[2]])
                 removed_nodes.append(entry)
             result["removed_node"] = removed_nodes

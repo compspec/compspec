@@ -111,16 +111,11 @@ class AstFunctionGraphs(AstGraphs):
         # Each module will be a root
         for submod_name, items in self.ast[version].items():
 
-            # Create a new graph
-            g = compspec.graph.Graph()
-
-            # The module will be added as an attribute
-            module = g.new_node("module", submod_name)
-
             for funcname, params in items.items():
+                # Create a new graph
+                g = compspec.graph.Graph()
 
                 root = g.new_node("function", funcname)
-                g.new_relation(root, "has", module)
                 for order, param in enumerate(params):
                     g.gen("parameter", param, parent=root.nodeid)
                     g.gen("order", order, parent=root.nodeid)

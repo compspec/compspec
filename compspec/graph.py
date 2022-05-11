@@ -73,7 +73,7 @@ class Graph:
         """
         Add an already generated node.
         """
-        self.nodes[f"{node.uid}"] = node
+        self.nodes[f"{node.nodeid}"] = node
 
     def add_relation(self, relation):
         """
@@ -81,7 +81,7 @@ class Graph:
         """
         # We keep a full "identifier" for each, to provide meaning later
         # The toid should not be in the lookup, each node has only one parent
-        toid = self.nodes[relation.toid].describe()
+        toid = self.nodes[relation.toid]
         if relation.fromid in self.lookup:
             fromid = self.lookup[relation.fromid]
         else:
@@ -97,7 +97,7 @@ class Graph:
         if not nodeid:
             nodeid = self.next()
         node = entity.node(nodeid, name=name, value=value)
-        self.nodes[f"{nodeid}"] = node
+        self.add_node(node)
         return node
 
     def new_relation(self, fromid, relation, toid):
@@ -118,7 +118,7 @@ class Graph:
         if not nodeid:
             nodeid = self.next()
         node = entity.node(nodeid=nodeid, name=name, value=value)
-        self.nodes[nodeid] = node
+        self.add_node(node)
         relation = self.new_relation(fromid=parent, toid=node.nodeid, relation=relation)
         self.add_relation(relation)
         return node, relation
