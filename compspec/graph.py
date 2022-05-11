@@ -81,7 +81,7 @@ class Graph:
         """
         # We keep a full "identifier" for each, to provide meaning later
         # The toid should not be in the lookup, each node has only one parent
-        toid = self.nodes[relation.toid]
+        toid = self.nodes[relation.toid].describe()
         if relation.fromid in self.lookup:
             fromid = self.lookup[relation.fromid]
         else:

@@ -12,6 +12,10 @@ def read_json(filename):
     return data
 
 
+def row(cols):
+    return "|" + "|".join(cols) + "|\n"
+
+
 def run_command(cmd, sudo=False, stream=False):
     """run_command uses subprocess to send a command to the terminal.
 
