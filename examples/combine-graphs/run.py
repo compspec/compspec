@@ -1,6 +1,5 @@
 from compspec.graph import Graph
 from compspec.runner import Combination
-import json
 import os
 
 here = os.path.dirname(os.path.abspath(__file__))

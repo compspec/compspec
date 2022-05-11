@@ -2,6 +2,12 @@
 
 This example shows using the compspec Difference class to create a custom
 class to inspect changes in DWARF, which is the debugging format for a binary (ELF).
+Conceptually we are:
+
+1. Creating two graphs that include dwarf
+2. Running them through the difference model
+
+and that's it!
 
 ## Setup
 

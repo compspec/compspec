@@ -12,6 +12,12 @@ for using compspec for your own needs.
 
  - [The Spec](https://github.com/compspec/spec): read about the background, concepts, and design of the specification.
 
+Conceptually, for a:
+
+ - Diff: we will create two graphs and subtract one from the other
+ - Composition: we will create one graph and display it
+ 
+
 **under development**
 
 ## Usage
@@ -51,6 +57,12 @@ $ python examples/basic-graph/run.py
 $ python examples/basic-diff/run.py
 $ python examples/combine-graphs/run.py
 ```
+We also have an example that takes an iterative approach to compare groups:
+
+```bash
+$ python examples/python/tensorflow-example.py
+```
+
 
 ### Additional Functionality
 
@@ -92,3 +104,7 @@ These are very simple operations to define graphs, and primarily the work is don
 manually to create the nodes, relations, and identifiers. It is expected that specific
 domains that intend to create graphs will load in some object (e.g., a binary file) and 
 do this creation on behalf of the user.
+
+## TODO
+
+- consider refactoring composition / diff to take graphs (instead of creating them) that way we don't need a custom class for composition.

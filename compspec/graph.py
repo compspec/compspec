@@ -5,6 +5,29 @@ __license__ = "MPL 2.0"
 import compspec.entity as entity
 
 
+class GraphGroup:
+    """
+    A graph group is intended to hold and yield named graphs.
+    """
+
+    def __init__(self):
+        self.graphs = {}
+        self.extract()
+
+    def __contains__(self, name):
+        return name in self.graphs
+
+    def __iter__(self):
+        for group, graph in self.graphs.items():
+            yield group, graph
+
+    def __getitem__(self, name):
+        return self.graphs.get(name)
+
+    def extract(self):
+        raise NotImplementedError
+
+
 class Graph:
     """
     A graph implicitly is scoped to one namespace
