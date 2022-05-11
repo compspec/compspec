@@ -23,11 +23,8 @@ def main():
     for fromid, relation, toid in [
         ["id1", "has", "id3"],
         ["id3", "has", "id4"],
-        ["id3", "has", "id5"],
-        ["id1", "has", "id6"],
-        ["id6", "has", "id7"],
     ]:
-        A.new_relation(fromid, toid, relation)
+        A.new_relation(fromid=fromid, toid=toid, relation=relation)
 
     # Do the same for a graph B
     B = Graph()
@@ -42,11 +39,8 @@ def main():
     for fromid, relation, toid in [
         ["id1", "has", "id3"],
         ["id3", "has", "id4"],
-        ["id3", "has", "id5"],
-        ["id1", "has", "id6"],
-        ["id6", "has", "id7"],
     ]:
-        B.new_relation(fromid, toid, relation)
+        B.new_relation(fromid=fromid, toid=toid, relation=relation)
 
     # Now let's combine into one graph
     c = Combination()
