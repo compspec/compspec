@@ -22,7 +22,54 @@ of a function) and stopping as soon as we find an ABI break.
 ```bash
 $ python tensorflow-module-example.py
 ```
-
+```
+Found result for group 'tensorflow.lite.python.wrap_toco'
+{
+    "removed_node": [
+        [
+            "A",
+            "B",
+            "id39",
+            "function",
+            "wrapped_retrieve_collected_errors",
+            "module:tensorflow.lite.python.wrap_toco->function:wrapped_retrieve_collected_errors"
+        ],
+        [
+            "A",
+            "B",
+            "id40",
+            "function",
+            "wrapped_flat_buffer_file_to_mlir",
+            "module:tensorflow.lite.python.wrap_toco->function:wrapped_flat_buffer_file_to_mlir"
+        ]
+    ],
+    "changed_node_value": [
+        [
+            "A",
+            "B",
+            "id29",
+            "id29",
+            "parameter",
+            "denylisted_ops",
+            "blocklisted_ops",
+            "module:tensorflow.lite.python.wrap_toco->function:wrapped_experimental_mlir_quantize->parameter:denylisted_ops",
+            "module:tensorflow.lite.python.wrap_toco->function:wrapped_experimental_mlir_quantize->parameter:blocklisted_ops"
+        ],
+        [
+            "A",
+            "B",
+            "id31",
+            "id31",
+            "parameter",
+            "denylisted_nodes",
+            "blocklisted_nodes",
+            "module:tensorflow.lite.python.wrap_toco->function:wrapped_experimental_mlir_quantize->parameter:denylisted_nodes",
+            "module:tensorflow.lite.python.wrap_toco->function:wrapped_experimental_mlir_quantize->parameter:blocklisted_nodes"
+        ]
+    ]
+}
+Detected ABI break in subgraph, stopping.
+```
 The second one is similar to the above, but instead of looking on the level of
 the module, we look on the level of functions within modules, and "flatten" the module
 name to be an attribute of a function (sort of reversing the relationship).
