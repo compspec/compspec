@@ -10,283 +10,47 @@ relevant to code, interpreted and not compiled.
 
 ## Setup
 
-First make sure you have complib installed.
+First make sure you have compspec installed.
 
 ## Usage
 
 This assumes you have a Python environment with compspec installed.
-And then run the examples!
+
+The first example shows breaking a large graph into subgraphs (e.g., on the level
+of a function) and stopping as soon as we find an ABI break.
+
+```bash
+$ python tensorflow-module-example.py
+```
+
+The second one is similar to the above, but instead of looking on the level of
+the module, we look on the level of functions within modules, and "flatten" the module
+name to be an attribute of a function (sort of reversing the relationship).
+
+
+```bash
+$ python tensorflow-function-example.py
+```
+
+The second one is intended to show a more "obvious" way of doing it - creating
+subgraphs based on different levels from the root. E.g.:
+
+```
+module tensorflow
+
+  level 1: sub-modules
+  level 2: functions
+  level 3: parameters
+```
+
+And so for our first run, we only look at submodules (just called "modules" and iteratively
+grow the graph as we increase the depth of our search. In practice this isn't ideal because
+we may need to search the "lowest" levels, but doing so in this fashion is not computationally ideal.
 
 ```bash
 $ python tensorflow-example.py
 ```
-```bash
-(env) vanessa@vanessa-ThinkPad-T490s:~/Desktop/Code/compspec/compspec-python/examples/python$ python tensorflow-example.py 
-Running for group module
-Results for group module
-{
-    "is_a": [
-        [
-            "A"
-        ]
-    ],
-    "is_b": [
-        [
-            "B"
-        ]
-    ],
-    "is_different": [
-        [
-            "A",
-            "B"
-        ]
-    ],
-    "removed_node": [
-        [
-            "A",
-            "B",
-            "version",
-            "2.6.2"
-        ]
-    ],
-    "added_node": [
-        [
-            "A",
-            "B",
-            "version",
-            "2.7.0"
-        ],
-        [
-            "A",
-            "B",
-            "module",
-            "tensorflow.core.framework.dataset_metadata_pb2"
-        ],
-        [
-            "A",
-            "B",
-            "module",
-            "tensorflow.core.protobuf.data_service_pb2"
-        ],
-        [
-            "A",
-            "B",
-            "module",
-            "tensorflow.core.protobuf.status_pb2"
-        ],
-        [
-            "A",
-            "B",
-            "module",
-            "tensorflow.lite.python.analyzer"
-        ],
-        [
-            "A",
-            "B",
-            "module",
-            "tensorflow.lite.python.authoring"
-        ],
-        [
-            "A",
-            "B",
-            "module",
-            "tensorflow.lite.python.authoring.authoring"
-        ],
-        [
-            "A",
-            "B",
-            "module",
-            "tensorflow.lite.tools.flatbuffer_utils"
-        ],
-        [
-            "A",
-            "B",
-            "module",
-            "tensorflow.lite.tools.optimize"
-        ],
-        [
-            "A",
-            "B",
-            "module",
-            "tensorflow.lite.tools.optimize.debugging"
-        ],
-        [
-            "A",
-            "B",
-            "module",
-            "tensorflow.lite.tools.optimize.debugging.python"
-        ],
-        [
-            "A",
-            "B",
-            "module",
-            "tensorflow.lite.tools.optimize.debugging.python.debugger"
-        ],
-        [
-            "A",
-            "B",
-            "module",
-            "tensorflow.python.data.ops.options"
-        ],
-        [
-            "A",
-            "B",
-            "module",
-            "tensorflow.python.data.experimental.ops.random_access"
-        ],
-        [
-            "A",
-            "B",
-            "module",
-            "tensorflow.python.data.experimental.kernel_tests.service.multi_process_cluster"
-        ],
-        [
-            "A",
-            "B",
-            "module",
-            "tensorflow.python.util.traceback_utils"
-        ],
-        [
-            "A",
-            "B",
-            "module",
-            "tensorflow.python.util.type_annotations"
-        ],
-        [
-            "A",
-            "B",
-            "module",
-            "tensorflow.python.saved_model.registration"
-        ],
-        [
-            "A",
-            "B",
-            "module",
-            "tensorflow.python.kernel_tests.sparse_xent_op_test_base"
-        ],
-        [
-            "A",
-            "B",
-            "module",
-            "tensorflow.python.training.tracking.base_delegate"
-        ],
-        [
-            "A",
-            "B",
-            "module",
-            "tensorflow.python.distribute.experimental.rpc"
-        ],
-        [
-            "A",
-            "B",
-            "module",
-            "tensorflow.python.distribute.experimental.rpc.rpc_ops"
-        ],
-        [
-            "A",
-            "B",
-            "module",
-            "tensorflow.python.distribute.coordinator.coordinator_context"
-        ],
-        [
-            "A",
-            "B",
-            "module",
-            "tensorflow._api.v2.compat.v1.lite.experimental.authoring"
-        ],
-        [
-            "A",
-            "B",
-            "module",
-            "tensorflow._api.v2.compat.v1.nn.experimental"
-        ],
-        [
-            "A",
-            "B",
-            "module",
-            "tensorflow._api.v2.compat.v2.lite.experimental.authoring"
-        ],
-        [
-            "A",
-            "B",
-            "module",
-            "tensorflow._api.v2.compat.v2.nn.experimental"
-        ],
-        [
-            "A",
-            "B",
-            "module",
-            "tensorflow._api.v2.compat.v2.distribute.experimental.rpc"
-        ],
-        [
-            "A",
-            "B",
-            "module",
-            "tensorflow._api.v2.lite.experimental.authoring"
-        ],
-        [
-            "A",
-            "B",
-            "module",
-            "tensorflow._api.v2.nn.experimental"
-        ],
-        [
-            "A",
-            "B",
-            "module",
-            "tensorflow._api.v2.distribute.experimental.rpc"
-        ],
-        [
-            "A",
-            "B",
-            "module",
-            "tensorflow.distribute"
-        ],
-        [
-            "A",
-            "B",
-            "module",
-            "tensorflow.distribute.experimental"
-        ],
-        [
-            "A",
-            "B",
-            "module",
-            "tensorflow.distribute.experimental.rpc"
-        ],
-        [
-            "A",
-            "B",
-            "module",
-            "tensorflow.distribute.experimental.rpc.proto"
-        ],
-        [
-            "A",
-            "B",
-            "module",
-            "tensorflow.distribute.experimental.rpc.proto.tf_rpc_service_pb2"
-        ],
-        [
-            "A",
-            "B",
-            "module",
-            "tensorflow.distribute.experimental.rpc.proto.tf_rpc_service_pb2_grpc"
-        ],
-        [
-            "A",
-            "B",
-            "module",
-            "tensorflow.distribute.experimental.rpc.kernels.gen_rpc_ops"
-        ],
-        [
-            "A",
-            "B",
-            "module",
-            "tensorflow.distribute.experimental.rpc.kernels"
-        ]
-    ]
-}
-```
-Note that for this example we only look at module level comparison (and not parameters) as
-it would take much longer. This is done in an iterative approach to generate groups,
-and I'm still wondering if we can further improve upon that.
+
+The second example creates subgraphs on the level of a particular attribute -
+is this case the python function. We thus have many roots
+

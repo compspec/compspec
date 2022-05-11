@@ -4,9 +4,11 @@ __license__ = "MPL 2.0"
 
 # This is the base model for deriving facts from ast in json
 
+from compspec.runner import Difference
 from compspec.utils import read_json
 import compspec.graph
 import compspec.solver
+import json
 
 
 class AstGraphs(compspec.graph.GraphGroup):
@@ -59,3 +61,98 @@ class AstGraphs(compspec.graph.GraphGroup):
 
             # Save the named graph
             self.graphs[group] = g
+
+
+class AstModuleGraphs(AstGraphs):
+    """
+    A second example that generates "roots" on the level of the module.
+    """
+
+    def extract(self):
+        """
+        Extract named groups into different graphs
+        """
+        # We should have only one version!
+        assert len(self.ast) == 1
+        version = list(self.ast.keys())[0]
+
+        # Each module will be a root
+        for submod_name, items in self.ast[version].items():
+
+            # Create a new graph
+            g = compspec.graph.Graph()
+
+            # The module is the quasi root
+            submod = g.new_node("module", submod_name)
+
+            for funcname, params in items.items():
+                func, _ = g.gen("function", funcname, parent=submod.nodeid)
+                for order, param in enumerate(params):
+                    g.gen("parameter", param, parent=func.nodeid)
+                    g.gen("order", order, parent=func.nodeid)
+
+            # Save the named graph
+            self.graphs[submod_name] = g
+
+
+class AstFunctionGraphs(AstGraphs):
+    """
+    A third example that generates "roots" on the level of the function.
+    """
+
+    def extract(self):
+        """
+        Extract named groups into different graphs
+        """
+        # We should have only one version!
+        assert len(self.ast) == 1
+        version = list(self.ast.keys())[0]
+
+        # Each module will be a root
+        for submod_name, items in self.ast[version].items():
+
+            # Create a new graph
+            g = compspec.graph.Graph()
+
+            # The module will be added as an attribute
+            module = g.new_node("module", submod_name)
+
+            for funcname, params in items.items():
+
+                root = g.new_node("function", funcname)
+                g.new_relation(root, "has", module)
+                for order, param in enumerate(params):
+                    g.gen("parameter", param, parent=root.nodeid)
+                    g.gen("order", order, parent=root.nodeid)
+
+                # Save the named graph
+                self.graphs[funcname] = g
+
+
+def run(lib1, lib2, GraphClass=AstGraphs):
+    """
+    Shared run function to run with some particular class name.
+    """
+    # Run the diff! The iterative diff is modeled slightly different -
+    # we generate the graphs first and provide them to the runner
+    # as the graphs need to be iterated over to provide groups to parse
+
+    A = GraphClass(lib1, "tensorflow")
+    B = GraphClass(lib2, "tensorflow")
+    for group, graph in A:
+        if group in B:
+            gA = A[group]
+            gB = B[group]
+            print(f"Running for group '{group}'")
+            runner = Difference(gA, gB, "A", "B", quiet=True)
+            result = runner.run()
+            print(json.dumps(result, indent=4))
+
+            # We can stop as soon as we have results that are missing
+            if (
+                "removed_node" in result
+                or "added_node" in result
+                or "changed_node_value" in result
+            ):
+                print("Detected ABI break in subgraph, stopping.")
+                break
