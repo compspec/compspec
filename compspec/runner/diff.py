@@ -5,6 +5,7 @@ __license__ = "MPL 2.0"
 import compspec.solver
 from compspec.solver import fn
 from .base import CompositionBase, FactGenerator
+import copy
 
 
 class Difference(CompositionBase):
@@ -22,6 +23,26 @@ class Difference(CompositionBase):
             A, B, namespaceA=namespaceA, namespaceB=namespaceB
         )
         self.set_verbosity(out, quiet)
+
+    def prepare_result(self, result):
+        """
+        If defined, we further process the result json before returning.
+
+        This preparation is based on the default compsec diff is-compatible facts:
+
+        """
+        updated = copy.deepcopy(result)
+        changed_node_values = []
+        if "changed_node_value" in result:
+            for entry in result["changed_node_value"]:
+
+                # Add what was changed for a human to read
+                # ['A', 'B', 'IDA', "IDB"...]
+                entry.append(self.facts.A.lookup[entry[2]])
+                entry.append(self.facts.B.lookup[entry[3]])
+                changed_node_values.append(entry)
+            result["changed_node_value"] = changed_node_values
+        return result
 
 
 class DiffFactsGenerator(FactGenerator):

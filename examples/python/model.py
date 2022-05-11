@@ -143,9 +143,11 @@ def run(lib1, lib2, GraphClass=AstGraphs):
         if group in B:
             gA = A[group]
             gB = B[group]
-            print(f"Running for group '{group}'")
             runner = Difference(gA, gB, "A", "B", quiet=True)
             result = runner.run()
+            if not result:
+                continue
+            print(f"Found result for group '{group}'")
             print(json.dumps(result, indent=4))
 
             # We can stop as soon as we have results that are missing
@@ -154,5 +156,6 @@ def run(lib1, lib2, GraphClass=AstGraphs):
                 or "added_node" in result
                 or "changed_node_value" in result
             ):
+                # We are interested in changes TO a                
                 print("Detected ABI break in subgraph, stopping.")
                 break

@@ -79,6 +79,15 @@ class Graph:
         """
         Add an already generated relation.
         """
+        # We keep a full "identifier" for each, to provide meaning later
+        # The toid should not be in the lookup, each node has only one parent
+        toid = self.nodes[relation.toid].describe()
+        if relation.fromid in self.lookup:
+            fromid = self.lookup[relation.fromid]
+        else:
+            fromid = self.nodes[relation.fromid].describe()
+        toid = f"{fromid}->{toid}"
+        self.lookup[relation.toid] = toid
         self.relations.append(relation)
 
     def new_node(self, name, value, nodeid=None):
@@ -87,7 +96,7 @@ class Graph:
         """
         if not nodeid:
             nodeid = self.next()
-        node = entity.node(nodeid, name, value)
+        node = entity.node(nodeid, name=name, value=value)
         self.nodes[f"{nodeid}"] = node
         return node
 
@@ -97,8 +106,8 @@ class Graph:
         The relation here does not hard code a namespace, but it will
         be required to compare between two graphs.
         """
-        relation = entity.relation(fromid, relation, toid)
-        self.relations.append(relation)
+        relation = entity.relation(fromid=fromid, toid=toid, relation=relation)
+        self.add_relation(relation)
         return relation
 
     def gen(self, name, value, parent, nodeid=None, relation="has"):
@@ -108,10 +117,10 @@ class Graph:
         """
         if not nodeid:
             nodeid = self.next()
-        node = entity.node(nodeid, name, value)
+        node = entity.node(nodeid=nodeid, name=name, value=value)
         self.nodes[nodeid] = node
-        relation = self.new_relation(parent, relation, node.nodeid)
-        self.relations.append(relation)
+        relation = self.new_relation(fromid=parent, toid=node.nodeid, relation=relation)
+        self.add_relation(relation)
         return node, relation
 
     def iter_nodes(self):

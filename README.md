@@ -118,4 +118,6 @@ do this creation on behalf of the user.
 
 ## TODO
 
-- consider refactoring composition / diff to take graphs (instead of creating them) that way we don't need a custom class for composition.
+- look into Go library?
+- we need to be able to print out the result (based on graph relationships)
+- add identifiers to add/remove node cases

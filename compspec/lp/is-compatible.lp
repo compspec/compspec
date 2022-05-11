@@ -70,16 +70,6 @@ changed_node_value(A, B, EntityA, EntityB, Name, ValueA, ValueB) :-
     shared_parent(EntityA, EntityB, Name),
     ValueA != ValueB.
 
-% A removed relation
-removed_relation(A, B, EntityA, EntityB, Type, Name, Relation, Value) :-
-    is_a(A), is_b(B),
-    node(A, EntityA, Type, Name),
-    node(B, EntityB, Type, Name),
-    relation(A, EntityA, Relation, Value),
-    not relation(B, EntityB, Relation, _).
-
-% IF up to the root we can say the relationship holds...
-
 % Two nodes have a shared parent (across states A and B) if:
 shared_parent(NodeA, NodeB, Name) :-
     node(NamespaceA, NodeA, Name, _),
@@ -115,13 +105,11 @@ shared_parent_missing(NodeA, NodeB, Name) :-
     NamespaceA != NamespaceB,
     NodeA == NodeB.
 
-#show is_different/2.
-#show is_a/1.
-#show is_b/1.
+#defined relation/4.
+#defined node/4.
 #show added_node/4.
-#show removed_node/4.
+#show removed_node/3.
 #show changed_node_value/7.
-%#show removed_relation/8.
 %#show is_parent/4.
 %#show is_child/4.
 %#show has_parents/2.
