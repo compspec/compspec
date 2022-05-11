@@ -4,13 +4,9 @@ __license__ = "MPL 2.0"
 
 # This is the base model for deriving facts from ast in json
 
-from compspec.runner import IterativeDifference
 from compspec.utils import read_json
 import compspec.graph
 import compspec.solver
-from compspec.solver import fn
-import os
-import sys
 
 class AstGraphs(compspec.graph.GraphGroup):
     """

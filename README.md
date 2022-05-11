@@ -98,3 +98,7 @@ These are very simple operations to define graphs, and primarily the work is don
 manually to create the nodes, relations, and identifiers. It is expected that specific
 domains that intend to create graphs will load in some object (e.g., a binary file) and 
 do this creation on behalf of the user.
+
+## TODO
+
+- consider refactoring composition / diff to take graphs (instead of creating them) that way we don't need a custom class for composition.
