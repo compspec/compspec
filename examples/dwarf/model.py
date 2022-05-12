@@ -236,12 +236,12 @@ class DwarfGraph(compspec.graph.Graph):
         order = 0
         for child in parent.iter_children():
             if child.tag == "DW_TAG_formal_parameter":
-                if child == die:  
+                if child == die:
                     self.gen("order", order, parent=self.ids[die])
                     break
                 else:
-                    order +=1
-        
+                    order += 1
+
     def parse_pointer_type(self, die):
         """
         Parse a pointer.

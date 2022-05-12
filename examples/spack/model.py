@@ -8,6 +8,7 @@ from compspec.utils import read_json
 import compspec.graph
 import compspec.solver
 
+
 class SpackGraphs(compspec.graph.GraphGroup):
     """
     A namespace to hold more than one graph about spack.

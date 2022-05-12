@@ -39,5 +39,6 @@ def main():
             out = Difference.table(result)
             print(out)
 
+
 if __name__ == "__main__":
     main()
