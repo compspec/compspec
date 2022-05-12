@@ -107,6 +107,10 @@ class DwarfGraph(compspec.graph.Graph):
         if die.tag == "DW_TAG_formal_parameter":
             return self.parse_formal_parameter(die)
 
+        if die.tag == "DW_TAG_inheritance":
+            # This is handled under classes and structs
+            return
+
         # If we are consistent with base type naming, we don't
         # need to associate a base type size with everything that uses it,
         # but rather just the one base type
@@ -130,6 +134,9 @@ class DwarfGraph(compspec.graph.Graph):
 
         if die.tag == "DW_TAG_subrange_type":
             return self.parse_subrange_type(die)
+
+        if die.tag == "DW_TAG_typedef":
+            return self.parse_typedef(die)
 
         # TODO haven't seen these yet
         print(die)
@@ -165,7 +172,35 @@ class DwarfGraph(compspec.graph.Graph):
         return self.parse_sized_generic(die, "basetype")
 
     def parse_class_type(self, die):
+        print("TODO check inheritance")
+        import IPython
+
+        IPython.embed()
         return self.parse_sized_generic(die, "class")
+
+    def parse_inheritance(self, die):
+        """
+        Parse inheritance structure
+        """
+        # This is the actual inherited die
+        inherited = self.type_lookup[die.attributes["DW_AT_type"].value]
+
+        # And who is doing the inheriting
+        inherited_by = die.get_parent()
+
+        # Ensure we parse
+
+        print("INHERITANCE")
+        import IPython
+
+        IPython.embed()
+
+        # This should be a struct or similar
+        parent = die.get_parent()
+        if parent not in self.ids:
+            self.ids[parent] = self.next()
+        self.gen("inherits", get_size(die), parent=self.ids[die])
+        self.new_relation(self.ids[parent], "has", self.ids[die])
 
     def parse_namespace(self, die):
         """
@@ -173,6 +208,14 @@ class DwarfGraph(compspec.graph.Graph):
         """
         self.new_node("namespace", get_name(die), self.ids[die])
         self.generate_parent(die)
+
+    def parse_typedef(self, die):
+        """
+        Parse a type definition
+        """
+        self.new_node("typedef", get_name(die), self.ids[die])
+        self.generate_parent(die)
+        self.gen("type", self.get_underlying_type(die), parent=self.ids[die])
 
     def parse_formal_parameter(self, die):
         """
@@ -185,6 +228,20 @@ class DwarfGraph(compspec.graph.Graph):
             return
         self.gen("location", loc, parent=self.ids[die])
 
+        # Ensure we get the order! The parent should be already parsed
+        parent = die.get_parent()
+        if parent not in self.ids:
+            self.ids[parent] = self.next()
+
+        order = 0
+        for child in parent.iter_children():
+            if child.tag == "DW_TAG_formal_parameter":
+                if child == die:  
+                    self.gen("order", order, parent=self.ids[die])
+                    break
+                else:
+                    order +=1
+        
     def parse_pointer_type(self, die):
         """
         Parse a pointer.
@@ -199,12 +256,37 @@ class DwarfGraph(compspec.graph.Graph):
         self.new_node("member", get_name(die), self.ids[die])
         self.gen("type", self.get_underlying_type(die), parent=self.ids[die])
         self.generate_parent(die)
+        # This should be a struct or similar
+        parent = die.get_parent()
+        if parent:
+
+            # Get the order of the member - it matters if it changes
+            if parent not in self.ids:
+                self.ids[parent] = self.next()
+            for i, child in enumerate(parent.iter_children()):
+                if child == die:
+                    node, _ = self.gen("order", i, parent=self.ids[die])
+                    self.new_relation(self.ids[die], "has", node.nodeid)
 
     def parse_structure_type(self, die):
         """
         Parse a structure type.
         """
         self.parse_sized_generic(die, "structure")
+
+        # Look for inherited classes
+        inherit_order = 0
+        for child in die.iter_children():
+            if child.tag == "DW_TAG_inheritance":
+
+                # This is the actual inherited die
+                inherited = self.type_lookup[child.attributes["DW_AT_type"].value]
+                self.gen(
+                    "inherits",
+                    get_name(inherited) + ":" + str(inherit_order),
+                    parent=self.ids[die],
+                )
+                inherit_order += 1
 
     def parse_variable(self, die):
         """

@@ -51,5 +51,7 @@ jobs:
           python libmath-example.py
           python callsite-example.py
           python array-example.py
+          python struct-example.py
+          python classorder-example.py
 
           # pytest -sv compspec

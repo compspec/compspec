@@ -118,6 +118,7 @@ do this creation on behalf of the user.
 
 ## TODO
 
+- better structure tests/ example ABI cases
+- create compspec.yaml where we can explicitly define kinds of ABI breaks?
 - look into Go library?
 - we need to be able to print out the result (based on graph relationships)
-- create compspec.yaml where we can explicitly define kinds of ABI breaks

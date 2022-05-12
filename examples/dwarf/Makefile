@@ -1,4 +1,4 @@
-all: libmath libcallsite libarray
+all: libmath libcallsite libarray classorder struct
 
 libmath:
 	$(MAKE) -C lib/libmath/v1
@@ -11,3 +11,11 @@ libcallsite:
 libarray:
 	$(MAKE) -C lib/array/v1
 	$(MAKE) -C lib/array/v2
+
+classorder:
+	$(MAKE) -C lib/classorder/v1
+	$(MAKE) -C lib/classorder/v2
+	
+struct:
+	$(MAKE) -C lib/struct/v1
+	$(MAKE) -C lib/struct/v2
