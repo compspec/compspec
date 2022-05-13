@@ -1,2 +1,2 @@
 all:
-	g++ -g -Wall -fPIC -shared -o libstruct.v1.so struct.cpp
+	g++ -g -Wall -fPIC -shared -o lib.v1.so example.cpp

@@ -14,6 +14,7 @@ from elftools.dwarf.dwarf_expr import DWARFExprParser
 import os
 import sys
 import re
+import uuid
 
 here = os.path.abspath(os.path.dirname(__file__))
 sys.path.insert(0, here)
@@ -169,38 +170,11 @@ class DwarfGraph(compspec.graph.Graph):
         self.gen("size", get_size(die), parent=self.ids[die])
 
     def parse_base_type(self, die):
-        return self.parse_sized_generic(die, "basetype")
+        self.parse_sized_generic(die, "basetype")
 
     def parse_class_type(self, die):
-        print("TODO check inheritance")
-        import IPython
-
-        IPython.embed()
-        return self.parse_sized_generic(die, "class")
-
-    def parse_inheritance(self, die):
-        """
-        Parse inheritance structure
-        """
-        # This is the actual inherited die
-        inherited = self.type_lookup[die.attributes["DW_AT_type"].value]
-
-        # And who is doing the inheriting
-        inherited_by = die.get_parent()
-
-        # Ensure we parse
-
-        print("INHERITANCE")
-        import IPython
-
-        IPython.embed()
-
-        # This should be a struct or similar
-        parent = die.get_parent()
-        if parent not in self.ids:
-            self.ids[parent] = self.next()
-        self.gen("inherits", get_size(die), parent=self.ids[die])
-        self.new_relation(self.ids[parent], "has", self.ids[die])
+        self.parse_sized_generic(die, "class")
+        self.check_inheritance(die)
 
     def parse_namespace(self, die):
         """
@@ -217,6 +191,7 @@ class DwarfGraph(compspec.graph.Graph):
         self.generate_parent(die)
         self.gen("type", self.get_underlying_type(die), parent=self.ids[die])
 
+    # STOPPED HERE we introduced a bug with something being unknown...
     def parse_formal_parameter(self, die):
         """
         Parse a formal parameter
@@ -227,7 +202,9 @@ class DwarfGraph(compspec.graph.Graph):
         if not loc:
             return
         self.gen("location", loc, parent=self.ids[die])
+        return
 
+        # TODO not sure we need this
         # Ensure we get the order! The parent should be already parsed
         parent = die.get_parent()
         if parent not in self.ids:
@@ -246,7 +223,7 @@ class DwarfGraph(compspec.graph.Graph):
         """
         Parse a pointer.
         """
-        return self.parse_sized_generic(die, "pointer")
+        self.parse_sized_generic(die, "pointer")
 
     def parse_member(self, die):
         """
@@ -273,7 +250,12 @@ class DwarfGraph(compspec.graph.Graph):
         Parse a structure type.
         """
         self.parse_sized_generic(die, "structure")
+        self.check_inheritance(die)
 
+    def check_inheritance(self, die):
+        """
+        If a die has inheritance, make sure we capture and show order.
+        """
         # Look for inherited classes
         inherit_order = 0
         for child in die.iter_children():
@@ -303,9 +285,13 @@ class DwarfGraph(compspec.graph.Graph):
         """
         Add a function (subprogram) parsed from DWARF
         """
-        self.new_node("function", get_name(die), self.ids[die])
+        name = get_name(die)
+        # TODO: libmath is returning empty names with GNU all call siteflag, why?
+        if name == "unknown":
+            name = str(uuid.uuid4())
+        self.new_node("function", name, self.ids[die])
         self.generate_parent(die)
-        self.gen("type", self.get_underlying_type(die), parent=self.ids[die])
+        # TODO should we parse callsites here?
 
     def parse_array_type(self, die):
         """

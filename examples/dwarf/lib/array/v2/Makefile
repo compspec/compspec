@@ -1,2 +1,2 @@
 all:
-	g++ -g -Wall -fPIC -shared -o libarray.v2.so array.cpp
+	g++ -g -Wall -fPIC -shared -o lib.v2.so example.cpp

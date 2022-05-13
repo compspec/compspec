@@ -4,11 +4,18 @@ __license__ = "MPL 2.0"
 
 from subprocess import Popen, PIPE, STDOUT
 import json
+import yaml
 
 
 def read_json(filename):
     with open(filename, "r") as fd:
         data = json.loads(fd.read())
+    return data
+
+
+def read_yaml(filepath):
+    with open(filepath, "r") as fd:
+        data = yaml.load(fd.read(), Loader=yaml.SafeLoader)
     return data
 
 

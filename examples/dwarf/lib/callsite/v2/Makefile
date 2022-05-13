@@ -1,2 +1,2 @@
 all:
-	g++ -g -Wall -fPIC -shared -o libcallsite.v2.so callsite.cpp
+	g++ -g -Wall -fPIC -shared -o lib.v2.so example.cpp

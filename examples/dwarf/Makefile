@@ -1,21 +1,11 @@
-all: libmath libcallsite libarray classorder struct
+LIBS = ./lib
 
-libmath:
-	$(MAKE) -C lib/libmath/v1
-	$(MAKE) -C lib/libmath/v2
+all: compile
 
-libcallsite:
-	$(MAKE) -C lib/callsite/v1
-	$(MAKE) -C lib/callsite/v2
-	
-libarray:
-	$(MAKE) -C lib/array/v1
-	$(MAKE) -C lib/array/v2
+compile: $(LIBS)/*
+	for dir in $^ ; do \
+		echo "Building" $${dir} ; \
+		$(MAKE) -C $${dir}/v1; \
+		$(MAKE) -C $${dir}/v2; \
+	done
 
-classorder:
-	$(MAKE) -C lib/classorder/v1
-	$(MAKE) -C lib/classorder/v2
-	
-struct:
-	$(MAKE) -C lib/struct/v1
-	$(MAKE) -C lib/struct/v2
