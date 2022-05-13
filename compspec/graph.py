@@ -86,6 +86,7 @@ class Graph:
             fromid = self.lookup[relation.fromid]
         else:
             fromid = self.nodes[relation.fromid].describe()
+
         toid = f"{fromid}->{toid}"
         self.lookup[relation.toid] = toid
         self.relations.append(relation)

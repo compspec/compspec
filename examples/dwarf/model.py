@@ -80,6 +80,11 @@ class DwarfGraph(compspec.graph.Graph):
                 self.ids[parent] = self.next()
             self.new_relation(self.ids[parent], "has", self.ids[die])
 
+    def add_to_lookup(self, die):
+        if die not in self.ids:
+            self.ids[die] = self.next()
+        self.lookup[die] = self.ids[die]
+
     def facts(self, die):
         """
         Yield facts for a die. We keep track of ids and relationships here.
@@ -89,9 +94,7 @@ class DwarfGraph(compspec.graph.Graph):
             return
 
         # Assume we are parsing all dies
-        if die not in self.ids:
-            self.ids[die] = self.next()
-        self.lookup[die] = self.ids[die]
+        self.add_to_lookup(die)
 
         if die.tag == "DW_TAG_namespace":
             return self.parse_namespace(die)
@@ -291,6 +294,17 @@ class DwarfGraph(compspec.graph.Graph):
             name = str(uuid.uuid4())
         self.new_node("function", name, self.ids[die])
         self.generate_parent(die)
+        # Need to keep a reference for original die
+        # original_die = die
+
+        # if "DW_AT_specification" in die.attributes:
+
+        # ultimately we care about the referenced function
+        #    die = self.type_lookup[die.attributes['DW_AT_specification'].value]
+        #    self.add_to_lookup(die)
+
+        # self.new_node("function", get_name(die), self.ids[original_die])
+        self.gen("function", get_name(die), parent=self.ids[die])
         # TODO should we parse callsites here?
 
     def parse_array_type(self, die):
