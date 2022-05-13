@@ -14,7 +14,10 @@ LICENSE = "LICENSE"
 ################################################################################
 # Global requirements
 
-INSTALL_REQUIRES = (("clingo", {"min_version": None}),)
+INSTALL_REQUIRES = (
+    ("clingo", {"min_version": None}),
+    ("pyaml", {"min_version": None}),
+)
 
 TESTS_REQUIRES = (("pytest", {"min_version": "4.6.2"}),)
 INSTALL_REQUIRES_ALL = INSTALL_REQUIRES + TESTS_REQUIRES

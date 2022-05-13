@@ -48,8 +48,5 @@ jobs:
           cd examples/dwarf 
           pip install -r requirements.txt
           make
-          python libmath-example.py
-          python callsite-example.py
-          python array-example.py
-
-          # pytest -sv compspec
+          pytest tests.py          
+          

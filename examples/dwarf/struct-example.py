@@ -2,7 +2,6 @@ __author__ = "Vanessa Sochat"
 __copyright__ = "Copyright 2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
-
 from compspec.runner import Difference
 import os
 import sys
@@ -15,8 +14,8 @@ from model import DwarfGraph
 
 def main():
     # Hard coded examples, for now
-    lib1 = os.path.join(here, "lib", "libmath", "v1", "libmath.v1.so")
-    lib2 = os.path.join(here, "lib", "libmath", "v2", "libmath.v2.so")
+    lib1 = os.path.join(here, "lib", "struct", "v1", "libstruct.v1.so")
+    lib2 = os.path.join(here, "lib", "struct", "v2", "libstruct.v2.so")
 
     for lib in lib1, lib2:
         if not os.path.exists(lib):
@@ -29,8 +28,6 @@ def main():
     runner = Difference(A, B, "A", "B")
     result = runner.run()
     print(json.dumps(result, indent=4))
-
-    # example to print table
     table = Difference.table(result)
     print(table)
 
