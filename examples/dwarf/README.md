@@ -7,7 +7,16 @@ Conceptually we are:
 1. Creating two graphs that include dwarf
 2. Running them through the difference model
 
-and that's it!
+and that's it! We are also trying to capture a list of basic tests that represent
+ABI changes, including:
+
+ - [lib/libmath](lib/libmath): A C++ function parameter type is changed
+ - [lib/struct](lib/struct): A type is changed in a struct (same order and name)
+ - [lib/callsite](lib/callsite): A function used as a callsite is renamed
+ - [lib/classinheritance](lib/classinheritance): An inherited class ordering is changed 
+ - [lib/classorder](lib/classorder): Order of classes provided to function are flipped.
+
+**More coming soon!** If you have an example you want me to implemenent [please let me know](https://github.com/compspec/compspec/issuess).
 
 ## Structure
 
@@ -42,6 +51,7 @@ This means if you want to add a new lib (example and test) just:
 1. Create a new directory under [lib](lib) with this structure
 2. Add an entry to [examples.yaml](examples.yaml)
 3. Compile with `make`
+4. Run once to get an expected result and save directly under the named directory as compspec.json
 4. Test!
 
 ```bash

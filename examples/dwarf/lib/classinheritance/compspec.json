@@ -1,0 +1,26 @@
+{
+    "changed_node_value": [
+        [
+            "A",
+            "B",
+            "id21",
+            "id21",
+            "inherits",
+            "A:0",
+            "B:0",
+            "compileunit:example.cpp->structure:D->inherits:A:0",
+            "compileunit:example.cpp->structure:D->inherits:B:0"
+        ],
+        [
+            "A",
+            "B",
+            "id22",
+            "id22",
+            "inherits",
+            "B:1",
+            "A:1",
+            "compileunit:example.cpp->structure:D->inherits:B:1",
+            "compileunit:example.cpp->structure:D->inherits:A:1"
+        ]
+    ]
+}

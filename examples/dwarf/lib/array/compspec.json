@@ -1,0 +1,15 @@
+{
+    "changed_node_value": [
+        [
+            "A",
+            "B",
+            "id3",
+            "id3",
+            "size",
+            "36",
+            "104",
+            "compileunit:example.cpp->structure:Foo->size:36",
+            "compileunit:example.cpp->structure:Foo->size:104"
+        ]
+    ]
+}

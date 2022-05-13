@@ -1,0 +1,15 @@
+{
+    "changed_node_value": [
+        [
+            "A",
+            "B",
+            "id53",
+            "id53",
+            "function",
+            "inline_this",
+            "inline_that",
+            "compileunit:example.cpp->function:inline_this",
+            "compileunit:example.cpp->function:inline_that"
+        ]
+    ]
+}
