@@ -1,0 +1,37 @@
+{
+    "changed_node_value": [
+        [
+            "A",
+            "B",
+            "id14",
+            "id14",
+            "function",
+            "_Z13changed_order1B1A",
+            "_Z13changed_order1A1B",
+            "compileunit:example.cpp->function:_Z13changed_order1B1A",
+            "compileunit:example.cpp->function:_Z13changed_order1A1B"
+        ],
+        [
+            "A",
+            "B",
+            "id15",
+            "id15",
+            "parameter",
+            "b",
+            "a",
+            "compileunit:example.cpp->function:_Z13changed_order1B1A->parameter:b",
+            "compileunit:example.cpp->function:_Z13changed_order1A1B->parameter:a"
+        ],
+        [
+            "A",
+            "B",
+            "id20",
+            "id20",
+            "parameter",
+            "a",
+            "b",
+            "compileunit:example.cpp->function:_Z13changed_order1B1A->parameter:a",
+            "compileunit:example.cpp->function:_Z13changed_order1A1B->parameter:b"
+        ]
+    ]
+}

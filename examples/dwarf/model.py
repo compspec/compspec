@@ -43,6 +43,7 @@ class DwarfGraph(compspec.graph.Graph):
         self.corpus = Corpus(lib)
         super().__init__()
         self.type_lookup = self.corpus.get_type_lookup()
+        self.children_lookup = {}
         self._prepare_location_parser()
         self.extract()
 
@@ -65,32 +66,40 @@ class DwarfGraph(compspec.graph.Graph):
         for die in self.corpus.iter_dwarf_information_entries():
             if not die or not die.tag:
                 continue
-
             # Generate facts for the DIE
             self.facts(die)
 
-    def generate_parent(self, die):
+    def generate_parent(self, die, parent=None):
         """
         Generate the parent, if one exists.
         relation("A", "id6", "has", "id7").
         """
-        parent = die.get_parent()
+        if not parent:
+            parent = die.get_parent()
         if parent:
-            if parent not in self.ids:
-                self.ids[parent] = self.next()
+            self.add_to_lookup(parent)
             self.new_relation(self.ids[parent], "has", self.ids[die])
 
     def add_to_lookup(self, die):
         if die not in self.ids:
             self.ids[die] = self.next()
-        self.lookup[die] = self.ids[die]
+        self.lookup[die.offset] = self.ids[die]
+
+    def in_lookup(self, die):
+        return die.offset in self.lookup
+
+    def remove_from_lookup(self, die):
+        if die in self.ids:
+            del self.ids[die]
+        if die.offset in self.lookup:
+            del self.lookup[die.offset]
 
     def facts(self, die):
         """
         Yield facts for a die. We keep track of ids and relationships here.
         """
         # Have we parsed it yet?
-        if die in self.lookup:
+        if die.offset in self.lookup:
             return
 
         # Assume we are parsing all dies
@@ -143,7 +152,6 @@ class DwarfGraph(compspec.graph.Graph):
             return self.parse_typedef(die)
 
         # TODO haven't seen these yet
-        print(die)
         import IPython
 
         IPython.embed()
@@ -194,33 +202,56 @@ class DwarfGraph(compspec.graph.Graph):
         self.generate_parent(die)
         self.gen("type", self.get_underlying_type(die), parent=self.ids[die])
 
-    # STOPPED HERE we introduced a bug with something being unknown...
+    def is_external(self, die):
+        value = die.attributes.get("DW_AT_external")
+        if value:
+            return value.value
+        return False
+
     def parse_formal_parameter(self, die):
         """
         Parse a formal parameter
         """
-        self.parse_sized_generic(die, "parameter")
+        parent = die.get_parent()
+        actual_parent = None
+
+        # If the parent references another, use that one
+        if "DW_AT_specification" in parent.attributes:
+            actual_parent = self.type_lookup[
+                parent.attributes["DW_AT_specification"].value
+            ]
+
+        # Don't parse for now if no name, or parent is external
+        name = get_name(die)
+        if name == "unknown":
+            self.remove_from_lookup(die)
+            return
+
+        self.new_node("parameter", get_name(die), self.ids[die])
+        if actual_parent:
+            if actual_parent.offset in self.lookup:
+                parent_id = self.lookup[actual_parent.offset]
+                parent_node = self.nodes[parent_id]
+                self.new_relation(parent_id, "has", self.ids[die])
+        else:
+            self.generate_parent(die)
+
+        self.gen("size", get_size(die), parent=self.ids[die])
         self.gen("type", self.get_underlying_type(die), parent=self.ids[die])
         loc = self.parse_location(die)
         if not loc:
             return
         self.gen("location", loc, parent=self.ids[die])
-        return
 
-        # TODO not sure we need this
-        # Ensure we get the order! The parent should be already parsed
-        parent = die.get_parent()
-        if parent not in self.ids:
-            self.ids[parent] = self.next()
-
+        parent = actual_parent or parent
         order = 0
         for child in parent.iter_children():
-            if child.tag == "DW_TAG_formal_parameter":
-                if child == die:
-                    self.gen("order", order, parent=self.ids[die])
-                    break
-                else:
-                    order += 1
+            if child == die:
+                self.gen("order", order, parent=self.ids[die])
+                break
+            else:
+                order += 1
+        return
 
     def parse_pointer_type(self, die):
         """
@@ -233,9 +264,21 @@ class DwarfGraph(compspec.graph.Graph):
         Parse a member, typically belonging to a union
         Note these can have DW_AT_data_member_location but we arn't parsing
         """
+        # This returns a string representation!
+        underlying_type = self.get_underlying_type(die)
+
+        # If it's an array, we need to get the member type
+        member_type = None
+        if underlying_type == "array":
+            array = self.get_underlying_type(die, return_die=True)
+            member_type = self.get_underlying_type(array)
+
         self.new_node("member", get_name(die), self.ids[die])
-        self.gen("type", self.get_underlying_type(die), parent=self.ids[die])
+        self.gen("type", underlying_type, parent=self.ids[die])
+        if member_type:
+            self.gen("membertype", member_type, parent=self.ids[die])
         self.generate_parent(die)
+
         # This should be a struct or similar
         parent = die.get_parent()
         if parent:
@@ -252,7 +295,12 @@ class DwarfGraph(compspec.graph.Graph):
         """
         Parse a structure type.
         """
-        self.parse_sized_generic(die, "structure")
+        size = get_size(die)
+        if size:
+            self.parse_sized_generic(die, "structure")
+        else:
+            self.new_node(name, get_name(die), self.ids[die])
+            self.generate_parent(die)
         self.check_inheritance(die)
 
     def check_inheritance(self, die):
@@ -289,28 +337,29 @@ class DwarfGraph(compspec.graph.Graph):
         Add a function (subprogram) parsed from DWARF
         """
         name = get_name(die)
-        # TODO: libmath is returning empty names with GNU all call siteflag, why?
         if name == "unknown":
-            name = str(uuid.uuid4())
-        self.new_node("function", name, self.ids[die])
+            self.remove_from_lookup(die)
+            return
+
+        # I don't think we want this - we miss callsites
+        # if not self.is_external(die):
+        #    self.remove_from_lookup(die)
+        #    return
+
+        self.new_node("function", get_name(die), self.ids[die])
         self.generate_parent(die)
-        # Need to keep a reference for original die
-        # original_die = die
-
-        # if "DW_AT_specification" in die.attributes:
-
-        # ultimately we care about the referenced function
-        #    die = self.type_lookup[die.attributes['DW_AT_specification'].value]
-        #    self.add_to_lookup(die)
-
-        # self.new_node("function", get_name(die), self.ids[original_die])
-        self.gen("function", get_name(die), parent=self.ids[die])
         # TODO should we parse callsites here?
 
     def parse_array_type(self, die):
         """
         Get an entry for an array.
         """
+        # Don't parse if we don't have a name, it's likely referenced from a member
+        name = get_name(die)
+        if name == "unknown":
+            self.remove_from_lookup(die)
+            return
+
         self.new_node("array", get_name(die), self.ids[die])
         self.generate_parent(die)
         self.gen("membertype", self.get_underlying_type(die), parent=self.ids[die])
@@ -350,30 +399,40 @@ class DwarfGraph(compspec.graph.Graph):
         if "DW_AT_bit_stride" in die.attributes:
             return die.attributes["DW_AT_bit_stride"].value * 8
 
-    def get_underlying_type(self, die, pointer=False):
+    def get_underlying_type(self, die, pointer=False, return_die=False):
         """
         Given a type, parse down to the underlying type (and count pointer indirections)
         """
         if die.tag == "DW_TAG_base_type":
+            if return_die:
+                return die
             if pointer:
                 return "*%s" % get_name(die)
             return get_name(die)
 
         if "DW_AT_type" not in die.attributes:
+            if return_die:
+                return die
             return "unknown"
 
         # Can we get the underlying type?
         type_die = self.type_lookup.get(die.attributes["DW_AT_type"].value)
         if not type_die:
+            if return_die:
+                return type_die
             return "unknown"
 
         # Case 1: It's an array (and type is for elements)
         if type_die and type_die.tag in known_die_types:
+            if return_die:
+                return type_die
             if pointer:
                 return "*%s" % known_die_types[type_die.tag]
             return known_die_types[type_die.tag]
 
         if type_die.tag == "DW_TAG_base_type":
+            if return_die:
+                return type_die
             if pointer:
                 return "*%s" % get_name(type_die)
             return get_name(type_die)
@@ -393,12 +452,23 @@ class DwarfGraph(compspec.graph.Graph):
 
         if type_die:
             return self.get_underlying_type(type_die, pointer)
+
+        if return_die:
+            return type_die
         return "unknown"
 
     def parse_subrange_type(self, die):
         """
         Parse a subrange type
         """
+        # If the parent wasn't added, don't parse
+        if not self.in_lookup(die.get_parent()):
+            self.remove_from_lookup(die)
+            return
+
+        import IPython
+
+        IPython.embed()
         self.new_node("subrange", get_name(die), self.ids[die])
         self.generate_parent(die)
         self.gen("membertype", self.get_underlying_type(die), parent=self.ids[die])
@@ -418,7 +488,7 @@ class DwarfGraph(compspec.graph.Graph):
             count = (
                 die.attributes["DW_AT_upper_bound"].value
                 - die.attributes["DW_AT_lower_bound"].value
-            )
+            ) + 1
 
         # If the lower bound value is missing, the value is assumed to be a language-dependent default constant.
         elif "DW_AT_upper_bound" in die.attributes:
@@ -429,6 +499,10 @@ class DwarfGraph(compspec.graph.Graph):
             # The default lower bound is 1 for Ada, COBOL, Fortran, Modula-2, Pascal and PL/I.
             lower_bound = 0
             count = die.attributes["DW_AT_upper_bound"].value - lower_bound
+
+            # This is a RANGE including the lower value, so +1
+            count += 1
+
         self.gen("count", count, parent=self.ids[die])
 
     def parse_location(self, die):

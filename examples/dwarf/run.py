@@ -28,9 +28,10 @@ def main(name, lib1=None, lib2=None):
     A = DwarfGraph(lib1)
     B = DwarfGraph(lib2)
 
-    runner = Difference(A, B, "A", "B")
+    runner = Difference(A, B, "A", "B", quiet=True)
     result = runner.run()
     print(json.dumps(result, indent=4))
+    return result
 
 
 if __name__ == "__main__":
