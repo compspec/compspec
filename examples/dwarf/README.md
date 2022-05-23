@@ -25,7 +25,6 @@ language if absolutely necessary.
 
 Examples to add include:
 
- - add/remove/change function parameter
  - add/remove/change struct member
  - cycle-handling
  - changing a named struct to anonymous
