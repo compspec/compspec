@@ -64,5 +64,7 @@ class FactGenerator:
         """
         for relation in g.iter_relations():
             self.gen.fact(fn.relation(ns, *relation))
+        for node in g.iter_connectors():
+            self.gen.fact(fn.is_connector(ns, node))
         for node in g.iter_nodes():
             self.gen.fact(fn.node(ns, *node))

@@ -24,9 +24,10 @@ def main(name, lib1=None, lib2=None):
         if not os.path.exists(lib):
             sys.exit(f"{lib} does not exist.")
 
-    # Create the two graphs
-    A = DwarfGraph(lib1)
-    B = DwarfGraph(lib2)
+    # Create the two graphs, scope analysis to line program example.cpp
+    # and optionally if there is a header.h
+    A = DwarfGraph(lib1, ["example.cpp", "example.h"])
+    B = DwarfGraph(lib2, ["example.cpp", "example.h"])
 
     runner = Difference(A, B, "A", "B", quiet=True)
     result = runner.run()
