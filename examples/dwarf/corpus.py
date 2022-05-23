@@ -29,6 +29,7 @@ class CorpusReader(ELFFile):
         self.fd = open(filename, "rb")
         self.filename = filename
         self.type_lookup = {}
+        self.line_programs = {}
         try:
             self.elffile = ELFFile(self.fd)
         except Exception:
@@ -39,6 +40,7 @@ class CorpusReader(ELFFile):
             sys.exit("%s is missing DWARF info." % self.filename)
         self.get_version_lookup()
         self.get_shndx_sections()
+        self.save_line_programs()
 
     def __str__(self):
         return "[CorpusReader:%s]" % self.filename
@@ -266,9 +268,32 @@ class CorpusReader(ELFFile):
             return tags
 
     @property
+    def dwarf_info(self):
+        return self.elffile.get_dwarf_info()
+
+    @property
     def location_lists(self):
-        dwarfinfo = self.elffile.get_dwarf_info()
-        return dwarfinfo.location_lists()
+        return self.dwarf_info.location_lists()
+
+    def save_line_programs(self):
+        """
+        Save a lookup of line programs
+        """
+        # We will want to save debug line and files
+        entries = [
+            (cu, entry)
+            for cu in self.dwarf_info.iter_CUs()
+            for entry in self.dwarf_info.line_program_for_CU(cu).get_entries()
+        ]
+
+        # Keep a lookup of file names to filter later
+        # the file in the entry is an index referring to the file table
+        # which in turn refers to the directory table. And they are 1-indexed.
+        for cu in self.dwarf_info.iter_CUs():
+            debug_line = self.dwarf_info.line_program_for_CU(cu)
+            for idx, entry in enumerate(debug_line["file_entry"]):
+                filename = file_entry_to_abs(entry, debug_line)
+                self.line_programs[filename] = idx + 1
 
     def iter_dwarf_information_entries(self):
         """
@@ -276,7 +301,7 @@ class CorpusReader(ELFFile):
         """
         dwarfinfo = self.elffile.get_dwarf_info()
 
-        # A CU is a Compilation Unit
+        # hA CU is a Compilation Unit
         for cu in dwarfinfo.iter_CUs():
 
             # A DIE is a dwarf information entry
@@ -393,3 +418,15 @@ class Corpus:
         self.machine_arch = reader.get_machine_arch()
         self.elfclass = reader.get_elf_class()
         self.elfsymbols = reader.get_symbols()
+        self.dwarfinfo = reader.dwarf_info
+        self.line_programs = reader.line_programs
+
+
+def file_entry_to_abs(file_entry, linep):
+    di = file_entry.dir_index
+    if di > 0:
+        return os.path.join(
+            linep["include_directory"][di - 1].decode(), file_entry.name.decode()
+        )
+    else:
+        return os.path.join(".", file_entry.name.decode())

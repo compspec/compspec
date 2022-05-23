@@ -25,6 +25,17 @@
         [
             "A",
             "B",
+            "id17",
+            "id17",
+            "type",
+            "B",
+            "A",
+            "compileunit:example.cpp->function:_Z13changed_order1B1A->parameter:b->type:B",
+            "compileunit:example.cpp->function:_Z13changed_order1A1B->parameter:a->type:A"
+        ],
+        [
+            "A",
+            "B",
             "id20",
             "id20",
             "parameter",
@@ -32,6 +43,17 @@
             "b",
             "compileunit:example.cpp->function:_Z13changed_order1B1A->parameter:a",
             "compileunit:example.cpp->function:_Z13changed_order1A1B->parameter:b"
+        ],
+        [
+            "A",
+            "B",
+            "id22",
+            "id22",
+            "type",
+            "A",
+            "B",
+            "compileunit:example.cpp->function:_Z13changed_order1B1A->parameter:a->type:A",
+            "compileunit:example.cpp->function:_Z13changed_order1A1B->parameter:b->type:B"
         ]
     ]
 }

@@ -40,6 +40,7 @@ removed_node(A, B, NodeA, Name) :-
     is_a(A), is_b(B),
     node(A, NodeA, Name, _),
     not node(B, NodeB, Name, _),
+    not is_connector(A, NodeA),
     shared_parent_missing(NodeA, NodeB, Name).
 
 % This covers top level cases (no parents)
@@ -47,6 +48,7 @@ removed_node(A, B, NodeA, Name, Value) :-
     is_a(A), is_b(B),
     node(A, NodeA, Name, Value),
     not node(B, _, Name, Value),
+    not is_connector(A, NodeA),
     not changed_node_value(A, B, _, _, Name, _, _).
 
 % What is added if we move from A to B?
@@ -56,6 +58,7 @@ added_node(A, B, EntityB, Name, Value) :-
     is_a(A), is_b(B),
     node(B, EntityB, Name, Value),
     not node(A, _, Name, Value),
+    not is_connector(B, EntityB),
     not changed_node_value(A, B, _, _, Name, _, _).    
 
 % What nodes are shared (at the highest level) 
@@ -69,6 +72,8 @@ changed_node_value(A, B, EntityA, EntityB, Name, ValueA, ValueB) :-
     is_a(A), is_b(B),
     node(A, EntityA, Name, ValueA),
     node(B, EntityB, Name, ValueB),
+    not is_connector(A, EntityA),
+    not is_connector(B, EntityB),
     shared_parent(EntityA, EntityB, Name),
     ValueA != ValueB.
 
@@ -109,6 +114,7 @@ shared_parent_missing(NodeA, NodeB, Name) :-
 
 #defined relation/4.
 #defined node/4.
+#defined is_connector/2.
 #show added_node/5.
 #show removed_node/4.
 #show removed_node/5.

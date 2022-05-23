@@ -91,13 +91,16 @@ class Graph:
         self.lookup[relation.toid] = toid
         self.relations.append(relation)
 
-    def new_node(self, name, value, nodeid=None):
+    def new_node(self, name, value, nodeid=None, is_connector=False):
         """
         Generate a node with a name (type) and value
+
+        is_connector is a flag that indicates the node is included in the graph,
+        but itself should not be assessed for add/change/remove.
         """
         if not nodeid:
             nodeid = self.next()
-        node = entity.node(nodeid, name=name, value=value)
+        node = entity.node(nodeid, name=name, value=value, is_connector=is_connector)
         self.add_node(node)
         return node
 
@@ -111,18 +114,28 @@ class Graph:
         self.add_relation(relation)
         return relation
 
-    def gen(self, name, value, parent, nodeid=None, relation="has"):
+    def gen(self, name, value, parent, nodeid=None, relation="has", is_connector=False):
         """
         Generate a node and relation in one swoop!
         A parent is required.
         """
         if not nodeid:
             nodeid = self.next()
-        node = entity.node(nodeid=nodeid, name=name, value=value)
+        node = entity.node(
+            nodeid=nodeid, name=name, value=value, is_connector=is_connector
+        )
         self.add_node(node)
         relation = self.new_relation(fromid=parent, toid=node.nodeid, relation=relation)
         self.add_relation(relation)
         return node, relation
+
+    def iter_connectors(self):
+        """
+        Yield connector nodes only
+        """
+        for _, node in self.nodes.items():
+            if node.is_connector:
+                yield node.args[0]
 
     def iter_nodes(self):
         """

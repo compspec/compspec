@@ -15,9 +15,34 @@ ABI changes, including:
  - [lib/callsite](lib/callsite): A function used as a callsite is renamed
  - [lib/classinheritance](lib/classinheritance): An inherited class ordering is changed 
  - [lib/classorder](lib/classorder): Order of classes provided to function are flipped.
+ - [lib/function-params](lib/function-params): changed function parameters. Note that changed namespaces (direct comparison) aren't important for this model.
+
+Note that you should have `c++filt` on your system to demangle names.
+Yes, it's kind of rough / hacky but we could always write this in a different
+language if absolutely necessary.
 
 **More coming soon!** If you have an example you want me to implemenent [please let me know](https://github.com/compspec/compspec/issuess).
 
+Examples to add include:
+
+ - add/remove/change struct member
+ - cycle-handling
+ - changing a named struct to anonymous
+ - changing an anonymous struct to named
+ - changing a named union to anonymous
+ - changing an anonymous union to named
+ - changing a named enum to anonymous
+ - changing an anonymous enum to named (should report name change and member diffs)
+ - struct with all possible C base types to test what names get generated 
+ - struct with all possible C++ base types to test what names get generated 
+ - variadic function types
+ - struct containing members with types composed from chains of qualifiers and typedefs (with anarray of pointers at the base)
+ - order of base classes in inheritance
+ - qualifiers on member functions, access, namespaces
+ - static data member is added or removed OR a static data member type size changed
+ - if a data member is replaced by an anonymous data member
+ - enum has insertion
+ 
 ## Structure
 
 The examples are strucutred as follows:

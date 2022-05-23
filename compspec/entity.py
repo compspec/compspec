@@ -61,10 +61,11 @@ class node:
     A node in a graph.
     """
 
-    def __init__(self, nodeid, name, value):
+    def __init__(self, nodeid, name, value, is_connector=False):
         self.nodeid = nodeid
         self.name = name
         self.value = value
+        self.is_connector = is_connector
 
     def __str__(self):
         return f"{self.nodeid}.{self.name}:{self.value}"
