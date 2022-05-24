@@ -22,7 +22,7 @@ jobs:
           source activate comp
           cd /tmp
           git clone https://github.com/compspec/compspec
-          cd comspec
+          cd compspec
           pip install -e .
           cd docs/
           pip install -r requirements.txt
