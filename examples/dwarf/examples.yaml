@@ -1,6 +1,1 @@
-examples:
- - name: array
- - name: callsite
- - name: classorder
- - name: libmath
- - name: struct
+examples: []

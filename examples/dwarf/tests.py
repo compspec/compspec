@@ -18,12 +18,21 @@ here = os.path.abspath(os.path.dirname(__file__))
 sys.path.insert(0, here)
 from run import main as run
 
+# Custom names or libs
 examples = utils.read_yaml("examples.yaml")
 tests = []
+seen = set()
 for e in examples["examples"]:
     if "name" not in e:
         continue
     tests.append((e["name"], e.get("lib1", "lib.v1.so"), e.get("lib2", "lib.v2.so")))
+    seen.add(e["name"])
+
+# Add remainder
+for name in os.listdir(os.path.join(here, "lib")):
+    if name not in seen:
+        tests.append((name, "lib.v1.so", "lib.v2.so"))
+    seen.add(name)
 
 
 @pytest.mark.parametrize("name,lib1,lib2", tests)
