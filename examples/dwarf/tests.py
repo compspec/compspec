@@ -37,7 +37,7 @@ for name in os.listdir(os.path.join(here, "lib")):
 
 @pytest.mark.parametrize("name,lib1,lib2", tests)
 def test_examples(tmp_path, name, lib1, lib2):
-    result = run(name, lib1, lib2)
+    result = run(name, lib1, lib2, groups=True)
 
     # Compare with our expected results
     expected = os.path.join(here, "lib", name, "compspec.json")

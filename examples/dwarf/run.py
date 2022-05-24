@@ -14,7 +14,7 @@ sys.path.insert(0, here)
 from model import DwarfGraph
 
 
-def main(name, lib1=None, lib2=None):
+def main(name, lib1=None, lib2=None, groups=False):
 
     # Hard coded examples, for now
     lib1 = os.path.join(here, "lib", name, "v1", lib1 or "lib.v1.so")
@@ -31,7 +31,13 @@ def main(name, lib1=None, lib2=None):
 
     runner = Difference(A, B, "A", "B", quiet=True)
     result = runner.run()
+
+    # Groups help to organize output in GitHub workflows
+    if groups:
+        print(f"::group::{name}")
     print(json.dumps(result, indent=4))
+    if groups:
+        print("::endgroup::")
     return result
 
 
