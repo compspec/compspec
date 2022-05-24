@@ -30,7 +30,7 @@ for e in examples["examples"]:
 
 # Add remainder
 for name in os.listdir(os.path.join(here, "lib")):
-    if name not in seen:
+    if name not in seen and not name.startswith('_'):
         tests.append((name, "lib.v1.so", "lib.v2.so"))
     seen.add(name)
 
