@@ -1,3 +1,1 @@
-examples:
- - name: struct-param-types
-   facts: true
+examples: []
