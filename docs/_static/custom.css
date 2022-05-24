@@ -1,0 +1,27 @@
+.o-tooltip--left:after{
+    font-size: 0.8rem;
+}
+
+.md-hero__inner {
+  padding: 0px !important;  
+}
+
+/* Fix ugly mustard buttons! */
+div.sphx-glr-download a {
+  background-color: #FFF;
+  background-image: linear-gradient(to bottom, #FFF, #FFF);
+  border: 1px solid #cccc;
+}
+
+[data-md-color-primary="indigo"] .md-header, [data-md-color-primary="indigo"] .md-hero {
+  background-color: #42abf2 !important;
+}
+
+
+[data-md-color-primary="indigo"] .md-tabs {
+  background-color: #42abf2 !important;
+}
+
+div.sphx-glr-download a:hover {
+  background-color: gold !important;
+}
