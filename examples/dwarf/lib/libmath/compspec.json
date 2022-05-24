@@ -3,93 +3,37 @@
         [
             "A",
             "B",
-            "id23",
-            "location",
-            "compileunit:example.cpp->namespace:MathLibrary->class:Arithmetic->function:_ZN11MathLibrary10Arithmetic6DivideEdd->parameter:a->location:framebase-24"
+            "id24",
+            "type",
+            "compileunit:example.cpp->namespace:MathLibrary->class:Arithmetic->function:_ZN11MathLibrary10Arithmetic6DivideEdd->parameter:b->type:double"
         ],
         [
             "A",
             "B",
-            "id25",
-            "size",
-            "compileunit:example.cpp->namespace:MathLibrary->class:Arithmetic->function:_ZN11MathLibrary10Arithmetic6DivideEdd->parameter:b->size:0"
+            "id31",
+            "type",
+            "compileunit:example.cpp->namespace:MathLibrary->class:Arithmetic->function:_ZN11MathLibrary10Arithmetic8MultiplyEdd->parameter:b->type:double"
         ],
         [
             "A",
             "B",
-            "id27",
-            "location",
-            "compileunit:example.cpp->namespace:MathLibrary->class:Arithmetic->function:_ZN11MathLibrary10Arithmetic6DivideEdd->parameter:b->location:framebase-32"
-        ],
-        [
-            "A",
-            "B",
-            "id32",
-            "location",
-            "compileunit:example.cpp->namespace:MathLibrary->class:Arithmetic->function:_ZN11MathLibrary10Arithmetic8MultiplyEdd->parameter:a->location:framebase-24"
-        ],
-        [
-            "A",
-            "B",
-            "id34",
-            "size",
-            "compileunit:example.cpp->namespace:MathLibrary->class:Arithmetic->function:_ZN11MathLibrary10Arithmetic8MultiplyEdd->parameter:b->size:0"
-        ],
-        [
-            "A",
-            "B",
-            "id36",
-            "location",
-            "compileunit:example.cpp->namespace:MathLibrary->class:Arithmetic->function:_ZN11MathLibrary10Arithmetic8MultiplyEdd->parameter:b->location:framebase-32"
-        ],
-        [
-            "A",
-            "B",
-            "id41",
-            "location",
-            "compileunit:example.cpp->namespace:MathLibrary->class:Arithmetic->function:_ZN11MathLibrary10Arithmetic8SubtractEdd->parameter:a->location:framebase-24"
-        ],
-        [
-            "A",
-            "B",
-            "id43",
-            "size",
-            "compileunit:example.cpp->namespace:MathLibrary->class:Arithmetic->function:_ZN11MathLibrary10Arithmetic8SubtractEdd->parameter:b->size:0"
+            "id38",
+            "type",
+            "compileunit:example.cpp->namespace:MathLibrary->class:Arithmetic->function:_ZN11MathLibrary10Arithmetic8SubtractEdd->parameter:b->type:double"
         ],
         [
             "A",
             "B",
             "id45",
-            "location",
-            "compileunit:example.cpp->namespace:MathLibrary->class:Arithmetic->function:_ZN11MathLibrary10Arithmetic8SubtractEdd->parameter:b->location:framebase-32"
-        ],
-        [
-            "A",
-            "B",
-            "id50",
-            "location",
-            "compileunit:example.cpp->namespace:MathLibrary->class:Arithmetic->function:_ZN11MathLibrary10Arithmetic3AddEdd->parameter:a->location:framebase-24"
-        ],
-        [
-            "A",
-            "B",
-            "id52",
-            "size",
-            "compileunit:example.cpp->namespace:MathLibrary->class:Arithmetic->function:_ZN11MathLibrary10Arithmetic3AddEdd->parameter:b->size:0"
-        ],
-        [
-            "A",
-            "B",
-            "id54",
-            "location",
-            "compileunit:example.cpp->namespace:MathLibrary->class:Arithmetic->function:_ZN11MathLibrary10Arithmetic3AddEdd->parameter:b->location:framebase-32"
+            "type",
+            "compileunit:example.cpp->namespace:MathLibrary->class:Arithmetic->function:_ZN11MathLibrary10Arithmetic3AddEdd->parameter:b->type:double"
         ]
     ],
     "added_node": [
         [
             "A",
             "B",
-            "id51",
+            "id44",
             "type",
             "int",
             "compileunit:example.cpp->namespace:MathLibrary->class:Arithmetic->function:_ZN11MathLibrary10Arithmetic3AddEii->parameter:a->type:int"
@@ -97,7 +41,7 @@
         [
             "A",
             "B",
-            "id52",
+            "id45",
             "location",
             "framebase-20",
             "compileunit:example.cpp->namespace:MathLibrary->class:Arithmetic->function:_ZN11MathLibrary10Arithmetic3AddEii->parameter:a->location:framebase-20"
@@ -105,7 +49,7 @@
         [
             "A",
             "B",
-            "id55",
+            "id47",
             "type",
             "int",
             "compileunit:example.cpp->namespace:MathLibrary->class:Arithmetic->function:_ZN11MathLibrary10Arithmetic3AddEii->parameter:b->type:int"

@@ -3,30 +3,16 @@
         [
             "A",
             "B",
-            "id21",
-            "order",
-            "compileunit:example.cpp->function:_Z3fun1NPS_->parameter:x->order:0"
-        ],
-        [
-            "A",
-            "B",
-            "id23",
-            "size",
-            "compileunit:example.cpp->function:_Z3fun1NPS_->parameter:z->size:0"
-        ],
-        [
-            "A",
-            "B",
-            "id24",
+            "id22",
             "type",
             "compileunit:example.cpp->function:_Z3fun1NPS_->parameter:z->type:N"
         ],
         [
             "A",
             "B",
-            "id26",
-            "order",
-            "compileunit:example.cpp->function:_Z3fun1NPS_->parameter:z->order:1"
+            "id23",
+            "location",
+            "compileunit:example.cpp->function:_Z3fun1NPS_->parameter:z->location:framebase-56"
         ]
     ],
     "added_node": [
@@ -48,3 +34,4 @@
         ]
     ]
 }
+

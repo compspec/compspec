@@ -3,30 +3,16 @@
         [
             "A",
             "B",
-            "id21",
-            "size",
-            "compileunit:example.cpp->function:_Z3fun1NPS_->parameter:x->size:0"
-        ],
-        [
-            "A",
-            "B",
-            "id23",
+            "id22",
             "location",
             "compileunit:example.cpp->function:_Z3fun1NPS_->parameter:x->location:framebase-48"
         ],
         [
             "A",
             "B",
-            "id24",
+            "id23",
             "order",
             "compileunit:example.cpp->function:_Z3fun1NPS_->parameter:x->order:0"
-        ],
-        [
-            "A",
-            "B",
-            "id26",
-            "size",
-            "compileunit:example.cpp->function:_Z3fun1NPS_->parameter:z->size:0"
         ],
         [
             "A",
@@ -46,3 +32,4 @@
         ]
     ]
 }
+
