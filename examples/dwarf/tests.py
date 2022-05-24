@@ -66,10 +66,6 @@ def test_examples(tmp_path, name, lib1, lib2):
     else:
         utils.write_json(runner.facts.B.to_dict(), facts_B)
 
-    if name == "function":
-        import IPython
-
-        IPython.embed()
     # Compare with our expected results
     expected = os.path.join(here, "lib", name, "compspec.json")
     if os.path.exists(expected):
