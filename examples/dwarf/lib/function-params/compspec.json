@@ -5,35 +5,59 @@
             "B",
             "id3",
             "function",
-            "compileunit:example.cpp->namespace:Example->function:ReturnRemove"
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example12ReturnRemoveEdd"
         ],
         [
             "A",
             "B",
             "id6",
             "function",
-            "compileunit:example.cpp->namespace:Example->function:ReturnChange"
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example12ReturnChangeEdd"
         ],
         [
             "A",
             "B",
             "id9",
             "function",
-            "compileunit:example.cpp->namespace:Example->function:Change"
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6ChangeEdd"
         ],
         [
             "A",
             "B",
             "id12",
             "function",
-            "compileunit:example.cpp->namespace:Example->function:Remove"
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6RemoveEdd"
         ],
         [
             "A",
             "B",
             "id15",
             "function",
-            "compileunit:example.cpp->namespace:Example->function:Add"
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example3AddEdd"
+        ],
+        [
+            "A",
+            "B",
+            "id9",
+            "function",
+            "_ZN7Example6ChangeEdd",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6ChangeEdd"
+        ],
+        [
+            "A",
+            "B",
+            "id12",
+            "function",
+            "_ZN7Example6RemoveEdd",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6RemoveEdd"
+        ],
+        [
+            "A",
+            "B",
+            "id15",
+            "function",
+            "_ZN7Example3AddEdd",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example3AddEdd"
         ]
     ],
     "added_node": [
@@ -424,10 +448,34 @@
         [
             "A",
             "B",
+            "id1753",
+            "function",
+            "_ZN7Example6ChangeEdi",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6ChangeEdi"
+        ],
+        [
+            "A",
+            "B",
+            "id1756",
+            "function",
+            "_ZN7Example6RemoveEd",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6RemoveEd"
+        ],
+        [
+            "A",
+            "B",
+            "id1758",
+            "function",
+            "_ZN7Example3AddEddd",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example3AddEddd"
+        ],
+        [
+            "A",
+            "B",
             "id1785",
             "parameter",
             "c",
-            "compileunit:example.cpp->namespace:Example->function:Change->parameter:c"
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6ChangeEdi->parameter:c"
         ],
         [
             "A",
@@ -435,7 +483,7 @@
             "id1787",
             "type",
             "int",
-            "compileunit:example.cpp->namespace:Example->function:Change->parameter:c->type:int"
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6ChangeEdi->parameter:c->type:int"
         ],
         [
             "A",
@@ -443,7 +491,7 @@
             "id1788",
             "location",
             "framebase-28",
-            "compileunit:example.cpp->namespace:Example->function:Change->parameter:c->location:framebase-28"
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6ChangeEdi->parameter:c->location:framebase-28"
         ],
         [
             "A",
@@ -451,7 +499,7 @@
             "id1803",
             "parameter",
             "c",
-            "compileunit:example.cpp->namespace:Example->function:Add->parameter:c"
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example3AddEddd->parameter:c"
         ],
         [
             "A",
@@ -459,7 +507,8 @@
             "id1806",
             "location",
             "framebase-40",
-            "compileunit:example.cpp->namespace:Example->function:Add->parameter:c->location:framebase-40"
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example3AddEddd->parameter:c->location:framebase-40"
         ]
     ]
 }
+

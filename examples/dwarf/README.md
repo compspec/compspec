@@ -11,11 +11,13 @@ and that's it! We are also trying to capture a list of basic tests that represen
 ABI changes, including:
 
  - [lib/libmath](lib/libmath): A C++ function parameter type is changed
- - [lib/struct](lib/struct): A type is changed in a struct (same order and name)
  - [lib/callsite](lib/callsite): A function used as a callsite is renamed
  - [lib/classinheritance](lib/classinheritance): An inherited class ordering is changed 
  - [lib/classorder](lib/classorder): Order of classes provided to function are flipped.
- - [lib/function-params](lib/function-params): changed function parameters. Note that changed namespaces (direct comparison) aren't important for this model.
+ - [lib/function-params](lib/function-params): changed function parameters.
+ - [lib/struct-change](lib/struct-change): A type is changed in a struct (same order and name)
+ - [lib/struct-add](lib/struct-add): A field is added to a struct 
+ - [lib/struct-remove](lib/struct-remove): A field is removed a struct 
 
 Note that you should have `c++filt` on your system to demangle names.
 Yes, it's kind of rough / hacky but we could always write this in a different
@@ -25,7 +27,6 @@ language if absolutely necessary.
 
 Examples to add include:
 
- - add/remove/change struct member
  - cycle-handling
  - changing a named struct to anonymous
  - changing an anonymous struct to named
