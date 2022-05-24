@@ -1,6 +1,0 @@
-.eggs
-compspec.egg-info
-*.so
-__pycache__
-env
-dist
