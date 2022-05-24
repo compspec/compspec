@@ -29,7 +29,6 @@ jobs:
           rm spec.md
           wget https://raw.githubusercontent.com/compspec/spec/main/spec.md
           make html
-          cp -R ../.git _build/html/.git
           rm -rf $root
           mv _build/html $root
           cd $root
