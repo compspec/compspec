@@ -16,6 +16,8 @@ jobs:
         run: conda create --quiet -c conda-forge --name comp
 
       - name: Install Compspec and Dependencies
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           export PATH="/usr/share/miniconda/bin:$PATH"
           root=$PWD
@@ -33,6 +35,8 @@ jobs:
           rm -rf $root
           mv _build/html $root
           cd $root
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@users.noreply.github.com"
           touch .nojekyll
           ls
 
