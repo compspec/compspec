@@ -1,0 +1,601 @@
+{
+    "nodes": [
+        {
+            "nodeid": "id0",
+            "name": "compileunit",
+            "value": "example.cpp"
+        },
+        {
+            "nodeid": "id1",
+            "name": "language",
+            "value": "4\t(C++)"
+        },
+        {
+            "nodeid": "id2",
+            "name": "structure",
+            "value": "vector3"
+        },
+        {
+            "nodeid": "id3",
+            "name": "size",
+            "value": 12
+        },
+        {
+            "nodeid": "id4",
+            "name": "union",
+            "value": "unknown"
+        },
+        {
+            "nodeid": "id5",
+            "name": "size",
+            "value": 12
+        },
+        {
+            "nodeid": "id6",
+            "name": "structure",
+            "value": "unknown"
+        },
+        {
+            "nodeid": "id7",
+            "name": "size",
+            "value": 12
+        },
+        {
+            "nodeid": "id8",
+            "name": "member",
+            "value": "x"
+        },
+        {
+            "nodeid": "id9",
+            "name": "type",
+            "value": "float"
+        },
+        {
+            "nodeid": "id10",
+            "name": "order",
+            "value": 0
+        },
+        {
+            "nodeid": "id11",
+            "name": "member",
+            "value": "y"
+        },
+        {
+            "nodeid": "id12",
+            "name": "type",
+            "value": "float"
+        },
+        {
+            "nodeid": "id13",
+            "name": "order",
+            "value": 1
+        },
+        {
+            "nodeid": "id14",
+            "name": "member",
+            "value": "z"
+        },
+        {
+            "nodeid": "id15",
+            "name": "type",
+            "value": "float"
+        },
+        {
+            "nodeid": "id16",
+            "name": "order",
+            "value": 2
+        },
+        {
+            "nodeid": "id17",
+            "name": "member",
+            "value": "unknown"
+        },
+        {
+            "nodeid": "id18",
+            "name": "type",
+            "value": "unknown"
+        },
+        {
+            "nodeid": "id19",
+            "name": "order",
+            "value": 1
+        },
+        {
+            "nodeid": "id20",
+            "name": "member",
+            "value": "v"
+        },
+        {
+            "nodeid": "id21",
+            "name": "type",
+            "value": "array"
+        },
+        {
+            "nodeid": "id22",
+            "name": "membertype",
+            "value": "float"
+        },
+        {
+            "nodeid": "id23",
+            "name": "order",
+            "value": 2
+        },
+        {
+            "nodeid": "id24",
+            "name": "member",
+            "value": "unknown"
+        },
+        {
+            "nodeid": "id25",
+            "name": "type",
+            "value": "unknown"
+        },
+        {
+            "nodeid": "id26",
+            "name": "order",
+            "value": 1
+        },
+        {
+            "nodeid": "id27",
+            "name": "basetype",
+            "value": "float"
+        },
+        {
+            "nodeid": "id28",
+            "name": "size",
+            "value": 4
+        },
+        {
+            "nodeid": "id31",
+            "name": "basetype",
+            "value": "long unsigned int"
+        },
+        {
+            "nodeid": "id32",
+            "name": "size",
+            "value": 8
+        },
+        {
+            "nodeid": "id33",
+            "name": "function",
+            "value": "_Z3fun7vector3PS_"
+        },
+        {
+            "nodeid": "id34",
+            "name": "parameter",
+            "value": "x"
+        },
+        {
+            "nodeid": "id35",
+            "name": "type",
+            "value": "vector3"
+        },
+        {
+            "nodeid": "id36",
+            "name": "location",
+            "value": "framebase-32"
+        },
+        {
+            "nodeid": "id37",
+            "name": "order",
+            "value": 0
+        },
+        {
+            "nodeid": "id38",
+            "name": "parameter",
+            "value": "y"
+        },
+        {
+            "nodeid": "id39",
+            "name": "type",
+            "value": "vector3"
+        },
+        {
+            "nodeid": "id40",
+            "name": "location",
+            "value": "framebase-40"
+        },
+        {
+            "nodeid": "id41",
+            "name": "order",
+            "value": 1
+        },
+        {
+            "nodeid": "id42",
+            "name": "basetype",
+            "value": "int"
+        },
+        {
+            "nodeid": "id43",
+            "name": "size",
+            "value": 4
+        },
+        {
+            "nodeid": "id44",
+            "name": "pointer",
+            "value": "unknown"
+        },
+        {
+            "nodeid": "id45",
+            "name": "size",
+            "value": 8
+        }
+    ],
+    "relations": [
+        {
+            "fromid": "id0",
+            "relation": "has",
+            "toid": "id1"
+        },
+        {
+            "fromid": "id0",
+            "relation": "has",
+            "toid": "id2"
+        },
+        {
+            "fromid": "id2",
+            "relation": "has",
+            "toid": "id3"
+        },
+        {
+            "fromid": "id2",
+            "relation": "has",
+            "toid": "id3"
+        },
+        {
+            "fromid": "id2",
+            "relation": "has",
+            "toid": "id4"
+        },
+        {
+            "fromid": "id4",
+            "relation": "has",
+            "toid": "id5"
+        },
+        {
+            "fromid": "id4",
+            "relation": "has",
+            "toid": "id5"
+        },
+        {
+            "fromid": "id4",
+            "relation": "has",
+            "toid": "id6"
+        },
+        {
+            "fromid": "id6",
+            "relation": "has",
+            "toid": "id7"
+        },
+        {
+            "fromid": "id6",
+            "relation": "has",
+            "toid": "id7"
+        },
+        {
+            "fromid": "id8",
+            "relation": "has",
+            "toid": "id9"
+        },
+        {
+            "fromid": "id8",
+            "relation": "has",
+            "toid": "id9"
+        },
+        {
+            "fromid": "id6",
+            "relation": "has",
+            "toid": "id8"
+        },
+        {
+            "fromid": "id8",
+            "relation": "has",
+            "toid": "id10"
+        },
+        {
+            "fromid": "id8",
+            "relation": "has",
+            "toid": "id10"
+        },
+        {
+            "fromid": "id8",
+            "relation": "has",
+            "toid": "id10"
+        },
+        {
+            "fromid": "id11",
+            "relation": "has",
+            "toid": "id12"
+        },
+        {
+            "fromid": "id11",
+            "relation": "has",
+            "toid": "id12"
+        },
+        {
+            "fromid": "id6",
+            "relation": "has",
+            "toid": "id11"
+        },
+        {
+            "fromid": "id11",
+            "relation": "has",
+            "toid": "id13"
+        },
+        {
+            "fromid": "id11",
+            "relation": "has",
+            "toid": "id13"
+        },
+        {
+            "fromid": "id11",
+            "relation": "has",
+            "toid": "id13"
+        },
+        {
+            "fromid": "id14",
+            "relation": "has",
+            "toid": "id15"
+        },
+        {
+            "fromid": "id14",
+            "relation": "has",
+            "toid": "id15"
+        },
+        {
+            "fromid": "id6",
+            "relation": "has",
+            "toid": "id14"
+        },
+        {
+            "fromid": "id14",
+            "relation": "has",
+            "toid": "id16"
+        },
+        {
+            "fromid": "id14",
+            "relation": "has",
+            "toid": "id16"
+        },
+        {
+            "fromid": "id14",
+            "relation": "has",
+            "toid": "id16"
+        },
+        {
+            "fromid": "id17",
+            "relation": "has",
+            "toid": "id18"
+        },
+        {
+            "fromid": "id17",
+            "relation": "has",
+            "toid": "id18"
+        },
+        {
+            "fromid": "id4",
+            "relation": "has",
+            "toid": "id17"
+        },
+        {
+            "fromid": "id17",
+            "relation": "has",
+            "toid": "id19"
+        },
+        {
+            "fromid": "id17",
+            "relation": "has",
+            "toid": "id19"
+        },
+        {
+            "fromid": "id17",
+            "relation": "has",
+            "toid": "id19"
+        },
+        {
+            "fromid": "id20",
+            "relation": "has",
+            "toid": "id21"
+        },
+        {
+            "fromid": "id20",
+            "relation": "has",
+            "toid": "id21"
+        },
+        {
+            "fromid": "id20",
+            "relation": "has",
+            "toid": "id22"
+        },
+        {
+            "fromid": "id20",
+            "relation": "has",
+            "toid": "id22"
+        },
+        {
+            "fromid": "id4",
+            "relation": "has",
+            "toid": "id20"
+        },
+        {
+            "fromid": "id20",
+            "relation": "has",
+            "toid": "id23"
+        },
+        {
+            "fromid": "id20",
+            "relation": "has",
+            "toid": "id23"
+        },
+        {
+            "fromid": "id20",
+            "relation": "has",
+            "toid": "id23"
+        },
+        {
+            "fromid": "id24",
+            "relation": "has",
+            "toid": "id25"
+        },
+        {
+            "fromid": "id24",
+            "relation": "has",
+            "toid": "id25"
+        },
+        {
+            "fromid": "id2",
+            "relation": "has",
+            "toid": "id24"
+        },
+        {
+            "fromid": "id24",
+            "relation": "has",
+            "toid": "id26"
+        },
+        {
+            "fromid": "id24",
+            "relation": "has",
+            "toid": "id26"
+        },
+        {
+            "fromid": "id24",
+            "relation": "has",
+            "toid": "id26"
+        },
+        {
+            "fromid": "id0",
+            "relation": "has",
+            "toid": "id27"
+        },
+        {
+            "fromid": "id27",
+            "relation": "has",
+            "toid": "id28"
+        },
+        {
+            "fromid": "id27",
+            "relation": "has",
+            "toid": "id28"
+        },
+        {
+            "fromid": "id0",
+            "relation": "has",
+            "toid": "id31"
+        },
+        {
+            "fromid": "id31",
+            "relation": "has",
+            "toid": "id32"
+        },
+        {
+            "fromid": "id31",
+            "relation": "has",
+            "toid": "id32"
+        },
+        {
+            "fromid": "id0",
+            "relation": "has",
+            "toid": "id33"
+        },
+        {
+            "fromid": "id33",
+            "relation": "has",
+            "toid": "id34"
+        },
+        {
+            "fromid": "id34",
+            "relation": "has",
+            "toid": "id35"
+        },
+        {
+            "fromid": "id34",
+            "relation": "has",
+            "toid": "id35"
+        },
+        {
+            "fromid": "id34",
+            "relation": "has",
+            "toid": "id36"
+        },
+        {
+            "fromid": "id34",
+            "relation": "has",
+            "toid": "id36"
+        },
+        {
+            "fromid": "id34",
+            "relation": "has",
+            "toid": "id37"
+        },
+        {
+            "fromid": "id34",
+            "relation": "has",
+            "toid": "id37"
+        },
+        {
+            "fromid": "id33",
+            "relation": "has",
+            "toid": "id38"
+        },
+        {
+            "fromid": "id38",
+            "relation": "has",
+            "toid": "id39"
+        },
+        {
+            "fromid": "id38",
+            "relation": "has",
+            "toid": "id39"
+        },
+        {
+            "fromid": "id38",
+            "relation": "has",
+            "toid": "id40"
+        },
+        {
+            "fromid": "id38",
+            "relation": "has",
+            "toid": "id40"
+        },
+        {
+            "fromid": "id38",
+            "relation": "has",
+            "toid": "id41"
+        },
+        {
+            "fromid": "id38",
+            "relation": "has",
+            "toid": "id41"
+        },
+        {
+            "fromid": "id0",
+            "relation": "has",
+            "toid": "id42"
+        },
+        {
+            "fromid": "id42",
+            "relation": "has",
+            "toid": "id43"
+        },
+        {
+            "fromid": "id42",
+            "relation": "has",
+            "toid": "id43"
+        },
+        {
+            "fromid": "id0",
+            "relation": "has",
+            "toid": "id44"
+        },
+        {
+            "fromid": "id44",
+            "relation": "has",
+            "toid": "id45"
+        },
+        {
+            "fromid": "id44",
+            "relation": "has",
+            "toid": "id45"
+        }
+    ]
+}
