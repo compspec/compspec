@@ -31,7 +31,7 @@ class CompositionBase:
             result.answers = self.prepare_result(result.answers)
         return result.answers
 
-    def _load_logic_programs(self, logic_programs=None):
+    def _load_logic_programs(self, logic_programs=None, omit_default=False):
         """
         Load user- and class- provided logic programs.
         """
@@ -39,17 +39,19 @@ class CompositionBase:
         logic_programs = logic_programs or []
         if isinstance(logic_programs, str):
             logic_programs = [logic_programs]
-        logic_programs += getattr(self, "_logic_programs", [])
+        if not omit_default:
+            logic_programs += getattr(self, "_logic_programs", [])
         if logic_programs:
             logic_programs = compspec.lp.get_facts(logic_programs)
         return logic_programs
 
-    def run(self, logic_programs=None, quiet=False):
+    def run(self, logic_programs=None, quiet=False, omit_default=False):
         """
         Run of a composition will output ASP facts, unless a logic program
-        is provided then we do this full solve.
+        is provided then we do this full solve. Omit defaut logic programs
+        (if defined) given omit_default is True.
         """
-        logic_programs = self._load_logic_programs(logic_programs)
+        logic_programs = self._load_logic_programs(logic_programs, omit_default)
         return self.solve(logic_programs=logic_programs)
 
 
