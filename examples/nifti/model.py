@@ -42,12 +42,12 @@ class NiftiGraphs(compspec.graph.GraphGroup):
         data = self.nii.get_data()
 
         # Since we cannot represent floats, we need to apply scale
-        # Yes this isn't precise, it's an example        
+        # Yes this isn't precise, it's an example
         for x in range(data.shape[0]):
             for y in range(data.shape[1]):
                 for z in range(data.shape[2]):
                     voxel, _ = g.gen("voxel", f"{x}.{y}.{z}", parent=root.nodeid)
-                    g.gen("value", int(data[x,y,z] * 100), parent=voxel.nodeid)
+                    g.gen("value", int(data[x, y, z] * 100), parent=voxel.nodeid)
 
         self.graphs["image"] = g
 

@@ -17,26 +17,6 @@ And then run the example
 $ python run.py
 ```
 ```
-Result for image7.dcm vs. image1.dcm group 'header'
-{}
-Result for image7.dcm vs. image4.dcm group 'header'
-{
-    "changed_node_value": [
-        [
-            "A",
-            "B",
-            "id12",
-            "id12",
-            "field-value",
-            "F",
-            "M",
-            "header:image->field:(0010, 0040)->field-name:PatientSex->field-value:F",
-            "header:image->field:(0010, 0040)->field-name:PatientSex->field-value:M"
-        ]
-    ]
-}
-Result for image1.dcm vs. image7.dcm group 'header'
-{}
 Result for image1.dcm vs. image4.dcm group 'header'
 {
     "changed_node_value": [
@@ -50,22 +30,6 @@ Result for image1.dcm vs. image4.dcm group 'header'
             "M",
             "header:image->field:(0010, 0040)->field-name:PatientSex->field-value:F",
             "header:image->field:(0010, 0040)->field-name:PatientSex->field-value:M"
-        ]
-    ]
-}
-Result for image4.dcm vs. image7.dcm group 'header'
-{
-    "changed_node_value": [
-        [
-            "A",
-            "B",
-            "id12",
-            "id12",
-            "field-value",
-            "M",
-            "F",
-            "header:image->field:(0010, 0040)->field-name:PatientSex->field-value:M",
-            "header:image->field:(0010, 0040)->field-name:PatientSex->field-value:F"
         ]
     ]
 }

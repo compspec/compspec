@@ -27,7 +27,7 @@ def main():
     for nameA, A in graphs.items():
         for nameB, B in graphs.items():
             if nameA == nameB:
-                continue    
+                continue
             for group, graph in A:
                 if group in B:
                     gA = A[group]
