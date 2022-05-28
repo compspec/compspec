@@ -59,6 +59,7 @@ class FactGenerator:
     """
     The FactGenerator generates facts for one graph.
     """
+
     def generate_facts(self, g, ns):
         """
         Generate facts for a namespaced graph

@@ -142,7 +142,7 @@ class Graph:
         Yield nodes. If a comparison is being done, a namespace needs to be
         added (e.g., node, namespace, *args)
         """
-        for _, node in self.nodes.items():            
+        for _, node in self.nodes.items():
             yield node.args + (self.lookup.get(node.nodeid, ""),)
 
     def iter_relations(self):
