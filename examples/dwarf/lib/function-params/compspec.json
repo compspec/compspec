@@ -3,20 +3,6 @@
         [
             "A",
             "B",
-            "id3",
-            "function",
-            "compileunit:example.cpp->namespace:Example->function:_ZN7Example12ReturnRemoveEdd"
-        ],
-        [
-            "A",
-            "B",
-            "id6",
-            "function",
-            "compileunit:example.cpp->namespace:Example->function:_ZN7Example12ReturnChangeEdd"
-        ],
-        [
-            "A",
-            "B",
             "id9",
             "function",
             "compileunit:example.cpp->namespace:Example->function:_ZN7Example6ChangeEdd"
@@ -58,13 +44,157 @@
             "function",
             "_ZN7Example3AddEdd",
             "compileunit:example.cpp->namespace:Example->function:_ZN7Example3AddEdd"
+        ],
+        [
+            "A",
+            "B",
+            "id35",
+            "parameter",
+            "a",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6ChangeEdd->parameter:a"
+        ],
+        [
+            "A",
+            "B",
+            "id36",
+            "type",
+            "double",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6ChangeEdd->parameter:a->type:double"
+        ],
+        [
+            "A",
+            "B",
+            "id37",
+            "location",
+            "framebase-24",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6ChangeEdd->parameter:a->location:framebase-24"
+        ],
+        [
+            "A",
+            "B",
+            "id38",
+            "parameter",
+            "b",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6ChangeEdd->parameter:b"
+        ],
+        [
+            "A",
+            "B",
+            "id39",
+            "type",
+            "double",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6ChangeEdd->parameter:b->type:double"
+        ],
+        [
+            "A",
+            "B",
+            "id40",
+            "location",
+            "framebase-32",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6ChangeEdd->parameter:b->location:framebase-32"
+        ],
+        [
+            "A",
+            "B",
+            "id42",
+            "parameter",
+            "a",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6RemoveEdd->parameter:a"
+        ],
+        [
+            "A",
+            "B",
+            "id43",
+            "type",
+            "double",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6RemoveEdd->parameter:a->type:double"
+        ],
+        [
+            "A",
+            "B",
+            "id44",
+            "location",
+            "framebase-24",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6RemoveEdd->parameter:a->location:framebase-24"
+        ],
+        [
+            "A",
+            "B",
+            "id45",
+            "parameter",
+            "b",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6RemoveEdd->parameter:b"
+        ],
+        [
+            "A",
+            "B",
+            "id46",
+            "type",
+            "double",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6RemoveEdd->parameter:b->type:double"
+        ],
+        [
+            "A",
+            "B",
+            "id47",
+            "location",
+            "framebase-32",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6RemoveEdd->parameter:b->location:framebase-32"
+        ],
+        [
+            "A",
+            "B",
+            "id49",
+            "parameter",
+            "a",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example3AddEdd->parameter:a"
+        ],
+        [
+            "A",
+            "B",
+            "id50",
+            "type",
+            "double",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example3AddEdd->parameter:a->type:double"
+        ],
+        [
+            "A",
+            "B",
+            "id51",
+            "location",
+            "framebase-24",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example3AddEdd->parameter:a->location:framebase-24"
+        ],
+        [
+            "A",
+            "B",
+            "id52",
+            "parameter",
+            "b",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example3AddEdd->parameter:b"
+        ],
+        [
+            "A",
+            "B",
+            "id53",
+            "type",
+            "double",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example3AddEdd->parameter:b->type:double"
+        ],
+        [
+            "A",
+            "B",
+            "id54",
+            "location",
+            "framebase-32",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example3AddEdd->parameter:b->location:framebase-32"
         ]
     ],
     "added_node": [
         [
             "A",
             "B",
-            "id651",
+            "id634",
             "basetype",
             "float",
             "compileunit:example.cpp->basetype:float"
@@ -72,7 +202,7 @@
         [
             "A",
             "B",
-            "id652",
+            "id635",
             "size",
             "4",
             "compileunit:example.cpp->basetype:float->size:4"
@@ -80,7 +210,7 @@
         [
             "A",
             "B",
-            "id655",
+            "id638",
             "basetype",
             "long double",
             "compileunit:example.cpp->basetype:long double"
@@ -88,7 +218,7 @@
         [
             "A",
             "B",
-            "id656",
+            "id639",
             "size",
             "16",
             "compileunit:example.cpp->basetype:long double->size:16"
@@ -96,7 +226,7 @@
         [
             "A",
             "B",
-            "id659",
+            "id642",
             "basetype",
             "long unsigned int",
             "compileunit:example.cpp->basetype:long unsigned int"
@@ -104,7 +234,15 @@
         [
             "A",
             "B",
-            "id661",
+            "id643",
+            "size",
+            "8",
+            "compileunit:example.cpp->basetype:long unsigned int->size:8"
+        ],
+        [
+            "A",
+            "B",
+            "id644",
             "const",
             "long unsigned int",
             "compileunit:example.cpp->const:long unsigned int"
@@ -112,7 +250,7 @@
         [
             "A",
             "B",
-            "id676",
+            "id659",
             "basetype",
             "unsigned int",
             "compileunit:example.cpp->basetype:unsigned int"
@@ -120,7 +258,7 @@
         [
             "A",
             "B",
-            "id677",
+            "id660",
             "size",
             "4",
             "compileunit:example.cpp->basetype:unsigned int->size:4"
@@ -128,7 +266,7 @@
         [
             "A",
             "B",
-            "id701",
+            "id684",
             "basetype",
             "char",
             "compileunit:example.cpp->basetype:char"
@@ -136,7 +274,7 @@
         [
             "A",
             "B",
-            "id702",
+            "id685",
             "size",
             "1",
             "compileunit:example.cpp->basetype:char->size:1"
@@ -144,7 +282,7 @@
         [
             "A",
             "B",
-            "id703",
+            "id686",
             "const",
             "char",
             "compileunit:example.cpp->const:char"
@@ -152,7 +290,7 @@
         [
             "A",
             "B",
-            "id704",
+            "id687",
             "basetype",
             "int",
             "compileunit:example.cpp->basetype:int"
@@ -160,7 +298,7 @@
         [
             "A",
             "B",
-            "id705",
+            "id688",
             "size",
             "4",
             "compileunit:example.cpp->basetype:int->size:4"
@@ -168,7 +306,7 @@
         [
             "A",
             "B",
-            "id706",
+            "id689",
             "const",
             "int",
             "compileunit:example.cpp->const:int"
@@ -176,7 +314,7 @@
         [
             "A",
             "B",
-            "id807",
+            "id790",
             "basetype",
             "short unsigned int",
             "compileunit:example.cpp->basetype:short unsigned int"
@@ -184,7 +322,7 @@
         [
             "A",
             "B",
-            "id808",
+            "id791",
             "size",
             "2",
             "compileunit:example.cpp->basetype:short unsigned int->size:2"
@@ -192,7 +330,7 @@
         [
             "A",
             "B",
-            "id811",
+            "id794",
             "const",
             "*char",
             "compileunit:example.cpp->const:*char"
@@ -200,7 +338,7 @@
         [
             "A",
             "B",
-            "id824",
+            "id807",
             "basetype",
             "wchar_t",
             "compileunit:example.cpp->basetype:wchar_t"
@@ -208,7 +346,7 @@
         [
             "A",
             "B",
-            "id825",
+            "id808",
             "size",
             "4",
             "compileunit:example.cpp->basetype:wchar_t->size:4"
@@ -216,7 +354,7 @@
         [
             "A",
             "B",
-            "id826",
+            "id809",
             "const",
             "wchar_t",
             "compileunit:example.cpp->const:wchar_t"
@@ -224,7 +362,7 @@
         [
             "A",
             "B",
-            "id976",
+            "id959",
             "const",
             "tm",
             "compileunit:example.cpp->const:tm"
@@ -232,7 +370,7 @@
         [
             "A",
             "B",
-            "id1017",
+            "id1000",
             "basetype",
             "long int",
             "compileunit:example.cpp->basetype:long int"
@@ -240,7 +378,15 @@
         [
             "A",
             "B",
-            "id1019",
+            "id1001",
+            "size",
+            "8",
+            "compileunit:example.cpp->basetype:long int->size:8"
+        ],
+        [
+            "A",
+            "B",
+            "id1002",
             "const",
             "long int",
             "compileunit:example.cpp->const:long int"
@@ -248,7 +394,7 @@
         [
             "A",
             "B",
-            "id1091",
+            "id1074",
             "basetype",
             "long long int",
             "compileunit:example.cpp->basetype:long long int"
@@ -256,7 +402,15 @@
         [
             "A",
             "B",
-            "id1097",
+            "id1075",
+            "size",
+            "8",
+            "compileunit:example.cpp->basetype:long long int->size:8"
+        ],
+        [
+            "A",
+            "B",
+            "id1080",
             "basetype",
             "long long unsigned int",
             "compileunit:example.cpp->basetype:long long unsigned int"
@@ -264,7 +418,15 @@
         [
             "A",
             "B",
-            "id1099",
+            "id1081",
+            "size",
+            "8",
+            "compileunit:example.cpp->basetype:long long unsigned int->size:8"
+        ],
+        [
+            "A",
+            "B",
+            "id1082",
             "unspecified_type",
             "decltype(nullptr)",
             "compileunit:example.cpp->unspecified_type:decltype(nullptr)"
@@ -272,7 +434,7 @@
         [
             "A",
             "B",
-            "id1115",
+            "id1098",
             "basetype",
             "bool",
             "compileunit:example.cpp->basetype:bool"
@@ -280,7 +442,7 @@
         [
             "A",
             "B",
-            "id1116",
+            "id1099",
             "size",
             "1",
             "compileunit:example.cpp->basetype:bool->size:1"
@@ -288,7 +450,7 @@
         [
             "A",
             "B",
-            "id1117",
+            "id1100",
             "const",
             "bool",
             "compileunit:example.cpp->const:bool"
@@ -296,7 +458,7 @@
         [
             "A",
             "B",
-            "id1124",
+            "id1107",
             "basetype",
             "unsigned char",
             "compileunit:example.cpp->basetype:unsigned char"
@@ -304,7 +466,7 @@
         [
             "A",
             "B",
-            "id1125",
+            "id1108",
             "size",
             "1",
             "compileunit:example.cpp->basetype:unsigned char->size:1"
@@ -312,7 +474,7 @@
         [
             "A",
             "B",
-            "id1128",
+            "id1111",
             "basetype",
             "signed char",
             "compileunit:example.cpp->basetype:signed char"
@@ -320,7 +482,7 @@
         [
             "A",
             "B",
-            "id1129",
+            "id1112",
             "size",
             "1",
             "compileunit:example.cpp->basetype:signed char->size:1"
@@ -328,7 +490,7 @@
         [
             "A",
             "B",
-            "id1130",
+            "id1113",
             "basetype",
             "short int",
             "compileunit:example.cpp->basetype:short int"
@@ -336,7 +498,7 @@
         [
             "A",
             "B",
-            "id1131",
+            "id1114",
             "size",
             "2",
             "compileunit:example.cpp->basetype:short int->size:2"
@@ -344,7 +506,7 @@
         [
             "A",
             "B",
-            "id1132",
+            "id1115",
             "const",
             "short int",
             "compileunit:example.cpp->const:short int"
@@ -352,7 +514,7 @@
         [
             "A",
             "B",
-            "id1135",
+            "id1118",
             "basetype",
             "char16_t",
             "compileunit:example.cpp->basetype:char16_t"
@@ -360,7 +522,7 @@
         [
             "A",
             "B",
-            "id1136",
+            "id1119",
             "size",
             "2",
             "compileunit:example.cpp->basetype:char16_t->size:2"
@@ -368,7 +530,7 @@
         [
             "A",
             "B",
-            "id1137",
+            "id1120",
             "basetype",
             "char32_t",
             "compileunit:example.cpp->basetype:char32_t"
@@ -376,7 +538,7 @@
         [
             "A",
             "B",
-            "id1138",
+            "id1121",
             "size",
             "4",
             "compileunit:example.cpp->basetype:char32_t->size:4"
@@ -384,7 +546,7 @@
         [
             "A",
             "B",
-            "id1141",
+            "id1124",
             "variable",
             "piecewise_construct",
             "compileunit:example.cpp->variable:piecewise_construct"
@@ -392,7 +554,7 @@
         [
             "A",
             "B",
-            "id1182",
+            "id1164",
             "const",
             "int",
             "compileunit:example.cpp->const:int"
@@ -400,7 +562,7 @@
         [
             "A",
             "B",
-            "id1411",
+            "id1386",
             "subroutine",
             "int",
             "compileunit:example.cpp->subroutine:int"
@@ -408,7 +570,7 @@
         [
             "A",
             "B",
-            "id1412",
+            "id1387",
             "type",
             "int",
             "compileunit:example.cpp->subroutine:int->type:int"
@@ -416,7 +578,7 @@
         [
             "A",
             "B",
-            "id1516",
+            "id1491",
             "structure",
             "_IO_marker",
             "compileunit:example.cpp->structure:_IO_marker"
@@ -424,7 +586,7 @@
         [
             "A",
             "B",
-            "id1525",
+            "id1500",
             "structure",
             "_IO_codecvt",
             "compileunit:example.cpp->structure:_IO_codecvt"
@@ -432,7 +594,7 @@
         [
             "A",
             "B",
-            "id1528",
+            "id1503",
             "structure",
             "_IO_wide_data",
             "compileunit:example.cpp->structure:_IO_wide_data"
@@ -440,7 +602,7 @@
         [
             "A",
             "B",
-            "id1535",
+            "id1510",
             "const",
             "_G_fpos_t",
             "compileunit:example.cpp->const:_G_fpos_t"
@@ -448,7 +610,7 @@
         [
             "A",
             "B",
-            "id1753",
+            "id1693",
             "function",
             "_ZN7Example6ChangeEdi",
             "compileunit:example.cpp->namespace:Example->function:_ZN7Example6ChangeEdi"
@@ -456,7 +618,7 @@
         [
             "A",
             "B",
-            "id1756",
+            "id1696",
             "function",
             "_ZN7Example6RemoveEd",
             "compileunit:example.cpp->namespace:Example->function:_ZN7Example6RemoveEd"
@@ -464,7 +626,7 @@
         [
             "A",
             "B",
-            "id1758",
+            "id1698",
             "function",
             "_ZN7Example3AddEddd",
             "compileunit:example.cpp->namespace:Example->function:_ZN7Example3AddEddd"
@@ -472,7 +634,31 @@
         [
             "A",
             "B",
-            "id1785",
+            "id1717",
+            "parameter",
+            "a",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6ChangeEdi->parameter:a"
+        ],
+        [
+            "A",
+            "B",
+            "id1718",
+            "type",
+            "double",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6ChangeEdi->parameter:a->type:double"
+        ],
+        [
+            "A",
+            "B",
+            "id1719",
+            "location",
+            "framebase-24",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6ChangeEdi->parameter:a->location:framebase-24"
+        ],
+        [
+            "A",
+            "B",
+            "id1720",
             "parameter",
             "c",
             "compileunit:example.cpp->namespace:Example->function:_ZN7Example6ChangeEdi->parameter:c"
@@ -480,7 +666,7 @@
         [
             "A",
             "B",
-            "id1787",
+            "id1721",
             "type",
             "int",
             "compileunit:example.cpp->namespace:Example->function:_ZN7Example6ChangeEdi->parameter:c->type:int"
@@ -488,7 +674,7 @@
         [
             "A",
             "B",
-            "id1788",
+            "id1722",
             "location",
             "framebase-28",
             "compileunit:example.cpp->namespace:Example->function:_ZN7Example6ChangeEdi->parameter:c->location:framebase-28"
@@ -496,7 +682,79 @@
         [
             "A",
             "B",
-            "id1803",
+            "id1724",
+            "parameter",
+            "a",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6RemoveEd->parameter:a"
+        ],
+        [
+            "A",
+            "B",
+            "id1725",
+            "type",
+            "double",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6RemoveEd->parameter:a->type:double"
+        ],
+        [
+            "A",
+            "B",
+            "id1726",
+            "location",
+            "framebase-24",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6RemoveEd->parameter:a->location:framebase-24"
+        ],
+        [
+            "A",
+            "B",
+            "id1728",
+            "parameter",
+            "a",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example3AddEddd->parameter:a"
+        ],
+        [
+            "A",
+            "B",
+            "id1729",
+            "type",
+            "double",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example3AddEddd->parameter:a->type:double"
+        ],
+        [
+            "A",
+            "B",
+            "id1730",
+            "location",
+            "framebase-24",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example3AddEddd->parameter:a->location:framebase-24"
+        ],
+        [
+            "A",
+            "B",
+            "id1731",
+            "parameter",
+            "b",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example3AddEddd->parameter:b"
+        ],
+        [
+            "A",
+            "B",
+            "id1732",
+            "type",
+            "double",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example3AddEddd->parameter:b->type:double"
+        ],
+        [
+            "A",
+            "B",
+            "id1733",
+            "location",
+            "framebase-32",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example3AddEddd->parameter:b->location:framebase-32"
+        ],
+        [
+            "A",
+            "B",
+            "id1734",
             "parameter",
             "c",
             "compileunit:example.cpp->namespace:Example->function:_ZN7Example3AddEddd->parameter:c"
@@ -504,11 +762,18 @@
         [
             "A",
             "B",
-            "id1806",
+            "id1735",
+            "type",
+            "double",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example3AddEddd->parameter:c->type:double"
+        ],
+        [
+            "A",
+            "B",
+            "id1736",
             "location",
             "framebase-40",
             "compileunit:example.cpp->namespace:Example->function:_ZN7Example3AddEddd->parameter:c->location:framebase-40"
         ]
     ]
 }
-

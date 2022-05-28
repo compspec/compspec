@@ -1,34 +1,4 @@
 {
-    "removed_node": [
-        [
-            "A",
-            "B",
-            "id21",
-            "order",
-            "compileunit:example.cpp->function:_Z3fun1NPS_->parameter:x->order:0"
-        ],
-        [
-            "A",
-            "B",
-            "id23",
-            "size",
-            "compileunit:example.cpp->function:_Z3fun1NPS_->parameter:z->size:0"
-        ],
-        [
-            "A",
-            "B",
-            "id24",
-            "type",
-            "compileunit:example.cpp->function:_Z3fun1NPS_->parameter:z->type:N"
-        ],
-        [
-            "A",
-            "B",
-            "id26",
-            "order",
-            "compileunit:example.cpp->function:_Z3fun1NPS_->parameter:z->order:1"
-        ]
-    ],
     "added_node": [
         [
             "A",
@@ -41,6 +11,14 @@
         [
             "A",
             "B",
+            "id15",
+            "type",
+            "int",
+            "compileunit:example.cpp->structure:N->member:two->type:int"
+        ],
+        [
+            "A",
+            "B",
             "id16",
             "order",
             "2",
@@ -48,3 +26,4 @@
         ]
     ]
 }
+

@@ -30,14 +30,41 @@ for e in examples["examples"]:
 
 # Add remainder
 for name in os.listdir(os.path.join(here, "lib")):
-    if name not in seen:
+    if name not in seen and not name.startswith('_'):
         tests.append((name, "lib.v1.so", "lib.v2.so"))
     seen.add(name)
 
 
+def check_facts(facts, graph):
+
+    # Just check nodes for now
+    expected = utils.read_json(facts)
+    for n in expected.get("nodes", []):
+        assert n["nodeid"] in graph.nodes
+        node = graph.nodes[n["nodeid"]]
+        assert node.name == n["name"]
+        assert node.value == n["value"]
+
+    # TODO check relations?
+
+
 @pytest.mark.parametrize("name,lib1,lib2", tests)
 def test_examples(tmp_path, name, lib1, lib2):
-    result = run(name, lib1, lib2, groups=True)
+    result, runner = run(name, lib1, lib2, groups=True)
+
+    # Do we have a facts file to validate?
+    facts_A = os.path.join(here, "lib", name, "A.json")
+    facts_B = os.path.join(here, "lib", name, "B.json")
+
+    # Check facts (nodes and relations)
+    if os.path.exists(facts_A):
+        check_facts(facts_A, runner.facts.A)
+    else:
+        utils.write_json(runner.facts.A.to_dict(), facts_A)
+    if os.path.exists(facts_B):
+        check_facts(facts_B, runner.facts.B)
+    else:
+        utils.write_json(runner.facts.B.to_dict(), facts_B)
 
     # Compare with our expected results
     expected = os.path.join(here, "lib", name, "compspec.json")

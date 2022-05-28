@@ -38,7 +38,7 @@ def main(name, lib1=None, lib2=None, groups=False):
     print(json.dumps(result, indent=4))
     if groups:
         print("::endgroup::")
-    return result
+    return result, runner
 
 
 if __name__ == "__main__":

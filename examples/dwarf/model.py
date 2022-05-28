@@ -243,7 +243,9 @@ class DwarfGraph(compspec.graph.Graph):
         node_name = node_name or get_name(die)
         self.new_node(name, node_name, self.ids[die], is_connector=is_connector)
         self.generate_parent(die)
-        self.gen("size", get_size(die), parent=self.ids[die], is_connector=is_connector)
+        size = get_size(die)
+        if size != "unknown":
+            self.gen("size", size, parent=self.ids[die], is_connector=is_connector)
 
     def parse_base_type(self, die):
         self.parse_sized_generic(die, "basetype")
@@ -436,7 +438,11 @@ class DwarfGraph(compspec.graph.Graph):
         else:
             self.generate_parent(die)
 
-        self.gen("size", get_size(die), parent=self.ids[die], is_connector=is_connector)
+        size = get_size(die)
+        if size != "unknown":
+            self.gen(
+                "size", get_size(die), parent=self.ids[die], is_connector=is_connector
+            )
         self.gen(
             "type",
             self.get_underlying_type(die),
@@ -484,7 +490,13 @@ class DwarfGraph(compspec.graph.Graph):
             member_type = self.get_underlying_type(array)
 
         is_connector = self.is_connector(die)
-        self.new_node("member", get_name(die), self.ids[die], is_connector=is_connector)
+
+        node = self.new_node("member", get_name(die), self.ids[die], is_connector=is_connector)
+
+        # Just generate relation for path logic!
+        relation = self.new_relation(fromid=self.ids[die.get_parent()], toid=node.nodeid, relation="has")
+        self.add_relation(relation)
+ 
         self.gen(
             "type", underlying_type, parent=self.ids[die], is_connector=is_connector
         )
@@ -572,17 +584,7 @@ class DwarfGraph(compspec.graph.Graph):
         """
         Parse a structure type.
         """
-        size = get_size(die)
-        if size:
-            self.parse_sized_generic(die, "structure")
-        else:
-            self.new_node(
-                "structure",
-                get_name(die),
-                self.ids[die],
-                is_connector=self.is_connector(die),
-            )
-            self.generate_parent(die)
+        self.parse_sized_generic(die, "structure")
         self.check_inheritance(die)
 
     def check_inheritance(self, die):
@@ -616,6 +618,7 @@ class DwarfGraph(compspec.graph.Graph):
         """
         name = get_name(die)
         underlying_type = self.get_underlying_type(die)
+
         if name == "unknown" and "DW_AT_specification" in die.attributes:
             spec = self.type_lookup[die.attributes["DW_AT_specification"].value]
             is_connector = self.is_connector(die) or self.is_connector(spec)
@@ -623,6 +626,7 @@ class DwarfGraph(compspec.graph.Graph):
             self.get_underlying_type(spec)
         else:
             is_connector = self.is_connector(die)
+
         self.parse_sized_generic(die, "variable", node_name=name)
         self.gen(
             "type", underlying_type, parent=self.ids[die], is_connector=is_connector
@@ -1004,7 +1008,7 @@ def get_size(die):
     """
     Return size in bytes (not bits)
     """
-    size = 0
+    size = "unknown"
     if "DW_AT_byte_size" in die.attributes:
         return die.attributes["DW_AT_byte_size"].value
     # A byte is 8 bits

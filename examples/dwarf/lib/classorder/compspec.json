@@ -10,50 +10,7 @@
             "_Z13changed_order1A1B",
             "compileunit:example.cpp->function:_Z13changed_order1B1A",
             "compileunit:example.cpp->function:_Z13changed_order1A1B"
-        ],
-        [
-            "A",
-            "B",
-            "id15",
-            "id15",
-            "parameter",
-            "b",
-            "a",
-            "compileunit:example.cpp->function:_Z13changed_order1B1A->parameter:b",
-            "compileunit:example.cpp->function:_Z13changed_order1A1B->parameter:a"
-        ],
-        [
-            "A",
-            "B",
-            "id17",
-            "id17",
-            "type",
-            "B",
-            "A",
-            "compileunit:example.cpp->function:_Z13changed_order1B1A->parameter:b->type:B",
-            "compileunit:example.cpp->function:_Z13changed_order1A1B->parameter:a->type:A"
-        ],
-        [
-            "A",
-            "B",
-            "id20",
-            "id20",
-            "parameter",
-            "a",
-            "b",
-            "compileunit:example.cpp->function:_Z13changed_order1B1A->parameter:a",
-            "compileunit:example.cpp->function:_Z13changed_order1A1B->parameter:b"
-        ],
-        [
-            "A",
-            "B",
-            "id22",
-            "id22",
-            "type",
-            "A",
-            "B",
-            "compileunit:example.cpp->function:_Z13changed_order1B1A->parameter:a->type:A",
-            "compileunit:example.cpp->function:_Z13changed_order1A1B->parameter:b->type:B"
         ]
     ]
 }
+

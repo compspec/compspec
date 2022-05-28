@@ -34,9 +34,22 @@ class NiftiGraphs(compspec.graph.GraphGroup):
         # if there are differences.
         self.graphs["header"] = g
 
+        g = compspec.graph.Graph()
+        root = g.new_node("brainmap", self.ns)
+
         # TODO we need an added rule that can match based on voxel location
         # and do a subtraction.
         data = self.nii.get_data()
-        assert data
+
+        # Since we cannot represent floats, we need to apply scale
+        # Yes this isn't precise, it's an example        
+        for x in range(data.shape[0]):
+            for y in range(data.shape[1]):
+                for z in range(data.shape[2]):
+                    voxel, _ = g.gen("voxel", f"{x}.{y}.{z}", parent=root.nodeid)
+                    g.gen("value", int(data[x,y,z] * 100), parent=voxel.nodeid)
+
+        self.graphs["image"] = g
+
         # 1. subtracts the images
         # 2. counts every time the absolute difference is greater than the default tolerance (default 1e-8)
