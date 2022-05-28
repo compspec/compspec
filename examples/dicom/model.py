@@ -7,7 +7,6 @@ __license__ = "MPL 2.0"
 from deid.dicom.parser import DicomParser
 import compspec.graph
 import compspec.solver
-import nibabel
 
 
 class DicomGraphs(compspec.graph.GraphGroup):
