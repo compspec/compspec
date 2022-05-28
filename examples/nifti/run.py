@@ -16,7 +16,7 @@ sys.path.insert(0, here)
 def main():
     """
     The truth (changed values) is:
-   
+
     x  y  z  zeros modified
     16 16 5  0.0   1.0
     32 32 10 0.0   1e-09
@@ -44,7 +44,9 @@ def main():
             # Omit default logic program for image data
             else:
                 runner = Difference(gA, gB, "zeros", "modified", quiet=True)
-                result = runner.run(logic_programs=['compare-voxels.lp'], omit_default=True)
+                result = runner.run(
+                    logic_programs=["compare-voxels.lp"], omit_default=True
+                )
             print(f"Result for group '{group}'")
             print(json.dumps(result, indent=4))
 

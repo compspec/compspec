@@ -44,6 +44,8 @@ jobs:
           python examples/python/tensorflow-function-example.py
           python examples/spack/example-python.py
           python examples/spack/example-singularity.py
+          pip install -r examples/dicom/requirements.txt
+          python examples/dicom/run.py
 
           cd examples/dwarf 
           pip install -r requirements.txt

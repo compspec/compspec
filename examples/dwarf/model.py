@@ -491,12 +491,16 @@ class DwarfGraph(compspec.graph.Graph):
 
         is_connector = self.is_connector(die)
 
-        node = self.new_node("member", get_name(die), self.ids[die], is_connector=is_connector)
+        node = self.new_node(
+            "member", get_name(die), self.ids[die], is_connector=is_connector
+        )
 
         # Just generate relation for path logic!
-        relation = self.new_relation(fromid=self.ids[die.get_parent()], toid=node.nodeid, relation="has")
+        relation = self.new_relation(
+            fromid=self.ids[die.get_parent()], toid=node.nodeid, relation="has"
+        )
         self.add_relation(relation)
- 
+
         self.gen(
             "type", underlying_type, parent=self.ids[die], is_connector=is_connector
         )
