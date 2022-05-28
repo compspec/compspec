@@ -59,7 +59,6 @@ class FactGenerator:
     """
     The FactGenerator generates facts for one graph.
     """
-
     def generate_facts(self, g, ns):
         """
         Generate facts for a namespaced graph
@@ -70,3 +69,4 @@ class FactGenerator:
             self.gen.fact(fn.is_connector(ns, node))
         for node in g.iter_nodes():
             self.gen.fact(fn.node(ns, *node))
+            self.gen.fact(fn.path(ns, node[-1]))

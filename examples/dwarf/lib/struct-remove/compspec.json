@@ -3,24 +3,18 @@
         [
             "A",
             "B",
-            "id22",
-            "location",
-            "compileunit:example.cpp->function:_Z3fun1NPS_->parameter:x->location:framebase-48"
-        ],
-        [
-            "A",
-            "B",
-            "id23",
-            "order",
-            "compileunit:example.cpp->function:_Z3fun1NPS_->parameter:x->order:0"
-        ],
-        [
-            "A",
-            "B",
             "id14",
             "member",
             "removed",
             "compileunit:example.cpp->structure:N->member:removed"
+        ],
+        [
+            "A",
+            "B",
+            "id15",
+            "type",
+            "int",
+            "compileunit:example.cpp->structure:N->member:removed->type:int"
         ],
         [
             "A",

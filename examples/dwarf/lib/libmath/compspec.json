@@ -1,60 +1,4 @@
 {
-    "removed_node": [
-        [
-            "A",
-            "B",
-            "id24",
-            "type",
-            "compileunit:example.cpp->namespace:MathLibrary->class:Arithmetic->function:_ZN11MathLibrary10Arithmetic6DivideEdd->parameter:b->type:double"
-        ],
-        [
-            "A",
-            "B",
-            "id31",
-            "type",
-            "compileunit:example.cpp->namespace:MathLibrary->class:Arithmetic->function:_ZN11MathLibrary10Arithmetic8MultiplyEdd->parameter:b->type:double"
-        ],
-        [
-            "A",
-            "B",
-            "id38",
-            "type",
-            "compileunit:example.cpp->namespace:MathLibrary->class:Arithmetic->function:_ZN11MathLibrary10Arithmetic8SubtractEdd->parameter:b->type:double"
-        ],
-        [
-            "A",
-            "B",
-            "id45",
-            "type",
-            "compileunit:example.cpp->namespace:MathLibrary->class:Arithmetic->function:_ZN11MathLibrary10Arithmetic3AddEdd->parameter:b->type:double"
-        ]
-    ],
-    "added_node": [
-        [
-            "A",
-            "B",
-            "id44",
-            "type",
-            "int",
-            "compileunit:example.cpp->namespace:MathLibrary->class:Arithmetic->function:_ZN11MathLibrary10Arithmetic3AddEii->parameter:a->type:int"
-        ],
-        [
-            "A",
-            "B",
-            "id45",
-            "location",
-            "framebase-20",
-            "compileunit:example.cpp->namespace:MathLibrary->class:Arithmetic->function:_ZN11MathLibrary10Arithmetic3AddEii->parameter:a->location:framebase-20"
-        ],
-        [
-            "A",
-            "B",
-            "id47",
-            "type",
-            "int",
-            "compileunit:example.cpp->namespace:MathLibrary->class:Arithmetic->function:_ZN11MathLibrary10Arithmetic3AddEii->parameter:b->type:int"
-        ]
-    ],
     "changed_node_value": [
         [
             "A",
@@ -77,17 +21,6 @@
             "int",
             "compileunit:example.cpp->basetype:double",
             "compileunit:example.cpp->basetype:int"
-        ],
-        [
-            "A",
-            "B",
-            "id18",
-            "id18",
-            "size",
-            "8",
-            "4",
-            "compileunit:example.cpp->basetype:double->size:8",
-            "compileunit:example.cpp->basetype:int->size:4"
         ]
     ]
 }

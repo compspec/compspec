@@ -66,32 +66,6 @@ class Difference(CompositionBase):
         This preparation is based on the default compsec diff is-compatible facts:
 
         """
-        # An added node is in B but not A
-        if "added_node" in result:
-            added_nodes = []
-            for entry in result["added_node"]:
-                entry.append(self.facts.B.lookup[entry[2]])
-                added_nodes.append(entry)
-            result["added_node"] = added_nodes
-
-        # An removed node is in A but not B
-        if "removed_node" in result:
-            removed_nodes = []
-            for entry in result["removed_node"]:
-                entry.append(self.facts.A.lookup[entry[2]])
-                removed_nodes.append(entry)
-            result["removed_node"] = removed_nodes
-
-        if "changed_node_value" in result:
-            changed_node_values = []
-            for entry in result["changed_node_value"]:
-
-                # Add what was changed for a human to read
-                # ['A', 'B', 'IDA', "IDB"...]
-                entry.append(self.facts.A.lookup[entry[2]])
-                entry.append(self.facts.B.lookup[entry[3]])
-                changed_node_values.append(entry)
-            result["changed_node_value"] = changed_node_values
         return result
 
 

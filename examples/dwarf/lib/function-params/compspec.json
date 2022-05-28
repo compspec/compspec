@@ -3,20 +3,6 @@
         [
             "A",
             "B",
-            "id3",
-            "function",
-            "compileunit:example.cpp->namespace:Example->function:_ZN7Example12ReturnRemoveEdd"
-        ],
-        [
-            "A",
-            "B",
-            "id6",
-            "function",
-            "compileunit:example.cpp->namespace:Example->function:_ZN7Example12ReturnChangeEdd"
-        ],
-        [
-            "A",
-            "B",
             "id9",
             "function",
             "compileunit:example.cpp->namespace:Example->function:_ZN7Example6ChangeEdd"
@@ -58,6 +44,150 @@
             "function",
             "_ZN7Example3AddEdd",
             "compileunit:example.cpp->namespace:Example->function:_ZN7Example3AddEdd"
+        ],
+        [
+            "A",
+            "B",
+            "id35",
+            "parameter",
+            "a",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6ChangeEdd->parameter:a"
+        ],
+        [
+            "A",
+            "B",
+            "id36",
+            "type",
+            "double",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6ChangeEdd->parameter:a->type:double"
+        ],
+        [
+            "A",
+            "B",
+            "id37",
+            "location",
+            "framebase-24",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6ChangeEdd->parameter:a->location:framebase-24"
+        ],
+        [
+            "A",
+            "B",
+            "id38",
+            "parameter",
+            "b",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6ChangeEdd->parameter:b"
+        ],
+        [
+            "A",
+            "B",
+            "id39",
+            "type",
+            "double",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6ChangeEdd->parameter:b->type:double"
+        ],
+        [
+            "A",
+            "B",
+            "id40",
+            "location",
+            "framebase-32",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6ChangeEdd->parameter:b->location:framebase-32"
+        ],
+        [
+            "A",
+            "B",
+            "id42",
+            "parameter",
+            "a",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6RemoveEdd->parameter:a"
+        ],
+        [
+            "A",
+            "B",
+            "id43",
+            "type",
+            "double",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6RemoveEdd->parameter:a->type:double"
+        ],
+        [
+            "A",
+            "B",
+            "id44",
+            "location",
+            "framebase-24",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6RemoveEdd->parameter:a->location:framebase-24"
+        ],
+        [
+            "A",
+            "B",
+            "id45",
+            "parameter",
+            "b",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6RemoveEdd->parameter:b"
+        ],
+        [
+            "A",
+            "B",
+            "id46",
+            "type",
+            "double",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6RemoveEdd->parameter:b->type:double"
+        ],
+        [
+            "A",
+            "B",
+            "id47",
+            "location",
+            "framebase-32",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6RemoveEdd->parameter:b->location:framebase-32"
+        ],
+        [
+            "A",
+            "B",
+            "id49",
+            "parameter",
+            "a",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example3AddEdd->parameter:a"
+        ],
+        [
+            "A",
+            "B",
+            "id50",
+            "type",
+            "double",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example3AddEdd->parameter:a->type:double"
+        ],
+        [
+            "A",
+            "B",
+            "id51",
+            "location",
+            "framebase-24",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example3AddEdd->parameter:a->location:framebase-24"
+        ],
+        [
+            "A",
+            "B",
+            "id52",
+            "parameter",
+            "b",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example3AddEdd->parameter:b"
+        ],
+        [
+            "A",
+            "B",
+            "id53",
+            "type",
+            "double",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example3AddEdd->parameter:b->type:double"
+        ],
+        [
+            "A",
+            "B",
+            "id54",
+            "location",
+            "framebase-32",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example3AddEdd->parameter:b->location:framebase-32"
         ]
     ],
     "added_node": [
@@ -100,6 +230,14 @@
             "basetype",
             "long unsigned int",
             "compileunit:example.cpp->basetype:long unsigned int"
+        ],
+        [
+            "A",
+            "B",
+            "id643",
+            "size",
+            "8",
+            "compileunit:example.cpp->basetype:long unsigned int->size:8"
         ],
         [
             "A",
@@ -240,6 +378,14 @@
         [
             "A",
             "B",
+            "id1001",
+            "size",
+            "8",
+            "compileunit:example.cpp->basetype:long int->size:8"
+        ],
+        [
+            "A",
+            "B",
             "id1002",
             "const",
             "long int",
@@ -256,10 +402,26 @@
         [
             "A",
             "B",
+            "id1075",
+            "size",
+            "8",
+            "compileunit:example.cpp->basetype:long long int->size:8"
+        ],
+        [
+            "A",
+            "B",
             "id1080",
             "basetype",
             "long long unsigned int",
             "compileunit:example.cpp->basetype:long long unsigned int"
+        ],
+        [
+            "A",
+            "B",
+            "id1081",
+            "size",
+            "8",
+            "compileunit:example.cpp->basetype:long long unsigned int->size:8"
         ],
         [
             "A",
@@ -472,6 +634,30 @@
         [
             "A",
             "B",
+            "id1717",
+            "parameter",
+            "a",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6ChangeEdi->parameter:a"
+        ],
+        [
+            "A",
+            "B",
+            "id1718",
+            "type",
+            "double",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6ChangeEdi->parameter:a->type:double"
+        ],
+        [
+            "A",
+            "B",
+            "id1719",
+            "location",
+            "framebase-24",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6ChangeEdi->parameter:a->location:framebase-24"
+        ],
+        [
+            "A",
+            "B",
             "id1720",
             "parameter",
             "c",
@@ -496,10 +682,90 @@
         [
             "A",
             "B",
+            "id1724",
+            "parameter",
+            "a",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6RemoveEd->parameter:a"
+        ],
+        [
+            "A",
+            "B",
+            "id1725",
+            "type",
+            "double",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6RemoveEd->parameter:a->type:double"
+        ],
+        [
+            "A",
+            "B",
+            "id1726",
+            "location",
+            "framebase-24",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example6RemoveEd->parameter:a->location:framebase-24"
+        ],
+        [
+            "A",
+            "B",
+            "id1728",
+            "parameter",
+            "a",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example3AddEddd->parameter:a"
+        ],
+        [
+            "A",
+            "B",
+            "id1729",
+            "type",
+            "double",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example3AddEddd->parameter:a->type:double"
+        ],
+        [
+            "A",
+            "B",
+            "id1730",
+            "location",
+            "framebase-24",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example3AddEddd->parameter:a->location:framebase-24"
+        ],
+        [
+            "A",
+            "B",
+            "id1731",
+            "parameter",
+            "b",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example3AddEddd->parameter:b"
+        ],
+        [
+            "A",
+            "B",
+            "id1732",
+            "type",
+            "double",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example3AddEddd->parameter:b->type:double"
+        ],
+        [
+            "A",
+            "B",
+            "id1733",
+            "location",
+            "framebase-32",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example3AddEddd->parameter:b->location:framebase-32"
+        ],
+        [
+            "A",
+            "B",
             "id1734",
             "parameter",
             "c",
             "compileunit:example.cpp->namespace:Example->function:_ZN7Example3AddEddd->parameter:c"
+        ],
+        [
+            "A",
+            "B",
+            "id1735",
+            "type",
+            "double",
+            "compileunit:example.cpp->namespace:Example->function:_ZN7Example3AddEddd->parameter:c->type:double"
         ],
         [
             "A",

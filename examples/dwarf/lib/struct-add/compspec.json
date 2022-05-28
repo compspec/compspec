@@ -1,20 +1,4 @@
 {
-    "removed_node": [
-        [
-            "A",
-            "B",
-            "id22",
-            "type",
-            "compileunit:example.cpp->function:_Z3fun1NPS_->parameter:z->type:N"
-        ],
-        [
-            "A",
-            "B",
-            "id23",
-            "location",
-            "compileunit:example.cpp->function:_Z3fun1NPS_->parameter:z->location:framebase-56"
-        ]
-    ],
     "added_node": [
         [
             "A",
@@ -23,6 +7,14 @@
             "member",
             "two",
             "compileunit:example.cpp->structure:N->member:two"
+        ],
+        [
+            "A",
+            "B",
+            "id15",
+            "type",
+            "int",
+            "compileunit:example.cpp->structure:N->member:two->type:int"
         ],
         [
             "A",

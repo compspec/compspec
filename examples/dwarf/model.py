@@ -490,7 +490,13 @@ class DwarfGraph(compspec.graph.Graph):
             member_type = self.get_underlying_type(array)
 
         is_connector = self.is_connector(die)
-        self.new_node("member", get_name(die), self.ids[die], is_connector=is_connector)
+
+        node = self.new_node("member", get_name(die), self.ids[die], is_connector=is_connector)
+
+        # Just generate relation for path logic!
+        relation = self.new_relation(fromid=self.ids[die.get_parent()], toid=node.nodeid, relation="has")
+        self.add_relation(relation)
+ 
         self.gen(
             "type", underlying_type, parent=self.ids[die], is_connector=is_connector
         )
@@ -578,17 +584,7 @@ class DwarfGraph(compspec.graph.Graph):
         """
         Parse a structure type.
         """
-        size = get_size(die)
-        if size != "unknown":
-            self.parse_sized_generic(die, "structure")
-        else:
-            self.new_node(
-                "structure",
-                get_name(die),
-                self.ids[die],
-                is_connector=self.is_connector(die),
-            )
-            self.generate_parent(die)
+        self.parse_sized_generic(die, "structure")
         self.check_inheritance(die)
 
     def check_inheritance(self, die):

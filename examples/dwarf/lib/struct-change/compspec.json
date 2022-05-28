@@ -8,8 +8,8 @@
             "type",
             "char",
             "short int",
-            "member:extra->type:char",
-            "member:extra->type:short int"
+            "compileunit:example.cpp->structure:N->member:extra->type:char",
+            "compileunit:example.cpp->structure:N->member:extra->type:short int"
         ],
         [
             "A",
@@ -21,18 +21,6 @@
             "short int",
             "compileunit:example.cpp->basetype:char",
             "compileunit:example.cpp->basetype:short int"
-        ],
-        [
-            "A",
-            "B",
-            "id23",
-            "id23",
-            "size",
-            "1",
-            "2",
-            "compileunit:example.cpp->basetype:char->size:1",
-            "compileunit:example.cpp->basetype:short int->size:2"
         ]
     ]
 }
-
