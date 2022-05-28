@@ -368,32 +368,6 @@
 <span class="sd">        This preparation is based on the default compsec diff is-compatible facts:</span>
 
 <span class="sd">        """</span>
-        <span class="c1"># An added node is in B but not A</span>
-        <span class="k">if</span> <span class="s2">"added_node"</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
-            <span class="n">added_nodes</span> <span class="o">=</span> <span class="p">[]</span>
-            <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">result</span><span class="p">[</span><span class="s2">"added_node"</span><span class="p">]:</span>
-                <span class="n">entry</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">facts</span><span class="o">.</span><span class="n">B</span><span class="o">.</span><span class="n">lookup</span><span class="p">[</span><span class="n">entry</span><span class="p">[</span><span class="mi">2</span><span class="p">]])</span>
-                <span class="n">added_nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
-            <span class="n">result</span><span class="p">[</span><span class="s2">"added_node"</span><span class="p">]</span> <span class="o">=</span> <span class="n">added_nodes</span>
-
-        <span class="c1"># An removed node is in A but not B</span>
-        <span class="k">if</span> <span class="s2">"removed_node"</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
-            <span class="n">removed_nodes</span> <span class="o">=</span> <span class="p">[]</span>
-            <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">result</span><span class="p">[</span><span class="s2">"removed_node"</span><span class="p">]:</span>
-                <span class="n">entry</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">facts</span><span class="o">.</span><span class="n">A</span><span class="o">.</span><span class="n">lookup</span><span class="p">[</span><span class="n">entry</span><span class="p">[</span><span class="mi">2</span><span class="p">]])</span>
-                <span class="n">removed_nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
-            <span class="n">result</span><span class="p">[</span><span class="s2">"removed_node"</span><span class="p">]</span> <span class="o">=</span> <span class="n">removed_nodes</span>
-
-        <span class="k">if</span> <span class="s2">"changed_node_value"</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
-            <span class="n">changed_node_values</span> <span class="o">=</span> <span class="p">[]</span>
-            <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">result</span><span class="p">[</span><span class="s2">"changed_node_value"</span><span class="p">]:</span>
-
-                <span class="c1"># Add what was changed for a human to read</span>
-                <span class="c1"># ['A', 'B', 'IDA', "IDB"...]</span>
-                <span class="n">entry</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">facts</span><span class="o">.</span><span class="n">A</span><span class="o">.</span><span class="n">lookup</span><span class="p">[</span><span class="n">entry</span><span class="p">[</span><span class="mi">2</span><span class="p">]])</span>
-                <span class="n">entry</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">facts</span><span class="o">.</span><span class="n">B</span><span class="o">.</span><span class="n">lookup</span><span class="p">[</span><span class="n">entry</span><span class="p">[</span><span class="mi">3</span><span class="p">]])</span>
-                <span class="n">changed_node_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
-            <span class="n">result</span><span class="p">[</span><span class="s2">"changed_node_value"</span><span class="p">]</span> <span class="o">=</span> <span class="n">changed_node_values</span>
         <span class="k">return</span> <span class="n">result</span></div></div>
 
 
@@ -441,7 +415,7 @@
        © Copyright 2022, Vanessa Sochat.
       </div>
       Last updated on
-              May 24, 2022.
+              May 28, 2022.
       <br/>
       Created using
       <a href="http://www.sphinx-doc.org/">
