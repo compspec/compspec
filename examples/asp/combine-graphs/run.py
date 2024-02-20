@@ -1,5 +1,5 @@
 from compspec.graph import Graph
-from compspec.runner import Combination
+from compspec.asp import Combination
 import os
 
 here = os.path.dirname(os.path.abspath(__file__))

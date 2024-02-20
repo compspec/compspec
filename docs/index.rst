@@ -23,7 +23,6 @@ To get started, see the :ref:`getting-started` page. Would you like to request a
 
     getting_started/index.rst
     contributing.md
-    spec.md
 
 .. toctree::
     :caption: API

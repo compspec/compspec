@@ -1,9 +1,10 @@
 __author__ = "Vanessa Sochat"
-__copyright__ = "Copyright 2022, Vanessa Sochat"
-__license__ = "MPL 2.0"
+__copyright__ = "Copyright 2022-2024, Vanessa Sochat"
+__license__ = "MIT"
+
 
 from compspec.solver import fn
-import compspec.lp
+import compspec.asp.lp as lp
 import sys
 
 
@@ -42,7 +43,7 @@ class CompositionBase:
         if not omit_default:
             logic_programs += getattr(self, "_logic_programs", [])
         if logic_programs:
-            logic_programs = compspec.lp.get_facts(logic_programs)
+            logic_programs = lp.get_facts(logic_programs)
         return logic_programs
 
     def run(self, logic_programs=None, quiet=False, omit_default=False):

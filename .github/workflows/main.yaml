@@ -10,7 +10,7 @@ jobs:
   formatting:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Setup black environment
         run: conda create --quiet --name black
@@ -26,7 +26,7 @@ jobs:
     needs: formatting
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Setup testing environment
         run: conda create --quiet --name testing pytest
 
@@ -36,19 +36,19 @@ jobs:
           source activate testing
           pip install -e .[all]
           # Test examples
-          python examples/basic-graph/run.py
-          python examples/basic-diff/run.py
-          python examples/combine-graphs/run.py
-          python examples/python/tensorflow-example.py
-          python examples/python/tensorflow-module-example.py
-          python examples/python/tensorflow-function-example.py
-          python examples/spack/example-python.py
-          python examples/spack/example-singularity.py
-          pip install -r examples/dicom/requirements.txt
-          python examples/dicom/run.py
+          python examples/asp/basic-graph/run.py
+          python examples/asp/basic-diff/run.py
+          python examples/asp/combine-graphs/run.py
+          python examples/asp/python/tensorflow-example.py
+          python examples/asp/python/tensorflow-module-example.py
+          python examples/asp/python/tensorflow-function-example.py
+          python examples/asp/spack/example-python.py
+          python examples/asp/spack/example-singularity.py
+          pip install -r examples/asp/dicom/requirements.txt
+          python examples/asp/dicom/run.py
 
-          cd examples/dwarf 
+          cd examples/asp/dwarf 
           pip install -r requirements.txt
           make
-          pytest tests.py          
+          pytest tests.py
           

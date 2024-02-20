@@ -1,6 +1,6 @@
 __author__ = "Vanessa Sochat"
-__copyright__ = "Copyright 2022, Vanessa Sochat"
-__license__ = "MPL 2.0"
+__copyright__ = "Copyright 2022-2024, Vanessa Sochat"
+__license__ = "MIT"
 
 import compspec.solver
 from compspec.solver import fn
@@ -30,7 +30,6 @@ class CombinedFactsGenerator(FactGenerator):
     """
 
     def __init__(self):
-
         # Lookup of graphs by namespace
         self.graphs = {}
 

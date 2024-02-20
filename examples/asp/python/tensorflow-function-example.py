@@ -1,7 +1,3 @@
-__author__ = "Vanessa Sochat"
-__copyright__ = "Copyright 2022, Vanessa Sochat"
-__license__ = "MPL 2.0"
-
 # This example shows generating subgraps on the level of functions
 
 from model import AstFunctionGraphs, run

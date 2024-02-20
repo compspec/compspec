@@ -1,8 +1,6 @@
-__author__ = "Vanessa Sochat"
-__copyright__ = "Copyright 2022, Vanessa Sochat"
-__license__ = "MPL 2.0"
+# This example shows generating subgraps on the level of modules (no common root)
 
-from model import AstGraphs, run
+from model import AstModuleGraphs, run
 
 import os
 import sys
@@ -19,7 +17,7 @@ def main():
         if not os.path.exists(lib):
             sys.exit(f"{lib} does not exist.")
 
-    run(lib1, lib2, AstGraphs)
+    run(lib1, lib2, AstModuleGraphs)
 
 
 if __name__ == "__main__":

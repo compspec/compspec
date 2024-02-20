@@ -1,13 +1,8 @@
-__author__ = "Vanessa Sochat"
-__copyright__ = "Copyright 2022, Vanessa Sochat"
-__license__ = "MPL 2.0"
-
-from compspec.runner import Difference
+from compspec.asp import Difference
 
 import os
 import sys
 import json
-import yaml
 
 here = os.path.abspath(os.path.dirname(__file__))
 sys.path.insert(0, here)

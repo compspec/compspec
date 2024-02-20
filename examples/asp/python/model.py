@@ -1,10 +1,6 @@
-__author__ = "Vanessa Sochat"
-__copyright__ = "Copyright 2022, Vanessa Sochat"
-__license__ = "MPL 2.0"
-
 # This is the base model for deriving facts from ast in json
 
-from compspec.runner import Difference
+from compspec.asp import Difference
 from compspec.utils import read_json
 import compspec.graph
 import compspec.solver

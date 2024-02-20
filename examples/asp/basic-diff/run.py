@@ -1,5 +1,5 @@
 from compspec.graph import Graph
-from compspec.runner import Difference
+from compspec.asp import Difference
 import os
 
 here = os.path.dirname(os.path.abspath(__file__))

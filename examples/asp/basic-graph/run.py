@@ -1,5 +1,5 @@
 from compspec.graph import Graph
-from compspec.runner import Composition
+from compspec.asp import Composition
 import json
 import os
 
