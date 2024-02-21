@@ -2,7 +2,7 @@
 
 If we take two graphs, such as from the [basic-graph](../basic-graph) example,
 given that they describe two different states to compare, we can calculate a simple diff.
-In this example, we define two graphs for a function and some changed nested attributes, 
+In this example, we define two graphs for a function and some changed nested attributes,
 and we show calculating the diff, first just using the default comparison provided by
 compspec, and then adding a custom program to output more information about
 unique node and relation types.
@@ -43,5 +43,3 @@ relation("B","id6","has","id7").
 
 And here we see the set of rules we provided (unique_*) and also facts for the diff. E.g.,
 that the default parameter of name "Vanessa" changed to "Squidward."
-
-

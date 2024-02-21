@@ -4,9 +4,9 @@ __license__ = "MPL 2.0"
 
 # This is the base model for deriving facts from ast in json
 
-from compspec.utils import read_json
 import compspec.graph
 import compspec.solver
+from compspec.utils import read_json
 
 
 class SpackGraphs(compspec.graph.GraphGroup):
@@ -28,7 +28,6 @@ class SpackGraphs(compspec.graph.GraphGroup):
 
         # First try one graph (we can create graphs for other things if needed)
         for spec in self.spec["nodes"]:
-
             # The version of the library
             node, _ = g.gen("spec", spec["name"], parent=root.nodeid)
             g.gen("version", spec["version"], parent=node.nodeid)

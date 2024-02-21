@@ -12,7 +12,7 @@ different_values(A, B, ValueA, ValueB) :-
   ValueA != ValueB,
   A != B.
 
-too_different(A, B, ValueA, ValueB) :- 
+too_different(A, B, ValueA, ValueB) :-
   different_values(A, B, ValueA, ValueB), (ValueA - ValueB) > 1.
 
 #show different_values/4.

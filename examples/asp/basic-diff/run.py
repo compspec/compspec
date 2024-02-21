@@ -1,12 +1,12 @@
-from compspec.graph import Graph
-from compspec.asp import Difference
 import os
+
+from compspec.asp import Difference
+from compspec.graph import Graph
 
 here = os.path.dirname(os.path.abspath(__file__))
 
 
 def main():
-
     A = Graph()
 
     # Create graph for some namespace A

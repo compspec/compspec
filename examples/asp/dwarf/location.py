@@ -2,9 +2,10 @@ __author__ = "Vanessa Sochat"
 __copyright__ = "Copyright 2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
-from elftools.dwarf.locationlists import LocationEntry
-from elftools.dwarf.descriptions import ExprDumper
 import re
+
+from elftools.dwarf.descriptions import ExprDumper
+from elftools.dwarf.locationlists import LocationEntry
 
 # Keep a cache of dumpers with lookup based on the struct
 _DWARF_EXPR_DUMPER_CACHE = {}

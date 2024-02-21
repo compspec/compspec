@@ -100,4 +100,3 @@ $ python tensorflow-example.py
 
 The second example creates subgraphs on the level of a particular attribute -
 is this case the python function. We thus have many roots
-

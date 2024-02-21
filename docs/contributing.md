@@ -1,7 +1,7 @@
 # Contributing
 
-When contributing to Compspec Python, it is important to properly communicate the gist of the contribution. 
-If it is a simple code or editorial fix, simply explaining this within the GitHub Pull Request (PR) will suffice. But if this is a larger 
+When contributing to Compspec Python, it is important to properly communicate the gist of the contribution.
+If it is a simple code or editorial fix, simply explaining this within the GitHub Pull Request (PR) will suffice. But if this is a larger
 fix or Enhancement, it should be first discussed with the project leader or developers.
 
 Please note that this project has a [Code of Conduct](https://github.com/compspec/compspec/tree/main/.github/CODE_OF_CONDUCT.md).

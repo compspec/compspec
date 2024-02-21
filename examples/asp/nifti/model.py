@@ -4,9 +4,10 @@ __license__ = "MPL 2.0"
 
 # This is the base model for deriving facts from ast in json
 
+import nibabel
+
 import compspec.graph
 import compspec.solver
-import nibabel
 
 
 class NiftiGraphs(compspec.graph.GraphGroup):

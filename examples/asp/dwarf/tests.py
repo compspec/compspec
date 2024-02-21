@@ -6,13 +6,15 @@
 # Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed
 # with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-import compspec.utils as utils
-import pytest
+import io
 import json
+import os
 import shutil
 import sys
-import os
-import io
+
+import pytest
+
+import compspec.utils as utils
 
 here = os.path.abspath(os.path.dirname(__file__))
 sys.path.insert(0, here)
@@ -36,7 +38,6 @@ for name in os.listdir(os.path.join(here, "lib")):
 
 
 def check_facts(facts, graph):
-
     # Just check nodes for now
     expected = utils.read_json(facts)
     for n in expected.get("nodes", []):
@@ -77,7 +78,6 @@ def test_examples(tmp_path, name, lib1, lib2):
 
         # First check everything in result is in expected
         for key, values in result.items():
-
             # and list entries
             for value in values:
                 if value not in expected[key]:
@@ -88,7 +88,6 @@ def test_examples(tmp_path, name, lib1, lib2):
 
         # And everything in expected is in result
         for key, values in expected.items():
-
             # and list entries
             for value in values:
                 if value not in result[key]:

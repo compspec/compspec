@@ -2,20 +2,18 @@ __author__ = "Vanessa Sochat"
 __copyright__ = "Copyright 2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
-import compspec.graph
-from elftools.common.py3compat import bytes2str
-from elftools.dwarf.descriptions import (
-    describe_attr_value,
-    set_global_machine_arch,
-)
-from elftools.dwarf.locationlists import LocationParser, LocationExpr
-from elftools.dwarf.dwarf_expr import DWARFExprParser
-
 import os
-import sys
 import re
-import uuid
 import subprocess
+import sys
+import uuid
+
+from elftools.common.py3compat import bytes2str
+from elftools.dwarf.descriptions import describe_attr_value, set_global_machine_arch
+from elftools.dwarf.dwarf_expr import DWARFExprParser
+from elftools.dwarf.locationlists import LocationExpr, LocationParser
+
+import compspec.graph
 
 here = os.path.abspath(os.path.dirname(__file__))
 sys.path.insert(0, here)
@@ -516,7 +514,6 @@ class DwarfGraph(compspec.graph.Graph):
         # This should be a struct or similar
         parent = die.get_parent()
         if parent:
-
             # Get the order of the member - it matters if it changes
             if parent not in self.ids:
                 self.ids[parent] = self.next()
@@ -599,7 +596,6 @@ class DwarfGraph(compspec.graph.Graph):
         inherit_order = 0
         for child in die.iter_children():
             if child.tag == "DW_TAG_inheritance":
-
                 # This is the actual inherited die
                 inherited = self.type_lookup[child.attributes["DW_AT_type"].value]
                 self.gen(
@@ -811,7 +807,6 @@ class DwarfGraph(compspec.graph.Graph):
         # Otherwise, keep digging
         elif type_die:
             while "DW_AT_type" in type_die.attributes:
-
                 if type_die.tag == "DW_TAG_pointer_type":
                     pointer = True
 
@@ -873,7 +868,6 @@ class DwarfGraph(compspec.graph.Graph):
 
         # If the lower bound value is missing, the value is assumed to be a language-dependent default constant.
         elif "DW_AT_upper_bound" in die.attributes:
-
             # TODO need to get language in here to derive
             # TODO: size seems one off.
             # The default lower bound is 0 for C, C++, D, Java, Objective C, Objective C++, Python, and UPC.

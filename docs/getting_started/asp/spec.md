@@ -23,14 +23,14 @@ for comparing compositions.
 
 ### Entity
 
-An entity is a digital or physical object that be represented by nodes an relationships. 
+An entity is a digital or physical object that be represented by nodes an relationships.
 Examples in computer science include libraries and binaries. An entity typically
 has one or more of each of nodes and relationships, all of which exist under a namespace.
 
 ### Namespace
 
 A namespace is generally a named scope under which unique identifiers are comparable.
-As an example, if we have two versions of the same function "hello-world" (versions A and B) 
+As an example, if we have two versions of the same function "hello-world" (versions A and B)
 in different libraries, all references for within each can be thought of as within the namespaces
 A and B. E.g.,:
 
@@ -50,7 +50,7 @@ of two types:
 
  - **node**: a node represents an object or attribute
  - **relation**: a relation is a relationship between facts, with an optional identifier for a type of relationship that defaults to "has" to indicate a parent "has" a child of some kind.
- 
+
 In this context, by default the relation type is "has" and the direction of relationship
 flows from parent to child.
 
@@ -200,25 +200,25 @@ relations(Namespace, Relation) := relation(Namespace, _, Relation, _).
 Two extractions can be further compared, such as with a diff. A diff
 is exactly that - we essentially have two graphs and subtract them to understand
 what is added, removed, or changed. Unchanged items are generally not important
-to show. For example, let's say we want to compare two entities. We'd first 
+to show. For example, let's say we want to compare two entities. We'd first
 extract facts, and then (given a specification for doing a diff) we would run the diff:
 
 ```
 [entity A] -- extraction --> [facts A]
-                                           -- facts diff --> [change set] 
+                                           -- facts diff --> [change set]
 [entity B] -- extraction --> [facts B]
 ```
 
-The result of the diff is a set of additions, subtractions, and changes, or more generally, 
+The result of the diff is a set of additions, subtractions, and changes, or more generally,
 a change set. In more abstract terms:
 
 ```
-A 
+A
    --> A-B --> change set
 B
 ```
 
-This means the direction of the diff should be "changes resulting in moving from A to B." 
+This means the direction of the diff should be "changes resulting in moving from A to B."
 
 #### Rules
 
@@ -263,7 +263,7 @@ A node is asserted to be removed in B if:
  - there exists a nearest parent (one level up)
 
 ```asp
-What is removed if we move from A to B? 
+What is removed if we move from A to B?
 % This covers anything with a parent (not a root)
 removed_node(A, B, Name) :-
     is_a(A), is_b(B),
@@ -273,7 +273,7 @@ removed_node(A, B, Name) :-
 ```
 
 ##### Added Nodes
- 
+
 A node is asserted to be added in B if:
 
  - Given namespaces A and B for comparison
@@ -284,15 +284,15 @@ A node is asserted to be added in B if:
 ```asp
 % What is added if we move from A to B?
 % We have the entity in B but not A
-added_node(A, B, Name, Value) :- 
+added_node(A, B, Name, Value) :-
     is_a(A), is_b(B),
     node(A, _, Name, Value),
     not node(B, _, Name, Value),
-    not changed_node_value(A, B, _, _, Name, _, _).    
+    not changed_node_value(A, B, _, _, Name, _, _).
 ```
 
 Of course the above require supporting rules, which is up to the implementation (and we
-will provide in the implementations here. These rules are the basis of a comparison, 
+will provide in the implementations here. These rules are the basis of a comparison,
 and the model to derive a diff.
 
 ### Implementation

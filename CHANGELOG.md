@@ -20,4 +20,3 @@ The versions coincide with releases on pip. Only major versions will be released
  - python example and group graph class (0.0.11)
  - adding dwarf first example and small bugfix (0.0.1)
  - Initial creation of project skeleton (0.0.0)
-

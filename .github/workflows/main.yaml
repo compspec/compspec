@@ -10,20 +10,24 @@ jobs:
   formatting:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+    - uses: actions/checkout@v4
 
-      - name: Setup black environment
-        run: conda create --quiet --name black
+    - name: Setup black linter
+      run: conda create --quiet --name black pyflakes
 
-      - name: Check formatting with black
-        run: |
-          export PATH="/usr/share/miniconda/bin:$PATH"
-          source activate black
-          pip install black
-          black --check compspec
+    - name: Check Spelling
+      uses: crate-ci/typos@7ad296c72fa8265059cc03d1eda562fbdfcd6df2 # v1.9.0
+      with:
+        files: ./docs/getting_started/ ./docs/index.rst
+
+    - name: Lint and format Python code
+      run: |
+        export PATH="/usr/share/miniconda/bin:$PATH"
+        source activate black
+        pip install -r .github/dev-requirements.txt
+        pre-commit run --all-files
 
   testing:
-    needs: formatting
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -46,9 +50,3 @@ jobs:
           python examples/asp/spack/example-singularity.py
           pip install -r examples/asp/dicom/requirements.txt
           python examples/asp/dicom/run.py
-
-          cd examples/asp/dwarf 
-          pip install -r requirements.txt
-          make
-          pytest tests.py
-          

@@ -78,5 +78,5 @@ And given that loaded (e.g., from json), we can then populate a new graph!
 
 These are very simple operations to define graphs, and primarily the work is done
 manually to create the nodes, relations, and identifiers. It is expected that specific
-domains that intend to create graphs will load in some object (e.g., a binary file) and 
+domains that intend to create graphs will load in some object (e.g., a binary file) and
 do this creation on behalf of the user.

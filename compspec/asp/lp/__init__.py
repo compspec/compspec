@@ -2,8 +2,9 @@ __author__ = "Vanessa Sochat"
 __copyright__ = "Copyright 2022, Vanessa Sochat"
 __license__ = "MPL 2.0"
 
-from compspec.logger import logger
 import os
+
+from compspec.logger import logger
 
 here = os.path.dirname(os.path.abspath(__file__))
 

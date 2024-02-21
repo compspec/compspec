@@ -8,7 +8,7 @@ Conceptually, for a:
 
  - Diff: we will create two graphs and subtract one from the other
  - Composition: we will create one graph and display it
- 
+
 And the neat thing about this approach is that we can take a larger graph and break
 it into smaller graphs, and test smaller graphs until we hit a result that suggests an incompatibility,
 and stop. Given you are using subgraphs, it means that for some problem space we won't

@@ -1,7 +1,7 @@
-from model import AstGraphs, run
-
 import os
 import sys
+
+from model import AstGraphs, run
 
 here = os.path.abspath(os.path.dirname(__file__))
 sys.path.insert(0, here)

@@ -8,4 +8,3 @@ compile: $(LIBS)/*
 		$(MAKE) -C $${dir}/v1; \
 		$(MAKE) -C $${dir}/v2; \
 	done
-

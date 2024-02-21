@@ -1,10 +1,11 @@
 # This is the base model for deriving facts from ast in json
 
-from compspec.asp import Difference
-from compspec.utils import read_json
+import json
+
 import compspec.graph
 import compspec.solver
-import json
+from compspec.asp import Difference
+from compspec.utils import read_json
 
 
 class AstGraphs(compspec.graph.GraphGroup):
@@ -30,7 +31,6 @@ class AstGraphs(compspec.graph.GraphGroup):
 
         # Create a graph for each group
         for group in groups:
-
             g = compspec.graph.Graph()
 
             # Create the root of the library (single root)
@@ -74,7 +74,6 @@ class AstModuleGraphs(AstGraphs):
 
         # Each module will be a root
         for submod_name, items in self.ast[version].items():
-
             # Create a new graph
             g = compspec.graph.Graph()
 
@@ -106,7 +105,6 @@ class AstFunctionGraphs(AstGraphs):
 
         # Each module will be a root
         for submod_name, items in self.ast[version].items():
-
             for funcname, params in items.items():
                 # Create a new graph
                 g = compspec.graph.Graph()

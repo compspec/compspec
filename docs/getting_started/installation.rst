@@ -13,7 +13,7 @@ and you can install as follows:
 .. code:: console
 
     $ pip install compspec
-    
+
 You can also clone the repository and install locally:
 
 .. code:: console
@@ -21,7 +21,7 @@ You can also clone the repository and install locally:
     $ git clone https://github.com/compspec/compspec
     $ cd compspec
     $ pip install .
- 
+
 Or in development mode:
 
 .. code:: console

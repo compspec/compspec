@@ -57,4 +57,3 @@ and hashes. Try running Python for a more verbose result.
 ```bash
 $ python example-python.py
 ```
-

@@ -3,9 +3,10 @@ __copyright__ = "Copyright 2022-2024, Vanessa Sochat"
 __license__ = "MIT"
 
 
-from compspec.solver import fn
-import compspec.asp.lp as lp
 import sys
+
+import compspec.asp.lp as lp
+from compspec.solver import fn
 
 
 class CompositionBase:

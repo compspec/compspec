@@ -1,9 +1,9 @@
 # This example shows generating subgraps on the level of modules (no common root)
 
-from model import AstModuleGraphs, run
-
 import os
 import sys
+
+from model import AstModuleGraphs, run
 
 here = os.path.abspath(os.path.dirname(__file__))
 sys.path.insert(0, here)

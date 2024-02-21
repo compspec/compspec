@@ -4,6 +4,7 @@ __license__ = "MIT"
 
 import compspec.solver
 from compspec.solver import fn
+
 from .base import CompositionBase, FactGenerator
 
 

@@ -1,9 +1,9 @@
 # This example shows generating subgraps on the level of functions
 
-from model import AstFunctionGraphs, run
-
 import os
 import sys
+
+from model import AstFunctionGraphs, run
 
 here = os.path.abspath(os.path.dirname(__file__))
 sys.path.insert(0, here)

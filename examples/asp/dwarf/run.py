@@ -1,8 +1,8 @@
-from compspec.asp import Difference
-
+import json
 import os
 import sys
-import json
+
+from compspec.asp import Difference
 
 here = os.path.abspath(os.path.dirname(__file__))
 sys.path.insert(0, here)
@@ -10,7 +10,6 @@ from model import DwarfGraph
 
 
 def main(name, lib1=None, lib2=None, groups=False):
-
     # Hard coded examples, for now
     lib1 = os.path.join(here, "lib", name, "v1", lib1 or "lib.v1.so")
     lib2 = os.path.join(here, "lib", name, "v2", lib2 or "lib.v2.so")

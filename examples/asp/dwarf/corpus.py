@@ -4,15 +4,16 @@ We exclude most of the Dwarf Information Entries to expose a reduced set.
 Entries can be added as they are needed.
 """
 
-import sys
 import os
+import sys
+
 import elftools
 import elftools.elf.gnuversions as gnuversions
 from elftools.elf.descriptions import (
-    describe_symbol_type,
     describe_symbol_bind,
-    describe_symbol_visibility,
     describe_symbol_shndx,
+    describe_symbol_type,
+    describe_symbol_visibility,
 )
 from elftools.elf.elffile import ELFFile
 
@@ -122,7 +123,6 @@ class CorpusReader(ELFFile):
 
             # We need the index of the symbol to look up versions
             for sym_idx, symbol in enumerate(section.iter_symbols()):
-
                 # Version info is from the versym / verneed / verdef sections.
                 version_info = self._get_symbol_version(section, sym_idx, symbol)
 
@@ -171,7 +171,6 @@ class CorpusReader(ELFFile):
                 "VER_NDX_LOCAL",
                 "VER_NDX_GLOBAL",
             ):
-
                 # This is an external symbol
                 if version["filename"]:
                     version_info = "@%(name)s (%(index)i)" % version
@@ -303,7 +302,6 @@ class CorpusReader(ELFFile):
 
         # hA CU is a Compilation Unit
         for cu in dwarfinfo.iter_CUs():
-
             # A DIE is a dwarf information entry
             for die in cu.iter_DIEs():
                 yield die

@@ -1,12 +1,12 @@
-from compspec.graph import Graph
-from compspec.asp import Combination
 import os
+
+from compspec.asp import Combination
+from compspec.graph import Graph
 
 here = os.path.dirname(os.path.abspath(__file__))
 
 
 def main():
-
     # Create graphs A and B
     A = Graph()
 

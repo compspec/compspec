@@ -17,6 +17,8 @@ LICENSE = "LICENSE"
 INSTALL_REQUIRES = (
     ("clingo", {"min_version": None}),
     ("pyaml", {"min_version": None}),
+    ("jsonschema", {"min_version": None}),
+    ("argparse-dataclass", {"min_version": None}),
 )
 
 TESTS_REQUIRES = (("pytest", {"min_version": "4.6.2"}),)

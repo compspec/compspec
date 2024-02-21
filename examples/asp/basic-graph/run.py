@@ -1,13 +1,13 @@
-from compspec.graph import Graph
-from compspec.asp import Composition
 import json
 import os
+
+from compspec.asp import Composition
+from compspec.graph import Graph
 
 here = os.path.dirname(os.path.abspath(__file__))
 
 
 def main():
-
     A = Graph()
 
     # Create graph for some namespace A

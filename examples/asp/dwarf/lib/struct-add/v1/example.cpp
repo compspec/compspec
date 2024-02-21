@@ -8,4 +8,3 @@ struct N {
 int fun(struct N x, struct N * z) {
   return &x == z;
 }
-

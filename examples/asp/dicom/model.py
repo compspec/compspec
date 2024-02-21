@@ -5,6 +5,7 @@ __license__ = "MPL 2.0"
 # This is the base model for deriving facts from ast in json
 
 from deid.dicom.parser import DicomParser
+
 import compspec.graph
 import compspec.solver
 

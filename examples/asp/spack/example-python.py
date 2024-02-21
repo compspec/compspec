@@ -1,9 +1,10 @@
-from compspec.asp import Difference
-from model import SpackGraphs
-
+import json
 import os
 import sys
-import json
+
+from model import SpackGraphs
+
+from compspec.asp import Difference
 
 here = os.path.abspath(os.path.dirname(__file__))
 sys.path.insert(0, here)

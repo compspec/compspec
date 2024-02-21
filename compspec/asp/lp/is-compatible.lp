@@ -9,21 +9,21 @@ is_different(A, B) :- is_a(A), is_b(B), A != B.
 
 % A node is a parent of another if they have a relation
 is_parent(Namespace, NodeA, NodeB, Relation) :-
-    node(Namespace, NodeA, _, _, _),   
-    node(Namespace, NodeB, _, _, _),   
+    node(Namespace, NodeA, _, _, _),
+    node(Namespace, NodeB, _, _, _),
     relation(Namespace, NodeA, Relation, NodeB).
 
 is_parent(Namespace, NodeA, NodeB, NameA, NameB, Relation) :-
-    node(Namespace, NodeA, NameA, _, _),   
-    node(Namespace, NodeB, NameB, _, _),   
+    node(Namespace, NodeA, NameA, _, _),
+    node(Namespace, NodeB, NameB, _, _),
     relation(Namespace, NodeA, Relation, NodeB).
 
 
 % This could be reversed using the same function above,
 % but we can provide the named function as a courtesy
 is_child(Namespace, NodeA, NodeB, Relation) :-
-    node(Namespace, NodeA, _, _, _),   
-    node(Namespace, NodeB, _, _, _),   
+    node(Namespace, NodeA, _, _, _),
+    node(Namespace, NodeB, _, _, _),
     relation(Namespace, NodeB, Relation, NodeA).
 
 % Return children of node in namespace, any parent node or relation
@@ -32,8 +32,8 @@ get_node_parents(Namespace, Parent, Node) :- is_parent(Namespace, Parent, Node, 
 % Note that we simply count 1 if the node has any parents, this isn't an accurate number.
 has_parents(Namespace, Node) :- N = #count{ 1 : get_node_parents(Namespace, _, Node)}, node(Namespace, Node, _, _), N>0.
 is_root(Namespace, Node) :- N = #count{ 1 : get_node_parents(Namespace, _, Node)}, node(Namespace, Node, _, _), N == 0.
- 
-% What is removed if we move from A to B? 
+
+% What is removed if we move from A to B?
 % present in A but not B
 % This covers anything with a parent (not a root)
 removed_node(A, B, NodeA, Name, Path) :-
@@ -64,7 +64,7 @@ removed_node(A, B, NodeA, Name, Value, Path) :-
 % What is added if we move from A to B?
 % present in B but not A?
 % We have the entity in B but not A
-added_node(A, B, EntityB, Name, Value, Path) :- 
+added_node(A, B, EntityB, Name, Value, Path) :-
     is_a(A), is_b(B),
     node(B, EntityB, Name, Value, Path),
     not node(A, _, Name, Value, Path),
@@ -73,17 +73,17 @@ added_node(A, B, EntityB, Name, Value, Path) :-
     not changed_node_value(A, B, _, _, Name, _, _, _, Path),
     path(B, Path),
     not path(A, Path),
-    not changed_parent(A, B, _, EntityB).    
+    not changed_parent(A, B, _, EntityB).
 
 
-% What nodes are shared (at the highest level) 
+% What nodes are shared (at the highest level)
 shared_nodes(A, B, EntityA, EntityB, Type, Name) :-
     is_a(A), is_b(B),
     node(B, EntityB, Type, Name, Path),
     node(A, EntityA, Type, Name, Path),
     path(A, Path),
     path(B, Path).
-    
+
 % or values
 changed_node_value(A, B, EntityA, EntityB, Name, ValueA, ValueB, PathA, PathB) :-
     is_a(A), is_b(B),
@@ -94,7 +94,7 @@ changed_node_value(A, B, EntityA, EntityB, Name, ValueA, ValueB, PathA, PathB) :
     shared_parent(EntityA, EntityB, Name),
 
     % the parents aren't changed
-    not changed_parent(A, B, EntityA, EntityB),   
+    not changed_parent(A, B, EntityA, EntityB),
     ValueA != ValueB,
     PathA != PathB.
 
