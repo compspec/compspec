@@ -30,7 +30,7 @@ jobs:
           pip install -r requirements.txt
           rm -rf ./getting_started/asp/spec.md
           cd ./getting_started/asp/
-          wget https://raw.githubusercontent.com/compspec/spec/main/spec.md
+          wget https://raw.githubusercontent.com/compspec/spec/main/asp/spec.md
           cd -
           make html
           cp -R $root/.git _build/html/.git
