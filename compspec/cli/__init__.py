@@ -58,7 +58,10 @@ def get_parser():
         formatter_class=argparse.RawTextHelpFormatter,
         description="extraction plugins for compspec",
     )
-    extract.add_argument("--name", help="extractor name")
+    extract.add_argument("--outfile", help="output json file to write artifact")
+    extract.add_argument(
+        "--name", help="name for experiment", default="compat-experiment"
+    )
     extractors = extract.add_subparsers(
         title="extract",
         description="Use compspec to extract specific application or environment metadata",
@@ -92,7 +95,7 @@ def run_compspec():
         help()
 
     # If an error occurs while parsing the arguments, the interpreter will exit with value 2
-    args, _ = parser.parse_known_args()
+    args, extra = parser.parse_known_args()
 
     if args.debug is True:
         os.environ["MESSAGELEVEL"] = "DEBUG"
@@ -109,11 +112,9 @@ def run_compspec():
 
     # Here we can assume instantiated to get args
     if args.command == "extract":
-        from compspec.plugin.parser import extractor_registry
+        from .extract import main
 
-        # This raises an error if not found
-        plugin = extractor_registry.get_plugin(args.extract)
-        plugin.run(args)
+    main(args, extra)
 
 
 if __name__ == "__main__":

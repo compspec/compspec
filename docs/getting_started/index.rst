@@ -14,4 +14,4 @@ If you have any questions or issues, please `let us know <https://github.com/com
    background
    installation
    asp/index.rst
-   user-guide
+   compatibility/index.rst

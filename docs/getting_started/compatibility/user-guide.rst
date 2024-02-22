@@ -4,79 +4,48 @@
 User Guide
 ==========
 
-The core client here is intended to be used as an API, meaning you can derive
-facts and relations and then run a model. It is intended for higher level libraries
-to use this module for custom command line parsing of specific domain-oriented entities.
+Compspec provides a plugin-based strategy to extract metadata about some application or environment.
+We currently support the following extractor plugins:
+
+ - `compspec-ior <https://github.com/compspec/compspec-ior>`_: for I/O metadata
+
 If you haven't read  :ref:`getting_started-installation` you should do that first.
+We will give an example in the context of using IOR.
 
-Examples
-========
+Example with IOR
+================
 
-For full examples, try running the scripts under `examples <https://github.com/compspec/compspec/tree/main/examples/abi>`_ after you install
-compspec. We will be adding a sphinx gallery with full examples here.
-
-.. code-block:: console
-
-    $ python examples/abi/basic-graph/run.py
-    $ python examples/abi/basic-diff/run.py
-    $ python examples/abi/combine-graphs/run.py
-
-The dwarf examples have a Makefile to build with ``make`` and then can be run
-based on the name. See the `README.md for dwarf <https://github.com/compspec/compspec/tree/main/examples/abi/dwarf>`_ for how to do this.
-We also have an example that takes an iterative approach to compare groups:
+After installing both:
 
 .. code-block:: console
 
-    $ python examples/abi/python/tensorflow-module-example.py
-    $ python examples/abi/python/tensorflow-function-example.py
-    $ python examples/abi/python/tensorflow-example.py
+    $ pip install compspec
+    $ pip install compspec-ior
 
-That example is best if you are interested in breaking a problem space into
-multiple graphs.
+You likely want to do an extractor. The general command looks like this:
 
+.. code-block:: console
 
-Additional Functionality
-========================
+    $ compspec extract <name> <options>
 
-Given that you have a graph:
+For example, with IOR (using defaults):
 
-.. code-block:: python
+.. code-block:: console
 
-    A = Graph()
-    for node_id, name, value in [
-        ["id0", "func", "goodbye_world"],
-        ["id1", "func", "hello_world"],
-        ["id3", "parameter", "name"],
-        ["id4", "default", "Squidward"],
-    ]:
-        A.new_node(name, value, node_id)
+    $ compspec extract ior
 
-    for fromid, relation, toid in [
-        ["id1", "has", "id3"],
-        ["id3", "has", "id4"],
-        ["id3", "has", "id5"],
-        ["id1", "has", "id6"],
-        ["id6", "has", "id7"],
-    ]:
-        A.new_relation(fromid, toid, relation)
+And you can add additional arguments for IOR at the end of the line instead of using the defaults.
+An extractor can also have custom arguments. If you want to load from file, for example.
 
-You can convert it to a dictionary:
+.. code-block:: console
 
+    $ compspec extract ior --ior-load ior-data.json
 
-.. code-block:: python
+Or if you want to save the compatibility json to file:
 
-    obj = A.to_dict()
+.. code-block:: console
 
+    $ compspec extract --outfile test.json ior
 
-And given that loaded (e.g., from json), we can then populate a new graph!
-
-
-.. code-block:: python
-
-    g = Graph.from_dict(obj)
-
-
-These are very simple operations to define graphs, and primarily the work is done
-manually to create the nodes, relations, and identifiers. It is expected that specific
-domains that intend to create graphs will load in some object (e.g., a binary file) and
-do this creation on behalf of the user.
+We will have more documentation as the library is developed. For example, we will eventually
+be able to package and push to registries with ORAS.

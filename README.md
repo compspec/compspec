@@ -17,6 +17,10 @@ The second is under development!
 See the ⭐️ [Documentation](https://compspec.github.io/compspec) ⭐️ for basic usage
 and getting started.
 
+## TODO
+
+ - support for packaging / pushing artifacts with oras
+
 ## License
 
 HPCIC DevTools is distributed under the terms of the MIT license.

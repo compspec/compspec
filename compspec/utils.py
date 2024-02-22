@@ -3,7 +3,8 @@ __copyright__ = "Copyright 2022-2024, Vanessa Sochat"
 __license__ = "MIT"
 
 import json
-from subprocess import PIPE, STDOUT, Popen
+import shlex
+import subprocess
 
 import yaml
 
@@ -19,6 +20,13 @@ def write_json(data, filename):
         fd.write(json.dumps(data, indent=4))
 
 
+def normalize_key(key):
+    """
+    A key needs to be all lowercase, ideally with no spaces, etc.
+    """
+    return key.lower().replace(" ", "_")
+
+
 def read_yaml(filepath):
     with open(filepath, "r") as fd:
         data = yaml.load(fd.read(), Loader=yaml.SafeLoader)
@@ -29,26 +37,19 @@ def row(cols):
     return "|" + "|".join(cols) + "|\n"
 
 
-def run_command(cmd, sudo=False, stream=False):
-    """run_command uses subprocess to send a command to the terminal.
+def run_command(cmd, stream=False):
+    """
+    use subprocess to send a command to the terminal.
 
     Parameters
     ==========
-    cmd: the command to send, should be a list for subprocess
-    error_message: the error message to give to user if fails,
-    if none specified, will alert that command failed.
-
+    cmd: the command to send
     """
-    stdout = PIPE if not stream else None
-    if sudo is True:
-        cmd = ["sudo"] + cmd
+    if not isinstance(cmd, list):
+        cmd = shlex.split(cmd)
 
-    try:
-        output = Popen(cmd, stderr=STDOUT, stdout=stdout)
-
-    except FileNotFoundError:
-        cmd.pop(0)
-        output = Popen(cmd, stderr=STDOUT, stdout=PIPE)
+    stdout = subprocess.PIPE if not stream else None
+    output = subprocess.Popen(cmd, stderr=subprocess.STDOUT, stdout=stdout)
 
     t = output.communicate()[0], output.returncode
     output = {"message": t[0], "return_code": t[1]}

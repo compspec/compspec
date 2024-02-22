@@ -18,6 +18,7 @@ INSTALL_REQUIRES = (
     ("clingo", {"min_version": None}),
     ("pyaml", {"min_version": None}),
     ("jsonschema", {"min_version": None}),
+    ("requests", {"min_version": None}),
     ("argparse-dataclass", {"min_version": None}),
 )
 

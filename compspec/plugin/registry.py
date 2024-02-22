@@ -3,15 +3,23 @@ import os
 import pkgutil
 
 import jsonschema
+import requests
 
 import compspec.utils as utils
 from compspec.schema import jgf_v2
+
+# Required module attributes
+module_attributes = ["schema_url", "spec_version", "namespace"]
 
 
 class PluginRegistry:
     """
     A base plugin registry to support eventual executors, checkers, etc.
     """
+
+    # Uses PluginBase
+    plugin_class = "Plugin"
+    module_prefix = "compspec_"
 
     def __init__(self):
         self.discover()
@@ -64,8 +72,8 @@ class PluginRegistry:
         """
         Load an extractor plugin
         """
-        p = getattr(module, self.plugin_class)
-        return p(name)
+        cls = getattr(module, self.plugin_class)
+        return cls(name)
 
     def validate_plugin(self, name, module):
         """
@@ -77,11 +85,32 @@ class PluginRegistry:
         if not hasattr(module, self.plugin_class):
             raise ValueError(f"{invalid}, missing {self.plugin_class} to import")
 
+        # Defaults must also be defined
+        if not hasattr(module, "defaults"):
+            raise ValueError(f"{invalid}, missing 'defaults' submodule.")
+
         cls = getattr(module, self.plugin_class)
+
+        # Module attributes
+        for attribute in module_attributes:
+            if not hasattr(module.defaults, attribute):
+                raise ValueError(f"{invalid}, missing attribute {attribute}")
+            value = getattr(module.defaults, attribute, None)
+            if not value:
+                raise ValueError(f"{invalid}, attribute {attribute} must have a value")
+
+        # Class attributes
         if not hasattr(cls, "description"):
             raise ValueError(f"{invalid}, missing 'description' attribute")
         if not cls.description:
             raise ValueError(f"{invalid},'description' attribute is not defined")
+
+        # Validate that schema.json is available - validation of structure happens elsewhere
+        response = requests.head(module.schema_url)
+        if response.status_code != 200:
+            raise ValueError(
+                f"{invalid}, schema_url {module.schema_url} returned response {response.status_code}"
+            )
 
         # First look for schema.json
         schema_dir = os.path.abspath(module.__path__[0])
@@ -98,12 +127,3 @@ class PluginRegistry:
         # 3. Load and validate JGF
         schema = utils.read_json(schema_file)
         jsonschema.validate(schema, schema=jgf_v2)
-
-
-class ExtractorRegistry(PluginRegistry):
-    """
-    A Registry for extractor plugins that retrieve metadata.
-    """
-
-    plugin_class = "ExtractorPlugin"
-    module_prefix = "compspec_"
