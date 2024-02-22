@@ -1,14 +1,14 @@
 __author__ = "Vanessa Sochat"
-__copyright__ = "Copyright 2022, Vanessa Sochat"
-__license__ = "MPL 2.0"
+__copyright__ = "Copyright 2022-2024, Vanessa Sochat"
+__license__ = "MIT"
 
-__version__ = "0.0.14"
+__version__ = "0.1.0"
 AUTHOR = "Vanessa Sochat"
 AUTHOR_EMAIL = "vsoch@users.noreply.github.com"
 NAME = "compspec"
 PACKAGE_URL = "https://github.com/compspec/compspec"
 KEYWORDS = "diff, comparison, composition, specification, abi, compatibility, symbols"
-DESCRIPTION = "Specification and model for describing and comparing things."
+DESCRIPTION = "Compatibility specifications and models"
 LICENSE = "LICENSE"
 
 ################################################################################
@@ -17,6 +17,9 @@ LICENSE = "LICENSE"
 INSTALL_REQUIRES = (
     ("clingo", {"min_version": None}),
     ("pyaml", {"min_version": None}),
+    ("jsonschema", {"min_version": None}),
+    ("requests", {"min_version": None}),
+    ("argparse-dataclass", {"min_version": None}),
 )
 
 TESTS_REQUIRES = (("pytest", {"min_version": "4.6.2"}),)

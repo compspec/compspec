@@ -10,23 +10,27 @@ jobs:
   formatting:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
-      - name: Setup black environment
-        run: conda create --quiet --name black
+    - name: Setup black linter
+      run: conda create --quiet --name black pyflakes
 
-      - name: Check formatting with black
-        run: |
-          export PATH="/usr/share/miniconda/bin:$PATH"
-          source activate black
-          pip install black
-          black --check compspec
+    - name: Check Spelling
+      uses: crate-ci/typos@7ad296c72fa8265059cc03d1eda562fbdfcd6df2 # v1.9.0
+      with:
+        files: ./docs/getting_started/*.rst ./docs/index.rst ./docs/getting_started/asp/*.rst ./docs/getting_started/compatibility/*.rst
+
+    - name: Lint and format Python code
+      run: |
+        export PATH="/usr/share/miniconda/bin:$PATH"
+        source activate black
+        pip install -r .github/dev-requirements.txt
+        pre-commit run --all-files
 
   testing:
-    needs: formatting
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Setup testing environment
         run: conda create --quiet --name testing pytest
 
@@ -36,19 +40,13 @@ jobs:
           source activate testing
           pip install -e .[all]
           # Test examples
-          python examples/basic-graph/run.py
-          python examples/basic-diff/run.py
-          python examples/combine-graphs/run.py
-          python examples/python/tensorflow-example.py
-          python examples/python/tensorflow-module-example.py
-          python examples/python/tensorflow-function-example.py
-          python examples/spack/example-python.py
-          python examples/spack/example-singularity.py
-          pip install -r examples/dicom/requirements.txt
-          python examples/dicom/run.py
-
-          cd examples/dwarf 
-          pip install -r requirements.txt
-          make
-          pytest tests.py          
-          
+          python examples/asp/basic-graph/run.py
+          python examples/asp/basic-diff/run.py
+          python examples/asp/combine-graphs/run.py
+          python examples/asp/python/tensorflow-example.py
+          python examples/asp/python/tensorflow-module-example.py
+          python examples/asp/python/tensorflow-function-example.py
+          python examples/asp/spack/example-python.py
+          python examples/asp/spack/example-singularity.py
+          pip install -r examples/asp/dicom/requirements.txt
+          python examples/asp/dicom/run.py

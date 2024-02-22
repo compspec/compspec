@@ -1,10 +1,12 @@
 __author__ = "Vanessa Sochat"
-__copyright__ = "Copyright 2022, Vanessa Sochat"
-__license__ = "MPL 2.0"
+__copyright__ = "Copyright 2022-2024, Vanessa Sochat"
+__license__ = "MIT"
+
+import os
+
+import clingo
 
 import compspec.logger as logger
-import clingo
-import os
 
 clingo_cffi = hasattr(clingo.Symbol, "_rep")
 

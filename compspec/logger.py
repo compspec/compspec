@@ -1,17 +1,16 @@
 __author__ = "Vanessa Sochat"
-__copyright__ = "Copyright 2022, Vanessa Sochat"
-__license__ = "MPL 2.0"
+__copyright__ = "Copyright 2022-2024, Vanessa Sochat"
+__license__ = "MIT"
 
+import inspect
 import logging as _logging
+import os
 import platform
 import sys
-import os
 import threading
-import inspect
 
 
 class ColorizingStreamHandler(_logging.StreamHandler):
-
     BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE = range(8)
     RESET_SEQ = "\033[0m"
     COLOR_SEQ = "\033[%dm"

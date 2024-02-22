@@ -1,6 +1,6 @@
-from setuptools import setup, find_packages
-import codecs
 import os
+
+from setuptools import find_packages, setup
 
 
 def get_lookup():
@@ -13,7 +13,7 @@ def get_lookup():
 
 # Read in requirements
 def get_reqs(lookup=None, key="INSTALL_REQUIRES"):
-    if lookup == None:
+    if lookup is None:
         lookup = get_lookup()
 
     install_requires = []
@@ -23,10 +23,16 @@ def get_reqs(lookup=None, key="INSTALL_REQUIRES"):
         if "exact_version" in module_meta:
             dependency = "%s==%s" % (module_name, module_meta["exact_version"])
         elif "min_version" in module_meta:
-            if module_meta["min_version"] == None:
+            if module_meta["min_version"] is None:
                 dependency = module_name
             else:
                 dependency = "%s>=%s" % (module_name, module_meta["min_version"])
+        elif "max_version" in module_meta:
+            if module_meta["max_version"] is None:
+                dependency = module_name
+            else:
+                dependency = "%s<=%s" % (module_name, module_meta["max_version"])
+
         install_requires.append(dependency)
     return install_requires
 
@@ -50,7 +56,7 @@ LICENSE = lookup["LICENSE"]
 try:
     with open("README.md") as filey:
         LONG_DESCRIPTION = filey.read()
-except:
+except Exception:
     LONG_DESCRIPTION = DESCRIPTION
 
 ################################################################################
@@ -58,7 +64,6 @@ except:
 ################################################################################
 
 if __name__ == "__main__":
-
     INSTALL_REQUIRES = get_reqs(lookup)
     TESTS_REQUIRES = get_reqs(lookup, "TESTS_REQUIRES")
     INSTALL_REQUIRES_ALL = get_reqs(lookup, "INSTALL_REQUIRES_ALL")
@@ -95,5 +100,5 @@ if __name__ == "__main__":
             "Operating System :: Unix",
             "Programming Language :: Python :: 3.3",
         ],
-        # entry_points={"console_scripts": ["compspec=compspec.client:run"]},
+        entry_points={"console_scripts": ["compspec=compspec.cli:run_compspec"]},
     )

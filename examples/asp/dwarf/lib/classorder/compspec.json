@@ -1,0 +1,15 @@
+{
+    "changed_node_value": [
+        [
+            "A",
+            "B",
+            "id14",
+            "id14",
+            "function",
+            "_Z13changed_order1B1A",
+            "_Z13changed_order1A1B",
+            "compileunit:example.cpp->function:_Z13changed_order1B1A",
+            "compileunit:example.cpp->function:_Z13changed_order1A1B"
+        ]
+    ]
+}
