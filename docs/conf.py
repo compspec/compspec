@@ -28,7 +28,7 @@ FORCE_CLASSIC = FORCE_CLASSIC in ("1", "true")
 project = "Compspec Python"
 html_title = "Compspec Python"
 
-copyright = "2022, Vanessa Sochat"
+copyright = "2022-2024, Vanessa Sochat"
 author = "@vsoch"
 
 # The full version, including alpha/beta/rc tags
