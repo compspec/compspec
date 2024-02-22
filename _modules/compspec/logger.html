@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-content_root="../../" lang="en">
  <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -39,28 +39,28 @@
   <title>
    compspec.logger — Compspec Python
   </title>
-  <link href="../../_static/pygments.css" rel="stylesheet" type="text/css"/>
-  <link href="../../_static/material.css" rel="stylesheet" type="text/css"/>
-  <link href="../../_static/copybutton.css" rel="stylesheet" type="text/css"/>
+  <link href="../../_static/pygments.css?v=83e35b93" rel="stylesheet" type="text/css"/>
+  <link href="../../_static/material.css?v=79c92029" rel="stylesheet" type="text/css"/>
+  <link href="../../_static/copybutton.css?v=76b2166b" rel="stylesheet" type="text/css"/>
   <link href="../../_static/css/rtd_sphinx_search.min.css" rel="stylesheet" type="text/css"/>
-  <link href="../../_static/custom.css" rel="stylesheet" type="text/css"/>
-  <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js">
+  <link href="../../_static/custom.css?v=2e4958f2" rel="stylesheet" type="text/css"/>
+  <script src="../../_static/documentation_options.js?v=0e525676">
   </script>
-  <script src="../../_static/jquery.js">
+  <script src="../../_static/doctools.js?v=888ff710">
   </script>
-  <script src="../../_static/underscore.js">
+  <script src="../../_static/sphinx_highlight.js?v=dc90522c">
   </script>
-  <script src="../../_static/doctools.js">
+  <script src="../../_static/clipboard.min.js?v=a7894cd8">
   </script>
-  <script src="../../_static/clipboard.min.js">
+  <script src="../../_static/copybutton.js?v=f281be69">
   </script>
-  <script src="../../_static/copybutton.js">
+  <script src="../../_static/js/rtd_search_config.js">
   </script>
   <script src="../../_static/js/rtd_sphinx_search.min.js">
   </script>
   <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js">
   </script>
-  <link href="../../_static/favicon.ico" rel="shortcut icon"/>
+  <link href="../../_static/favicon.ico" rel="icon"/>
   <link href="../../genindex.html" rel="index" title="Index"/>
   <link href="../../search.html" rel="search" title="Search"/>
   <!-- Social: Facebook / Open Graph -->
@@ -138,7 +138,7 @@
        </label>
        <div class="md-search__inner" role="search">
         <form action="../../search.html" class="md-search__form" method="get" name="search">
-         <input autocapitalize="off" autocomplete="off" class="md-search__input" data-md-component="query" data-md-state="active" name="q" placeholder="Search" spellcheck="false" type="text"/>
+         <input autocapitalize="off" autocomplete="off" class="md-search__input" data-md-component="query" data-md-state="active" name="q" placeholder="" search="" spellcheck="false" type="text"/>
          <label class="md-icon md-search__icon" for="__search">
          </label>
          <button class="md-icon md-search__icon" data-md-component="reset" tabindex="-1" type="reset">
@@ -260,11 +260,6 @@
            </a>
           </li>
           <li class="md-nav__item">
-           <a class="md-nav__link" href="../../spec.html">
-            Composition Spec
-           </a>
-          </li>
-          <li class="md-nav__item">
            <span class="md-nav__link caption">
             <span class="caption-text">
              API
@@ -301,19 +296,20 @@
        <div class="highlight">
         <pre>
 <span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s2">"Vanessa Sochat"</span>
-<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">"Copyright 2022, Vanessa Sochat"</span>
-<span class="n">__license__</span> <span class="o">=</span> <span class="s2">"MPL 2.0"</span>
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">"Copyright 2022-2024, Vanessa Sochat"</span>
+<span class="n">__license__</span> <span class="o">=</span> <span class="s2">"MIT"</span>
 
+<span class="kn">import</span> <span class="nn">inspect</span>
 <span class="kn">import</span> <span class="nn">logging</span> <span class="k">as</span> <span class="nn">_logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">platform</span>
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">threading</span>
-<span class="kn">import</span> <span class="nn">inspect</span>
 
 
-<div class="viewcode-block" id="ColorizingStreamHandler"><a class="viewcode-back" href="../../source/compspec.html#compspec.logger.ColorizingStreamHandler">[docs]</a><span class="k">class</span> <span class="nc">ColorizingStreamHandler</span><span class="p">(</span><span class="n">_logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">):</span>
-
+<div class="viewcode-block" id="ColorizingStreamHandler">
+<a class="viewcode-back" href="../../source/compspec.html#compspec.logger.ColorizingStreamHandler">[docs]</a>
+<span class="k">class</span> <span class="nc">ColorizingStreamHandler</span><span class="p">(</span><span class="n">_logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">):</span>
     <span class="n">BLACK</span><span class="p">,</span> <span class="n">RED</span><span class="p">,</span> <span class="n">GREEN</span><span class="p">,</span> <span class="n">YELLOW</span><span class="p">,</span> <span class="n">BLUE</span><span class="p">,</span> <span class="n">MAGENTA</span><span class="p">,</span> <span class="n">CYAN</span><span class="p">,</span> <span class="n">WHITE</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
     <span class="n">RESET_SEQ</span> <span class="o">=</span> <span class="s2">"</span><span class="se">\033</span><span class="s2">[0m"</span>
     <span class="n">COLOR_SEQ</span> <span class="o">=</span> <span class="s2">"</span><span class="se">\033</span><span class="s2">[</span><span class="si">%d</span><span class="s2">m"</span>
@@ -332,17 +328,22 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_output_lock</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nocolor</span> <span class="o">=</span> <span class="n">nocolor</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">can_color_tty</span><span class="p">()</span>
 
-<div class="viewcode-block" id="ColorizingStreamHandler.can_color_tty"><a class="viewcode-back" href="../../source/compspec.html#compspec.logger.ColorizingStreamHandler.can_color_tty">[docs]</a>    <span class="k">def</span> <span class="nf">can_color_tty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="ColorizingStreamHandler.can_color_tty">
+<a class="viewcode-back" href="../../source/compspec.html#compspec.logger.ColorizingStreamHandler.can_color_tty">[docs]</a>
+    <span class="k">def</span> <span class="nf">can_color_tty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="s2">"TERM"</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"TERM"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"dumb"</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">False</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_tty</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"Windows"</span></div>
+
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">is_tty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">isatty</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stream</span><span class="p">,</span> <span class="s2">"isatty"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">isatty</span> <span class="ow">and</span> <span class="n">isatty</span><span class="p">()</span>
 
-<div class="viewcode-block" id="ColorizingStreamHandler.emit"><a class="viewcode-back" href="../../source/compspec.html#compspec.logger.ColorizingStreamHandler.emit">[docs]</a>    <span class="k">def</span> <span class="nf">emit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>
+<div class="viewcode-block" id="ColorizingStreamHandler.emit">
+<a class="viewcode-back" href="../../source/compspec.html#compspec.logger.ColorizingStreamHandler.emit">[docs]</a>
+    <span class="k">def</span> <span class="nf">emit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>
         <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_output_lock</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>  <span class="c1"># add the message to the record</span>
@@ -357,16 +358,23 @@
             <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">handleError</span><span class="p">(</span><span class="n">record</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="ColorizingStreamHandler.decorate"><a class="viewcode-back" href="../../source/compspec.html#compspec.logger.ColorizingStreamHandler.decorate">[docs]</a>    <span class="k">def</span> <span class="nf">decorate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>
+
+<div class="viewcode-block" id="ColorizingStreamHandler.decorate">
+<a class="viewcode-back" href="../../source/compspec.html#compspec.logger.ColorizingStreamHandler.decorate">[docs]</a>
+    <span class="k">def</span> <span class="nf">decorate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>
         <span class="n">message</span> <span class="o">=</span> <span class="n">record</span><span class="o">.</span><span class="n">message</span>
         <span class="n">message</span> <span class="o">=</span> <span class="p">[</span><span class="n">message</span><span class="p">]</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">nocolor</span> <span class="ow">and</span> <span class="n">record</span><span class="o">.</span><span class="n">levelname</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">colors</span><span class="p">:</span>
             <span class="n">message</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">COLOR_SEQ</span> <span class="o">%</span> <span class="p">(</span><span class="mi">30</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">colors</span><span class="p">[</span><span class="n">record</span><span class="o">.</span><span class="n">levelname</span><span class="p">]))</span>
             <span class="n">message</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">RESET_SEQ</span><span class="p">)</span>
-        <span class="k">return</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">message</span><span class="p">)</span></div></div>
+        <span class="k">return</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">message</span><span class="p">)</span></div>
+</div>
 
 
-<div class="viewcode-block" id="Logger"><a class="viewcode-back" href="../../source/compspec.html#compspec.logger.Logger">[docs]</a><span class="k">class</span> <span class="nc">Logger</span><span class="p">:</span>
+
+<div class="viewcode-block" id="Logger">
+<a class="viewcode-back" href="../../source/compspec.html#compspec.logger.Logger">[docs]</a>
+<span class="k">class</span> <span class="nc">Logger</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">_logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">log_handler</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">text_handler</span><span class="p">]</span>
@@ -377,26 +385,40 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">last_msg_was_job_info</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">logfile_handler</span> <span class="o">=</span> <span class="kc">None</span>
 
-<div class="viewcode-block" id="Logger.cleanup"><a class="viewcode-back" href="../../source/compspec.html#compspec.logger.Logger.cleanup">[docs]</a>    <span class="k">def</span> <span class="nf">cleanup</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Logger.cleanup">
+<a class="viewcode-back" href="../../source/compspec.html#compspec.logger.Logger.cleanup">[docs]</a>
+    <span class="k">def</span> <span class="nf">cleanup</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">logfile_handler</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">removeHandler</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">logfile_handler</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">logfile_handler</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">log_handler</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">text_handler</span><span class="p">]</span></div>
 
-<div class="viewcode-block" id="Logger.handler"><a class="viewcode-back" href="../../source/compspec.html#compspec.logger.Logger.handler">[docs]</a>    <span class="k">def</span> <span class="nf">handler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Logger.handler">
+<a class="viewcode-back" href="../../source/compspec.html#compspec.logger.Logger.handler">[docs]</a>
+    <span class="k">def</span> <span class="nf">handler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">handler</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">log_handler</span><span class="p">:</span>
             <span class="n">handler</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Logger.set_stream_handler"><a class="viewcode-back" href="../../source/compspec.html#compspec.logger.Logger.set_stream_handler">[docs]</a>    <span class="k">def</span> <span class="nf">set_stream_handler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stream_handler</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Logger.set_stream_handler">
+<a class="viewcode-back" href="../../source/compspec.html#compspec.logger.Logger.set_stream_handler">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_stream_handler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stream_handler</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">stream_handler</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">removeHandler</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stream_handler</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stream_handler</span> <span class="o">=</span> <span class="n">stream_handler</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">stream_handler</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Logger.set_level"><a class="viewcode-back" href="../../source/compspec.html#compspec.logger.Logger.set_level">[docs]</a>    <span class="k">def</span> <span class="nf">set_level</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Logger.set_level">
+<a class="viewcode-back" href="../../source/compspec.html#compspec.logger.Logger.set_level">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_level</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">level</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Logger.location"><a class="viewcode-back" href="../../source/compspec.html#compspec.logger.Logger.location">[docs]</a>    <span class="k">def</span> <span class="nf">location</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Logger.location">
+<a class="viewcode-back" href="../../source/compspec.html#compspec.logger.Logger.location">[docs]</a>
+    <span class="k">def</span> <span class="nf">location</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
         <span class="n">callerframerecord</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">stack</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
         <span class="n">frame</span> <span class="o">=</span> <span class="n">callerframerecord</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">info</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getframeinfo</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
@@ -404,32 +426,56 @@
             <span class="s2">"</span><span class="si">{}</span><span class="s2">: </span><span class="si">{info.filename}</span><span class="s2">, </span><span class="si">{info.function}</span><span class="s2">, </span><span class="si">{info.lineno}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">info</span><span class="o">=</span><span class="n">info</span><span class="p">)</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="Logger.info"><a class="viewcode-back" href="../../source/compspec.html#compspec.logger.Logger.info">[docs]</a>    <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Logger.info">
+<a class="viewcode-back" href="../../source/compspec.html#compspec.logger.Logger.info">[docs]</a>
+    <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">handler</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s2">"info"</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="n">msg</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="Logger.warning"><a class="viewcode-back" href="../../source/compspec.html#compspec.logger.Logger.warning">[docs]</a>    <span class="k">def</span> <span class="nf">warning</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Logger.warning">
+<a class="viewcode-back" href="../../source/compspec.html#compspec.logger.Logger.warning">[docs]</a>
+    <span class="k">def</span> <span class="nf">warning</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">handler</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s2">"warning"</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="n">msg</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="Logger.debug"><a class="viewcode-back" href="../../source/compspec.html#compspec.logger.Logger.debug">[docs]</a>    <span class="k">def</span> <span class="nf">debug</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Logger.debug">
+<a class="viewcode-back" href="../../source/compspec.html#compspec.logger.Logger.debug">[docs]</a>
+    <span class="k">def</span> <span class="nf">debug</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">handler</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s2">"debug"</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="n">msg</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="Logger.error"><a class="viewcode-back" href="../../source/compspec.html#compspec.logger.Logger.error">[docs]</a>    <span class="k">def</span> <span class="nf">error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Logger.error">
+<a class="viewcode-back" href="../../source/compspec.html#compspec.logger.Logger.error">[docs]</a>
+    <span class="k">def</span> <span class="nf">error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">handler</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s2">"error"</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="n">msg</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="Logger.exit"><a class="viewcode-back" href="../../source/compspec.html#compspec.logger.Logger.exit">[docs]</a>    <span class="k">def</span> <span class="nf">exit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">return_code</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Logger.exit">
+<a class="viewcode-back" href="../../source/compspec.html#compspec.logger.Logger.exit">[docs]</a>
+    <span class="k">def</span> <span class="nf">exit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">return_code</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">handler</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s2">"error"</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="n">msg</span><span class="p">))</span>
         <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">return_code</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Logger.progress"><a class="viewcode-back" href="../../source/compspec.html#compspec.logger.Logger.progress">[docs]</a>    <span class="k">def</span> <span class="nf">progress</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">done</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Logger.progress">
+<a class="viewcode-back" href="../../source/compspec.html#compspec.logger.Logger.progress">[docs]</a>
+    <span class="k">def</span> <span class="nf">progress</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">done</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">handler</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s2">"progress"</span><span class="p">,</span> <span class="n">done</span><span class="o">=</span><span class="n">done</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="n">total</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="Logger.shellcmd"><a class="viewcode-back" href="../../source/compspec.html#compspec.logger.Logger.shellcmd">[docs]</a>    <span class="k">def</span> <span class="nf">shellcmd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Logger.shellcmd">
+<a class="viewcode-back" href="../../source/compspec.html#compspec.logger.Logger.shellcmd">[docs]</a>
+    <span class="k">def</span> <span class="nf">shellcmd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">msg</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">msg</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s2">"shellcmd"</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="n">msg</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">handler</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Logger.text_handler"><a class="viewcode-back" href="../../source/compspec.html#compspec.logger.Logger.text_handler">[docs]</a>    <span class="k">def</span> <span class="nf">text_handler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
-        <span class="sd">"""The default snakemake log handler.</span>
+
+<div class="viewcode-block" id="Logger.text_handler">
+<a class="viewcode-back" href="../../source/compspec.html#compspec.logger.Logger.text_handler">[docs]</a>
+    <span class="k">def</span> <span class="nf">text_handler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""The default snakemake log handler.</span>
 <span class="sd">        Prints the output to the console.</span>
 <span class="sd">        Args:</span>
 <span class="sd">            msg (dict):     the log message dictionary</span>
@@ -453,13 +499,17 @@
             <span class="p">)</span>
         <span class="k">elif</span> <span class="n">level</span> <span class="o">==</span> <span class="s2">"shellcmd"</span><span class="p">:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">printshellcmds</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">msg</span><span class="p">[</span><span class="s2">"msg"</span><span class="p">])</span></div></div>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">msg</span><span class="p">[</span><span class="s2">"msg"</span><span class="p">])</span></div>
+</div>
+
 
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">Logger</span><span class="p">()</span>
 
 
-<div class="viewcode-block" id="setup_logger"><a class="viewcode-back" href="../../source/compspec.html#compspec.logger.setup_logger">[docs]</a><span class="k">def</span> <span class="nf">setup_logger</span><span class="p">(</span>
+<div class="viewcode-block" id="setup_logger">
+<a class="viewcode-back" href="../../source/compspec.html#compspec.logger.setup_logger">[docs]</a>
+<span class="k">def</span> <span class="nf">setup_logger</span><span class="p">(</span>
     <span class="n">quiet</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="n">printshellcmds</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="n">nocolor</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
@@ -478,6 +528,7 @@
     <span class="n">logger</span><span class="o">.</span><span class="n">set_level</span><span class="p">(</span><span class="n">_logging</span><span class="o">.</span><span class="n">DEBUG</span> <span class="k">if</span> <span class="n">debug</span> <span class="k">else</span> <span class="n">_logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
     <span class="n">logger</span><span class="o">.</span><span class="n">quiet</span> <span class="o">=</span> <span class="n">quiet</span>
     <span class="n">logger</span><span class="o">.</span><span class="n">printshellcmds</span> <span class="o">=</span> <span class="n">printshellcmds</span></div>
+
 </pre>
        </div>
       </article>
@@ -497,13 +548,13 @@
        © Copyright 2022, Vanessa Sochat.
       </div>
       Last updated on
-              May 28, 2022.
+              Feb 22, 2024.
       <br/>
       Created using
       <a href="http://www.sphinx-doc.org/">
        Sphinx
       </a>
-      4.5.0.
+      7.2.6.
              and
       <a href="https://github.com/bashtage/sphinx-material/">
        Material for

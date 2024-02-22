@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-content_root="../" lang="en">
  <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <meta content="Docutils 0.17.1: http://docutils.sourceforge.net/" name="generator"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
   <meta content="width=device-width,initial-scale=1" name="viewport"/>
   <meta content="ie=edge" http-equiv="x-ua-compatible"/>
   <meta content="Copy to clipboard" name="lang:clipboard.copy"/>
@@ -40,28 +40,28 @@
   <title>
    compspec.runner package — Compspec Python
   </title>
-  <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-  <link href="../_static/material.css" rel="stylesheet" type="text/css"/>
-  <link href="../_static/copybutton.css" rel="stylesheet" type="text/css"/>
+  <link href="../_static/pygments.css?v=83e35b93" rel="stylesheet" type="text/css"/>
+  <link href="../_static/material.css?v=79c92029" rel="stylesheet" type="text/css"/>
+  <link href="../_static/copybutton.css?v=76b2166b" rel="stylesheet" type="text/css"/>
   <link href="../_static/css/rtd_sphinx_search.min.css" rel="stylesheet" type="text/css"/>
-  <link href="../_static/custom.css" rel="stylesheet" type="text/css"/>
-  <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js">
+  <link href="../_static/custom.css?v=2e4958f2" rel="stylesheet" type="text/css"/>
+  <script src="../_static/documentation_options.js?v=0e525676">
   </script>
-  <script src="../_static/jquery.js">
+  <script src="../_static/doctools.js?v=888ff710">
   </script>
-  <script src="../_static/underscore.js">
+  <script src="../_static/sphinx_highlight.js?v=dc90522c">
   </script>
-  <script src="../_static/doctools.js">
+  <script src="../_static/clipboard.min.js?v=a7894cd8">
   </script>
-  <script src="../_static/clipboard.min.js">
+  <script src="../_static/copybutton.js?v=f281be69">
   </script>
-  <script src="../_static/copybutton.js">
+  <script src="../_static/js/rtd_search_config.js">
   </script>
   <script src="../_static/js/rtd_sphinx_search.min.js">
   </script>
   <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js">
   </script>
-  <link href="../_static/favicon.ico" rel="shortcut icon"/>
+  <link href="../_static/favicon.ico" rel="icon"/>
   <link href="../genindex.html" rel="index" title="Index"/>
   <link href="../search.html" rel="search" title="Search"/>
   <link href="compspec.lp.html" rel="prev" title="compspec.lp package"/>
@@ -140,7 +140,7 @@
        </label>
        <div class="md-search__inner" role="search">
         <form action="../search.html" class="md-search__form" method="get" name="search">
-         <input autocapitalize="off" autocomplete="off" class="md-search__input" data-md-component="query" data-md-state="active" name="q" placeholder="Search" spellcheck="false" type="text"/>
+         <input autocapitalize="off" autocomplete="off" class="md-search__input" data-md-component="query" data-md-state="active" name="q" placeholder="" search="" spellcheck="false" type="text"/>
          <label class="md-icon md-search__icon" for="__search">
          </label>
          <button class="md-icon md-search__icon" data-md-component="reset" tabindex="-1" type="reset">
@@ -267,11 +267,6 @@
            </a>
           </li>
           <li class="md-nav__item">
-           <a class="md-nav__link" href="../spec.html">
-            Composition Spec
-           </a>
-          </li>
-          <li class="md-nav__item">
            <span class="md-nav__link caption">
             <span class="caption-text">
              API
@@ -300,7 +295,7 @@
        <div class="md-sidebar__inner">
         <nav class="md-nav md-nav--secondary">
          <label class="md-nav__title" for="__toc">
-          Contents
+          "Contents"
          </label>
          <ul class="md-nav__list" data-md-scrollfix="">
           <li class="md-nav__item">
@@ -315,27 +310,27 @@
               </a>
              </li>
              <li class="md-nav__item">
-              <a class="md-nav__link" href="#module-compspec.runner.base">
+              <a class="md-nav__link" href="#compspec-runner-base-module">
                compspec.runner.base module
               </a>
              </li>
              <li class="md-nav__item">
-              <a class="md-nav__link" href="#module-compspec.runner.combination">
+              <a class="md-nav__link" href="#compspec-runner-combination-module">
                compspec.runner.combination module
               </a>
              </li>
              <li class="md-nav__item">
-              <a class="md-nav__link" href="#module-compspec.runner.composition">
+              <a class="md-nav__link" href="#compspec-runner-composition-module">
                compspec.runner.composition module
               </a>
              </li>
              <li class="md-nav__item">
-              <a class="md-nav__link" href="#module-compspec.runner.diff">
+              <a class="md-nav__link" href="#compspec-runner-diff-module">
                compspec.runner.diff module
               </a>
              </li>
              <li class="md-nav__item">
-              <a class="md-nav__link" href="#module-compspec.runner">
+              <a class="md-nav__link" href="#module-contents">
                Module contents
               </a>
              </li>
@@ -359,1237 +354,54 @@
        <section id="compspec-runner-package">
         <h1 id="source-compspec-runner--page-root">
          compspec.runner package
-         <a class="headerlink" href="#source-compspec-runner--page-root" title="Permalink to this headline">
+         <a class="headerlink" href="#source-compspec-runner--page-root" title="Link to this heading">
           ¶
          </a>
         </h1>
         <section id="submodules">
          <h2 id="submodules">
           Submodules
-          <a class="headerlink" href="#submodules" title="Permalink to this headline">
+          <a class="headerlink" href="#submodules" title="Link to this heading">
            ¶
           </a>
          </h2>
         </section>
-        <section id="module-compspec.runner.base">
-         <span id="compspec-runner-base-module">
-         </span>
-         <h2 id="module-compspec.runner.base">
+        <section id="compspec-runner-base-module">
+         <h2 id="compspec-runner-base-module">
           compspec.runner.base module
-          <a class="headerlink" href="#module-compspec.runner.base" title="Permalink to this headline">
+          <a class="headerlink" href="#compspec-runner-base-module" title="Link to this heading">
            ¶
           </a>
          </h2>
-         <dl class="py class">
-          <dt class="sig sig-object py" id="compspec.runner.base.CompositionBase">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-            <span class="w">
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-             compspec.runner.base.
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             CompositionBase
-            </span>
-           </span>
-           <a class="reference internal" href="../_modules/compspec/runner/base.html#CompositionBase">
-            <span class="viewcode-link">
-             <span class="pre">
-              [source]
-             </span>
-            </span>
-           </a>
-           <a class="headerlink" href="#compspec.runner.base.CompositionBase" title="Permalink to this definition">
-            ¶
-           </a>
-          </dt>
-          <dd>
-           <p>
-            Bases:
-            <code class="xref py py-class docutils literal notranslate">
-             <span class="pre">
-              object
-             </span>
-            </code>
-           </p>
-           <p>
-            A composition base is the base for a Composition or Diff.
-           </p>
-           <dl class="py method">
-            <dt class="sig sig-object py" id="compspec.runner.base.CompositionBase.run">
-             <span class="sig-name descname">
-              <span class="pre">
-               run
-              </span>
-             </span>
-             <span class="sig-paren">
-              (
-             </span>
-             <em class="sig-param">
-              <span class="n">
-               <span class="pre">
-                logic_programs
-               </span>
-              </span>
-              <span class="o">
-               <span class="pre">
-                =
-               </span>
-              </span>
-              <span class="default_value">
-               <span class="pre">
-                None
-               </span>
-              </span>
-             </em>
-             ,
-             <em class="sig-param">
-              <span class="n">
-               <span class="pre">
-                quiet
-               </span>
-              </span>
-              <span class="o">
-               <span class="pre">
-                =
-               </span>
-              </span>
-              <span class="default_value">
-               <span class="pre">
-                False
-               </span>
-              </span>
-             </em>
-             ,
-             <em class="sig-param">
-              <span class="n">
-               <span class="pre">
-                omit_default
-               </span>
-              </span>
-              <span class="o">
-               <span class="pre">
-                =
-               </span>
-              </span>
-              <span class="default_value">
-               <span class="pre">
-                False
-               </span>
-              </span>
-             </em>
-             <span class="sig-paren">
-              )
-             </span>
-             <a class="reference internal" href="../_modules/compspec/runner/base.html#CompositionBase.run">
-              <span class="viewcode-link">
-               <span class="pre">
-                [source]
-               </span>
-              </span>
-             </a>
-             <a class="headerlink" href="#compspec.runner.base.CompositionBase.run" title="Permalink to this definition">
-              ¶
-             </a>
-            </dt>
-            <dd>
-             <p>
-              Run of a composition will output ASP facts, unless a logic program
-is provided then we do this full solve. Omit defaut logic programs
-(if defined) given omit_default is True.
-             </p>
-            </dd>
-           </dl>
-           <dl class="py method">
-            <dt class="sig sig-object py" id="compspec.runner.base.CompositionBase.set_verbosity">
-             <span class="sig-name descname">
-              <span class="pre">
-               set_verbosity
-              </span>
-             </span>
-             <span class="sig-paren">
-              (
-             </span>
-             <em class="sig-param">
-              <span class="n">
-               <span class="pre">
-                out
-               </span>
-              </span>
-             </em>
-             ,
-             <em class="sig-param">
-              <span class="n">
-               <span class="pre">
-                quiet
-               </span>
-              </span>
-              <span class="o">
-               <span class="pre">
-                =
-               </span>
-              </span>
-              <span class="default_value">
-               <span class="pre">
-                False
-               </span>
-              </span>
-             </em>
-             <span class="sig-paren">
-              )
-             </span>
-             <a class="reference internal" href="../_modules/compspec/runner/base.html#CompositionBase.set_verbosity">
-              <span class="viewcode-link">
-               <span class="pre">
-                [source]
-               </span>
-              </span>
-             </a>
-             <a class="headerlink" href="#compspec.runner.base.CompositionBase.set_verbosity" title="Permalink to this definition">
-              ¶
-             </a>
-            </dt>
-            <dd>
-             <p>
-              Set the verbosity
-             </p>
-            </dd>
-           </dl>
-           <dl class="py method">
-            <dt class="sig sig-object py" id="compspec.runner.base.CompositionBase.solve">
-             <span class="sig-name descname">
-              <span class="pre">
-               solve
-              </span>
-             </span>
-             <span class="sig-paren">
-              (
-             </span>
-             <em class="sig-param">
-              <span class="n">
-               <span class="pre">
-                logic_programs
-               </span>
-              </span>
-              <span class="o">
-               <span class="pre">
-                =
-               </span>
-              </span>
-              <span class="default_value">
-               <span class="pre">
-                None
-               </span>
-              </span>
-             </em>
-             <span class="sig-paren">
-              )
-             </span>
-             <a class="reference internal" href="../_modules/compspec/runner/base.html#CompositionBase.solve">
-              <span class="viewcode-link">
-               <span class="pre">
-                [source]
-               </span>
-              </span>
-             </a>
-             <a class="headerlink" href="#compspec.runner.base.CompositionBase.solve" title="Permalink to this definition">
-              ¶
-             </a>
-            </dt>
-            <dd>
-             <p>
-              Run the solve, optionally with extra logic programs.
-             </p>
-            </dd>
-           </dl>
-          </dd>
-         </dl>
-         <dl class="py class">
-          <dt class="sig sig-object py" id="compspec.runner.base.FactGenerator">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-            <span class="w">
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-             compspec.runner.base.
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             FactGenerator
-            </span>
-           </span>
-           <a class="reference internal" href="../_modules/compspec/runner/base.html#FactGenerator">
-            <span class="viewcode-link">
-             <span class="pre">
-              [source]
-             </span>
-            </span>
-           </a>
-           <a class="headerlink" href="#compspec.runner.base.FactGenerator" title="Permalink to this definition">
-            ¶
-           </a>
-          </dt>
-          <dd>
-           <p>
-            Bases:
-            <code class="xref py py-class docutils literal notranslate">
-             <span class="pre">
-              object
-             </span>
-            </code>
-           </p>
-           <p>
-            The FactGenerator generates facts for one graph.
-           </p>
-           <dl class="py method">
-            <dt class="sig sig-object py" id="compspec.runner.base.FactGenerator.generate_facts">
-             <span class="sig-name descname">
-              <span class="pre">
-               generate_facts
-              </span>
-             </span>
-             <span class="sig-paren">
-              (
-             </span>
-             <em class="sig-param">
-              <span class="n">
-               <span class="pre">
-                g
-               </span>
-              </span>
-             </em>
-             ,
-             <em class="sig-param">
-              <span class="n">
-               <span class="pre">
-                ns
-               </span>
-              </span>
-             </em>
-             <span class="sig-paren">
-              )
-             </span>
-             <a class="reference internal" href="../_modules/compspec/runner/base.html#FactGenerator.generate_facts">
-              <span class="viewcode-link">
-               <span class="pre">
-                [source]
-               </span>
-              </span>
-             </a>
-             <a class="headerlink" href="#compspec.runner.base.FactGenerator.generate_facts" title="Permalink to this definition">
-              ¶
-             </a>
-            </dt>
-            <dd>
-             <p>
-              Generate facts for a namespaced graph
-             </p>
-            </dd>
-           </dl>
-          </dd>
-         </dl>
         </section>
-        <section id="module-compspec.runner.combination">
-         <span id="compspec-runner-combination-module">
-         </span>
-         <h2 id="module-compspec.runner.combination">
+        <section id="compspec-runner-combination-module">
+         <h2 id="compspec-runner-combination-module">
           compspec.runner.combination module
-          <a class="headerlink" href="#module-compspec.runner.combination" title="Permalink to this headline">
+          <a class="headerlink" href="#compspec-runner-combination-module" title="Link to this heading">
            ¶
           </a>
          </h2>
-         <dl class="py class">
-          <dt class="sig sig-object py" id="compspec.runner.combination.Combination">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-            <span class="w">
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-             compspec.runner.combination.
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             Combination
-            </span>
-           </span>
-           <span class="sig-paren">
-            (
-           </span>
-           <em class="sig-param">
-            <span class="n">
-             <span class="pre">
-              out
-             </span>
-            </span>
-            <span class="o">
-             <span class="pre">
-              =
-             </span>
-            </span>
-            <span class="default_value">
-             <span class="pre">
-              None
-             </span>
-            </span>
-           </em>
-           ,
-           <em class="sig-param">
-            <span class="n">
-             <span class="pre">
-              quiet
-             </span>
-            </span>
-            <span class="o">
-             <span class="pre">
-              =
-             </span>
-            </span>
-            <span class="default_value">
-             <span class="pre">
-              False
-             </span>
-            </span>
-           </em>
-           <span class="sig-paren">
-            )
-           </span>
-           <a class="reference internal" href="../_modules/compspec/runner/combination.html#Combination">
-            <span class="viewcode-link">
-             <span class="pre">
-              [source]
-             </span>
-            </span>
-           </a>
-           <a class="headerlink" href="#compspec.runner.combination.Combination" title="Permalink to this definition">
-            ¶
-           </a>
-          </dt>
-          <dd>
-           <p>
-            Bases:
-            <a class="reference internal" href="#compspec.runner.base.CompositionBase" title="compspec.runner.base.CompositionBase">
-             <code class="xref py py-class docutils literal notranslate">
-              <span class="pre">
-               compspec.runner.base.CompositionBase
-              </span>
-             </code>
-            </a>
-           </p>
-           <p>
-            A combination combines one or more graphs.
-           </p>
-           <dl class="py method">
-            <dt class="sig sig-object py" id="compspec.runner.combination.Combination.add_graph">
-             <span class="sig-name descname">
-              <span class="pre">
-               add_graph
-              </span>
-             </span>
-             <span class="sig-paren">
-              (
-             </span>
-             <em class="sig-param">
-              <span class="n">
-               <span class="pre">
-                g
-               </span>
-              </span>
-             </em>
-             ,
-             <em class="sig-param">
-              <span class="n">
-               <span class="pre">
-                ns
-               </span>
-              </span>
-             </em>
-             <span class="sig-paren">
-              )
-             </span>
-             <a class="reference internal" href="../_modules/compspec/runner/combination.html#Combination.add_graph">
-              <span class="viewcode-link">
-               <span class="pre">
-                [source]
-               </span>
-              </span>
-             </a>
-             <a class="headerlink" href="#compspec.runner.combination.Combination.add_graph" title="Permalink to this definition">
-              ¶
-             </a>
-            </dt>
-            <dd>
-             <p>
-              Add a graph to the namespace.
-             </p>
-            </dd>
-           </dl>
-          </dd>
-         </dl>
-         <dl class="py class">
-          <dt class="sig sig-object py" id="compspec.runner.combination.CombinedFactsGenerator">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-            <span class="w">
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-             compspec.runner.combination.
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             CombinedFactsGenerator
-            </span>
-           </span>
-           <a class="reference internal" href="../_modules/compspec/runner/combination.html#CombinedFactsGenerator">
-            <span class="viewcode-link">
-             <span class="pre">
-              [source]
-             </span>
-            </span>
-           </a>
-           <a class="headerlink" href="#compspec.runner.combination.CombinedFactsGenerator" title="Permalink to this definition">
-            ¶
-           </a>
-          </dt>
-          <dd>
-           <p>
-            Bases:
-            <a class="reference internal" href="#compspec.runner.base.FactGenerator" title="compspec.runner.base.FactGenerator">
-             <code class="xref py py-class docutils literal notranslate">
-              <span class="pre">
-               compspec.runner.base.FactGenerator
-              </span>
-             </code>
-            </a>
-           </p>
-           <p>
-            The SingleCorpusGenerator generates facts for one graph.
-           </p>
-           <dl class="py method">
-            <dt class="sig sig-object py" id="compspec.runner.combination.CombinedFactsGenerator.add_graph">
-             <span class="sig-name descname">
-              <span class="pre">
-               add_graph
-              </span>
-             </span>
-             <span class="sig-paren">
-              (
-             </span>
-             <em class="sig-param">
-              <span class="n">
-               <span class="pre">
-                g
-               </span>
-              </span>
-             </em>
-             ,
-             <em class="sig-param">
-              <span class="n">
-               <span class="pre">
-                ns
-               </span>
-              </span>
-             </em>
-             <span class="sig-paren">
-              )
-             </span>
-             <a class="reference internal" href="../_modules/compspec/runner/combination.html#CombinedFactsGenerator.add_graph">
-              <span class="viewcode-link">
-               <span class="pre">
-                [source]
-               </span>
-              </span>
-             </a>
-             <a class="headerlink" href="#compspec.runner.combination.CombinedFactsGenerator.add_graph" title="Permalink to this definition">
-              ¶
-             </a>
-            </dt>
-            <dd>
-             <p>
-              Add a graph to the namespace
-             </p>
-            </dd>
-           </dl>
-           <dl class="py method">
-            <dt class="sig sig-object py" id="compspec.runner.combination.CombinedFactsGenerator.setup">
-             <span class="sig-name descname">
-              <span class="pre">
-               setup
-              </span>
-             </span>
-             <span class="sig-paren">
-              (
-             </span>
-             <em class="sig-param">
-              <span class="n">
-               <span class="pre">
-                driver
-               </span>
-              </span>
-             </em>
-             <span class="sig-paren">
-              )
-             </span>
-             <a class="reference internal" href="../_modules/compspec/runner/combination.html#CombinedFactsGenerator.setup">
-              <span class="viewcode-link">
-               <span class="pre">
-                [source]
-               </span>
-              </span>
-             </a>
-             <a class="headerlink" href="#compspec.runner.combination.CombinedFactsGenerator.setup" title="Permalink to this definition">
-              ¶
-             </a>
-            </dt>
-            <dd>
-            </dd>
-           </dl>
-          </dd>
-         </dl>
         </section>
-        <section id="module-compspec.runner.composition">
-         <span id="compspec-runner-composition-module">
-         </span>
-         <h2 id="module-compspec.runner.composition">
+        <section id="compspec-runner-composition-module">
+         <h2 id="compspec-runner-composition-module">
           compspec.runner.composition module
-          <a class="headerlink" href="#module-compspec.runner.composition" title="Permalink to this headline">
+          <a class="headerlink" href="#compspec-runner-composition-module" title="Link to this heading">
            ¶
           </a>
          </h2>
-         <dl class="py class">
-          <dt class="sig sig-object py" id="compspec.runner.composition.Composition">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-            <span class="w">
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-             compspec.runner.composition.
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             Composition
-            </span>
-           </span>
-           <span class="sig-paren">
-            (
-           </span>
-           <em class="sig-param">
-            <span class="n">
-             <span class="pre">
-              g
-             </span>
-            </span>
-           </em>
-           ,
-           <em class="sig-param">
-            <span class="n">
-             <span class="pre">
-              out
-             </span>
-            </span>
-            <span class="o">
-             <span class="pre">
-              =
-             </span>
-            </span>
-            <span class="default_value">
-             <span class="pre">
-              None
-             </span>
-            </span>
-           </em>
-           ,
-           <em class="sig-param">
-            <span class="n">
-             <span class="pre">
-              namespace
-             </span>
-            </span>
-            <span class="o">
-             <span class="pre">
-              =
-             </span>
-            </span>
-            <span class="default_value">
-             <span class="pre">
-              None
-             </span>
-            </span>
-           </em>
-           ,
-           <em class="sig-param">
-            <span class="n">
-             <span class="pre">
-              quiet
-             </span>
-            </span>
-            <span class="o">
-             <span class="pre">
-              =
-             </span>
-            </span>
-            <span class="default_value">
-             <span class="pre">
-              False
-             </span>
-            </span>
-           </em>
-           <span class="sig-paren">
-            )
-           </span>
-           <a class="reference internal" href="../_modules/compspec/runner/composition.html#Composition">
-            <span class="viewcode-link">
-             <span class="pre">
-              [source]
-             </span>
-            </span>
-           </a>
-           <a class="headerlink" href="#compspec.runner.composition.Composition" title="Permalink to this definition">
-            ¶
-           </a>
-          </dt>
-          <dd>
-           <p>
-            Bases:
-            <a class="reference internal" href="#compspec.runner.base.CompositionBase" title="compspec.runner.base.CompositionBase">
-             <code class="xref py py-class docutils literal notranslate">
-              <span class="pre">
-               compspec.runner.base.CompositionBase
-              </span>
-             </code>
-            </a>
-           </p>
-           <p>
-            A composition is simply facts about one graph (object of interest).
-It uses a simple FactGenerator under the hood, and does not add any
-extra logic program (unless the user requests it).
-           </p>
-          </dd>
-         </dl>
-         <dl class="py class">
-          <dt class="sig sig-object py" id="compspec.runner.composition.SingleCorpusGenerator">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-            <span class="w">
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-             compspec.runner.composition.
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             SingleCorpusGenerator
-            </span>
-           </span>
-           <span class="sig-paren">
-            (
-           </span>
-           <em class="sig-param">
-            <span class="n">
-             <span class="pre">
-              g
-             </span>
-            </span>
-           </em>
-           ,
-           <em class="sig-param">
-            <span class="n">
-             <span class="pre">
-              namespace
-             </span>
-            </span>
-            <span class="o">
-             <span class="pre">
-              =
-             </span>
-            </span>
-            <span class="default_value">
-             <span class="pre">
-              None
-             </span>
-            </span>
-           </em>
-           <span class="sig-paren">
-            )
-           </span>
-           <a class="reference internal" href="../_modules/compspec/runner/composition.html#SingleCorpusGenerator">
-            <span class="viewcode-link">
-             <span class="pre">
-              [source]
-             </span>
-            </span>
-           </a>
-           <a class="headerlink" href="#compspec.runner.composition.SingleCorpusGenerator" title="Permalink to this definition">
-            ¶
-           </a>
-          </dt>
-          <dd>
-           <p>
-            Bases:
-            <a class="reference internal" href="#compspec.runner.base.FactGenerator" title="compspec.runner.base.FactGenerator">
-             <code class="xref py py-class docutils literal notranslate">
-              <span class="pre">
-               compspec.runner.base.FactGenerator
-              </span>
-             </code>
-            </a>
-           </p>
-           <p>
-            The SingleCorpusGenerator generates facts for one graph.
-           </p>
-           <dl class="py method">
-            <dt class="sig sig-object py" id="compspec.runner.composition.SingleCorpusGenerator.setup">
-             <span class="sig-name descname">
-              <span class="pre">
-               setup
-              </span>
-             </span>
-             <span class="sig-paren">
-              (
-             </span>
-             <em class="sig-param">
-              <span class="n">
-               <span class="pre">
-                driver
-               </span>
-              </span>
-             </em>
-             <span class="sig-paren">
-              )
-             </span>
-             <a class="reference internal" href="../_modules/compspec/runner/composition.html#SingleCorpusGenerator.setup">
-              <span class="viewcode-link">
-               <span class="pre">
-                [source]
-               </span>
-              </span>
-             </a>
-             <a class="headerlink" href="#compspec.runner.composition.SingleCorpusGenerator.setup" title="Permalink to this definition">
-              ¶
-             </a>
-            </dt>
-            <dd>
-             <p>
-              Setup data for one library.
-This is called by the PyclingoDriver
-             </p>
-            </dd>
-           </dl>
-          </dd>
-         </dl>
         </section>
-        <section id="module-compspec.runner.diff">
-         <span id="compspec-runner-diff-module">
-         </span>
-         <h2 id="module-compspec.runner.diff">
+        <section id="compspec-runner-diff-module">
+         <h2 id="compspec-runner-diff-module">
           compspec.runner.diff module
-          <a class="headerlink" href="#module-compspec.runner.diff" title="Permalink to this headline">
+          <a class="headerlink" href="#compspec-runner-diff-module" title="Link to this heading">
            ¶
           </a>
          </h2>
-         <dl class="py class">
-          <dt class="sig sig-object py" id="compspec.runner.diff.DiffFactsGenerator">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-            <span class="w">
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-             compspec.runner.diff.
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             DiffFactsGenerator
-            </span>
-           </span>
-           <span class="sig-paren">
-            (
-           </span>
-           <em class="sig-param">
-            <span class="n">
-             <span class="pre">
-              A
-             </span>
-            </span>
-           </em>
-           ,
-           <em class="sig-param">
-            <span class="n">
-             <span class="pre">
-              B
-             </span>
-            </span>
-           </em>
-           ,
-           <em class="sig-param">
-            <span class="n">
-             <span class="pre">
-              namespaceA
-             </span>
-            </span>
-            <span class="o">
-             <span class="pre">
-              =
-             </span>
-            </span>
-            <span class="default_value">
-             <span class="pre">
-              None
-             </span>
-            </span>
-           </em>
-           ,
-           <em class="sig-param">
-            <span class="n">
-             <span class="pre">
-              namespaceB
-             </span>
-            </span>
-            <span class="o">
-             <span class="pre">
-              =
-             </span>
-            </span>
-            <span class="default_value">
-             <span class="pre">
-              None
-             </span>
-            </span>
-           </em>
-           <span class="sig-paren">
-            )
-           </span>
-           <a class="reference internal" href="../_modules/compspec/runner/diff.html#DiffFactsGenerator">
-            <span class="viewcode-link">
-             <span class="pre">
-              [source]
-             </span>
-            </span>
-           </a>
-           <a class="headerlink" href="#compspec.runner.diff.DiffFactsGenerator" title="Permalink to this definition">
-            ¶
-           </a>
-          </dt>
-          <dd>
-           <p>
-            Bases:
-            <a class="reference internal" href="#compspec.runner.base.FactGenerator" title="compspec.runner.base.FactGenerator">
-             <code class="xref py py-class docutils literal notranslate">
-              <span class="pre">
-               compspec.runner.base.FactGenerator
-              </span>
-             </code>
-            </a>
-           </p>
-           <p>
-            The DiffFactsGenerator generates facts for two graphs to compare.
-           </p>
-           <dl class="py method">
-            <dt class="sig sig-object py" id="compspec.runner.diff.DiffFactsGenerator.setup">
-             <span class="sig-name descname">
-              <span class="pre">
-               setup
-              </span>
-             </span>
-             <span class="sig-paren">
-              (
-             </span>
-             <em class="sig-param">
-              <span class="n">
-               <span class="pre">
-                driver
-               </span>
-              </span>
-             </em>
-             <span class="sig-paren">
-              )
-             </span>
-             <a class="reference internal" href="../_modules/compspec/runner/diff.html#DiffFactsGenerator.setup">
-              <span class="viewcode-link">
-               <span class="pre">
-                [source]
-               </span>
-              </span>
-             </a>
-             <a class="headerlink" href="#compspec.runner.diff.DiffFactsGenerator.setup" title="Permalink to this definition">
-              ¶
-             </a>
-            </dt>
-            <dd>
-             <p>
-              Setup data for one library.
-This is called by the PyclingoDriver
-             </p>
-            </dd>
-           </dl>
-          </dd>
-         </dl>
-         <dl class="py class">
-          <dt class="sig sig-object py" id="compspec.runner.diff.Difference">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-            <span class="w">
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-             compspec.runner.diff.
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             Difference
-            </span>
-           </span>
-           <span class="sig-paren">
-            (
-           </span>
-           <em class="sig-param">
-            <span class="n">
-             <span class="pre">
-              A
-             </span>
-            </span>
-           </em>
-           ,
-           <em class="sig-param">
-            <span class="n">
-             <span class="pre">
-              B
-             </span>
-            </span>
-           </em>
-           ,
-           <em class="sig-param">
-            <span class="n">
-             <span class="pre">
-              namespaceA
-             </span>
-            </span>
-            <span class="o">
-             <span class="pre">
-              =
-             </span>
-            </span>
-            <span class="default_value">
-             <span class="pre">
-              None
-             </span>
-            </span>
-           </em>
-           ,
-           <em class="sig-param">
-            <span class="n">
-             <span class="pre">
-              namespaceB
-             </span>
-            </span>
-            <span class="o">
-             <span class="pre">
-              =
-             </span>
-            </span>
-            <span class="default_value">
-             <span class="pre">
-              None
-             </span>
-            </span>
-           </em>
-           ,
-           <em class="sig-param">
-            <span class="n">
-             <span class="pre">
-              out
-             </span>
-            </span>
-            <span class="o">
-             <span class="pre">
-              =
-             </span>
-            </span>
-            <span class="default_value">
-             <span class="pre">
-              None
-             </span>
-            </span>
-           </em>
-           ,
-           <em class="sig-param">
-            <span class="n">
-             <span class="pre">
-              quiet
-             </span>
-            </span>
-            <span class="o">
-             <span class="pre">
-              =
-             </span>
-            </span>
-            <span class="default_value">
-             <span class="pre">
-              False
-             </span>
-            </span>
-           </em>
-           <span class="sig-paren">
-            )
-           </span>
-           <a class="reference internal" href="../_modules/compspec/runner/diff.html#Difference">
-            <span class="viewcode-link">
-             <span class="pre">
-              [source]
-             </span>
-            </span>
-           </a>
-           <a class="headerlink" href="#compspec.runner.diff.Difference" title="Permalink to this definition">
-            ¶
-           </a>
-          </dt>
-          <dd>
-           <p>
-            Bases:
-            <a class="reference internal" href="#compspec.runner.base.CompositionBase" title="compspec.runner.base.CompositionBase">
-             <code class="xref py py-class docutils literal notranslate">
-              <span class="pre">
-               compspec.runner.base.CompositionBase
-              </span>
-             </code>
-            </a>
-           </p>
-           <p>
-            A composition is simply facts about one graph (object of interest).
-It uses a simple FactGenerator under the hood, and does not add any
-extra logic program (unless the user requests it).
-           </p>
-           <dl class="py method">
-            <dt class="sig sig-object py" id="compspec.runner.diff.Difference.prepare_result">
-             <span class="sig-name descname">
-              <span class="pre">
-               prepare_result
-              </span>
-             </span>
-             <span class="sig-paren">
-              (
-             </span>
-             <em class="sig-param">
-              <span class="n">
-               <span class="pre">
-                result
-               </span>
-              </span>
-             </em>
-             <span class="sig-paren">
-              )
-             </span>
-             <a class="reference internal" href="../_modules/compspec/runner/diff.html#Difference.prepare_result">
-              <span class="viewcode-link">
-               <span class="pre">
-                [source]
-               </span>
-              </span>
-             </a>
-             <a class="headerlink" href="#compspec.runner.diff.Difference.prepare_result" title="Permalink to this definition">
-              ¶
-             </a>
-            </dt>
-            <dd>
-             <p>
-              If defined, we further process the result json before returning.
-             </p>
-             <p>
-              This preparation is based on the default compsec diff is-compatible facts:
-             </p>
-            </dd>
-           </dl>
-           <dl class="py method">
-            <dt class="sig sig-object py" id="compspec.runner.diff.Difference.table">
-             <em class="property">
-              <span class="pre">
-               classmethod
-              </span>
-              <span class="w">
-              </span>
-             </em>
-             <span class="sig-name descname">
-              <span class="pre">
-               table
-              </span>
-             </span>
-             <span class="sig-paren">
-              (
-             </span>
-             <em class="sig-param">
-              <span class="n">
-               <span class="pre">
-                result
-               </span>
-              </span>
-             </em>
-             <span class="sig-paren">
-              )
-             </span>
-             <a class="reference internal" href="../_modules/compspec/runner/diff.html#Difference.table">
-              <span class="viewcode-link">
-               <span class="pre">
-                [source]
-               </span>
-              </span>
-             </a>
-             <a class="headerlink" href="#compspec.runner.diff.Difference.table" title="Permalink to this definition">
-              ¶
-             </a>
-            </dt>
-            <dd>
-             <p>
-              Generate a table from results
-             </p>
-            </dd>
-           </dl>
-          </dd>
-         </dl>
         </section>
-        <section id="module-compspec.runner">
-         <span id="module-contents">
-         </span>
-         <h2 id="module-compspec.runner">
+        <section id="module-contents">
+         <h2 id="module-contents">
           Module contents
-          <a class="headerlink" href="#module-compspec.runner" title="Permalink to this headline">
+          <a class="headerlink" href="#module-contents" title="Link to this heading">
            ¶
           </a>
          </h2>
@@ -1611,7 +423,7 @@ extra logic program (unless the user requests it).
       <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
        <span class="md-flex__ellipsis">
         <span class="md-footer-nav__direction">
-         Previous
+         "Previous"
         </span>
         compspec.lp package
        </span>
@@ -1626,13 +438,13 @@ extra logic program (unless the user requests it).
        © Copyright 2022, Vanessa Sochat.
       </div>
       Last updated on
-              May 28, 2022.
+              Feb 22, 2024.
       <br/>
       Created using
       <a href="http://www.sphinx-doc.org/">
        Sphinx
       </a>
-      4.5.0.
+      7.2.6.
              and
       <a href="https://github.com/bashtage/sphinx-material/">
        Material for

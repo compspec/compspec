@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-content_root="../../" lang="en">
  <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -39,28 +39,28 @@
   <title>
    compspec.utils — Compspec Python
   </title>
-  <link href="../../_static/pygments.css" rel="stylesheet" type="text/css"/>
-  <link href="../../_static/material.css" rel="stylesheet" type="text/css"/>
-  <link href="../../_static/copybutton.css" rel="stylesheet" type="text/css"/>
+  <link href="../../_static/pygments.css?v=83e35b93" rel="stylesheet" type="text/css"/>
+  <link href="../../_static/material.css?v=79c92029" rel="stylesheet" type="text/css"/>
+  <link href="../../_static/copybutton.css?v=76b2166b" rel="stylesheet" type="text/css"/>
   <link href="../../_static/css/rtd_sphinx_search.min.css" rel="stylesheet" type="text/css"/>
-  <link href="../../_static/custom.css" rel="stylesheet" type="text/css"/>
-  <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js">
+  <link href="../../_static/custom.css?v=2e4958f2" rel="stylesheet" type="text/css"/>
+  <script src="../../_static/documentation_options.js?v=0e525676">
   </script>
-  <script src="../../_static/jquery.js">
+  <script src="../../_static/doctools.js?v=888ff710">
   </script>
-  <script src="../../_static/underscore.js">
+  <script src="../../_static/sphinx_highlight.js?v=dc90522c">
   </script>
-  <script src="../../_static/doctools.js">
+  <script src="../../_static/clipboard.min.js?v=a7894cd8">
   </script>
-  <script src="../../_static/clipboard.min.js">
+  <script src="../../_static/copybutton.js?v=f281be69">
   </script>
-  <script src="../../_static/copybutton.js">
+  <script src="../../_static/js/rtd_search_config.js">
   </script>
   <script src="../../_static/js/rtd_sphinx_search.min.js">
   </script>
   <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js">
   </script>
-  <link href="../../_static/favicon.ico" rel="shortcut icon"/>
+  <link href="../../_static/favicon.ico" rel="icon"/>
   <link href="../../genindex.html" rel="index" title="Index"/>
   <link href="../../search.html" rel="search" title="Search"/>
   <!-- Social: Facebook / Open Graph -->
@@ -138,7 +138,7 @@
        </label>
        <div class="md-search__inner" role="search">
         <form action="../../search.html" class="md-search__form" method="get" name="search">
-         <input autocapitalize="off" autocomplete="off" class="md-search__input" data-md-component="query" data-md-state="active" name="q" placeholder="Search" spellcheck="false" type="text"/>
+         <input autocapitalize="off" autocomplete="off" class="md-search__input" data-md-component="query" data-md-state="active" name="q" placeholder="" search="" spellcheck="false" type="text"/>
          <label class="md-icon md-search__icon" for="__search">
          </label>
          <button class="md-icon md-search__icon" data-md-component="reset" tabindex="-1" type="reset">
@@ -260,11 +260,6 @@
            </a>
           </li>
           <li class="md-nav__item">
-           <a class="md-nav__link" href="../../spec.html">
-            Composition Spec
-           </a>
-          </li>
-          <li class="md-nav__item">
            <span class="md-nav__link caption">
             <span class="caption-text">
              API
@@ -301,55 +296,74 @@
        <div class="highlight">
         <pre>
 <span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s2">"Vanessa Sochat"</span>
-<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">"Copyright 2022, Vanessa Sochat"</span>
-<span class="n">__license__</span> <span class="o">=</span> <span class="s2">"MPL 2.0"</span>
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">"Copyright 2022-2024, Vanessa Sochat"</span>
+<span class="n">__license__</span> <span class="o">=</span> <span class="s2">"MIT"</span>
 
-<span class="kn">from</span> <span class="nn">subprocess</span> <span class="kn">import</span> <span class="n">Popen</span><span class="p">,</span> <span class="n">PIPE</span><span class="p">,</span> <span class="n">STDOUT</span>
 <span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">shlex</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+
 <span class="kn">import</span> <span class="nn">yaml</span>
 
 
-<div class="viewcode-block" id="read_json"><a class="viewcode-back" href="../../source/compspec.html#compspec.utils.read_json">[docs]</a><span class="k">def</span> <span class="nf">read_json</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<div class="viewcode-block" id="read_json">
+<a class="viewcode-back" href="../../source/compspec.html#compspec.utils.read_json">[docs]</a>
+<span class="k">def</span> <span class="nf">read_json</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fd</span><span class="p">:</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">fd</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
     <span class="k">return</span> <span class="n">data</span></div>
 
 
-<div class="viewcode-block" id="write_json"><a class="viewcode-back" href="../../source/compspec.html#compspec.utils.write_json">[docs]</a><span class="k">def</span> <span class="nf">write_json</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+
+<div class="viewcode-block" id="write_json">
+<a class="viewcode-back" href="../../source/compspec.html#compspec.utils.write_json">[docs]</a>
+<span class="k">def</span> <span class="nf">write_json</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fd</span><span class="p">:</span>
         <span class="n">fd</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="read_yaml"><a class="viewcode-back" href="../../source/compspec.html#compspec.utils.read_yaml">[docs]</a><span class="k">def</span> <span class="nf">read_yaml</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
+
+<div class="viewcode-block" id="normalize_key">
+<a class="viewcode-back" href="../../source/compspec.html#compspec.utils.normalize_key">[docs]</a>
+<span class="k">def</span> <span class="nf">normalize_key</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    A key needs to be all lowercase, ideally with no spaces, etc.</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">key</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">" "</span><span class="p">,</span> <span class="s2">"_"</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="read_yaml">
+<a class="viewcode-back" href="../../source/compspec.html#compspec.utils.read_yaml">[docs]</a>
+<span class="k">def</span> <span class="nf">read_yaml</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fd</span><span class="p">:</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fd</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span> <span class="n">Loader</span><span class="o">=</span><span class="n">yaml</span><span class="o">.</span><span class="n">SafeLoader</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">data</span></div>
 
 
-<div class="viewcode-block" id="row"><a class="viewcode-back" href="../../source/compspec.html#compspec.utils.row">[docs]</a><span class="k">def</span> <span class="nf">row</span><span class="p">(</span><span class="n">cols</span><span class="p">):</span>
+
+<div class="viewcode-block" id="row">
+<a class="viewcode-back" href="../../source/compspec.html#compspec.utils.row">[docs]</a>
+<span class="k">def</span> <span class="nf">row</span><span class="p">(</span><span class="n">cols</span><span class="p">):</span>
     <span class="k">return</span> <span class="s2">"|"</span> <span class="o">+</span> <span class="s2">"|"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"|</span><span class="se">\n</span><span class="s2">"</span></div>
 
 
-<div class="viewcode-block" id="run_command"><a class="viewcode-back" href="../../source/compspec.html#compspec.utils.run_command">[docs]</a><span class="k">def</span> <span class="nf">run_command</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">sudo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">"""run_command uses subprocess to send a command to the terminal.</span>
+
+<div class="viewcode-block" id="run_command">
+<a class="viewcode-back" href="../../source/compspec.html#compspec.utils.run_command">[docs]</a>
+<span class="k">def</span> <span class="nf">run_command</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    use subprocess to send a command to the terminal.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ==========</span>
-<span class="sd">    cmd: the command to send, should be a list for subprocess</span>
-<span class="sd">    error_message: the error message to give to user if fails,</span>
-<span class="sd">    if none specified, will alert that command failed.</span>
-
+<span class="sd">    cmd: the command to send</span>
 <span class="sd">    """</span>
-    <span class="n">stdout</span> <span class="o">=</span> <span class="n">PIPE</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">stream</span> <span class="k">else</span> <span class="kc">None</span>
-    <span class="k">if</span> <span class="n">sudo</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="n">cmd</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"sudo"</span><span class="p">]</span> <span class="o">+</span> <span class="n">cmd</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="n">shlex</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
 
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">output</span> <span class="o">=</span> <span class="n">Popen</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">STDOUT</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">stdout</span><span class="p">)</span>
-
-    <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
-        <span class="n">cmd</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-        <span class="n">output</span> <span class="o">=</span> <span class="n">Popen</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">STDOUT</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">PIPE</span><span class="p">)</span>
+    <span class="n">stdout</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">stream</span> <span class="k">else</span> <span class="kc">None</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">STDOUT</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">stdout</span><span class="p">)</span>
 
     <span class="n">t</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">communicate</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="n">output</span><span class="o">.</span><span class="n">returncode</span>
     <span class="n">output</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"message"</span><span class="p">:</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">"return_code"</span><span class="p">:</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]}</span>
@@ -358,6 +372,7 @@
         <span class="n">output</span><span class="p">[</span><span class="s2">"message"</span><span class="p">]</span> <span class="o">=</span> <span class="n">output</span><span class="p">[</span><span class="s2">"message"</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">output</span></div>
+
 </pre>
        </div>
       </article>
@@ -377,13 +392,13 @@
        © Copyright 2022, Vanessa Sochat.
       </div>
       Last updated on
-              May 28, 2022.
+              Feb 22, 2024.
       <br/>
       Created using
       <a href="http://www.sphinx-doc.org/">
        Sphinx
       </a>
-      4.5.0.
+      7.2.6.
              and
       <a href="https://github.com/bashtage/sphinx-material/">
        Material for

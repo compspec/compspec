@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-content_root="../" lang="en">
  <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <meta content="Docutils 0.17.1: http://docutils.sourceforge.net/" name="generator"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
   <meta content="width=device-width,initial-scale=1" name="viewport"/>
   <meta content="ie=edge" http-equiv="x-ua-compatible"/>
   <meta content="Copy to clipboard" name="lang:clipboard.copy"/>
@@ -40,28 +40,28 @@
   <title>
    compspec package — Compspec Python
   </title>
-  <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-  <link href="../_static/material.css" rel="stylesheet" type="text/css"/>
-  <link href="../_static/copybutton.css" rel="stylesheet" type="text/css"/>
+  <link href="../_static/pygments.css?v=83e35b93" rel="stylesheet" type="text/css"/>
+  <link href="../_static/material.css?v=79c92029" rel="stylesheet" type="text/css"/>
+  <link href="../_static/copybutton.css?v=76b2166b" rel="stylesheet" type="text/css"/>
   <link href="../_static/css/rtd_sphinx_search.min.css" rel="stylesheet" type="text/css"/>
-  <link href="../_static/custom.css" rel="stylesheet" type="text/css"/>
-  <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js">
+  <link href="../_static/custom.css?v=2e4958f2" rel="stylesheet" type="text/css"/>
+  <script src="../_static/documentation_options.js?v=0e525676">
   </script>
-  <script src="../_static/jquery.js">
+  <script src="../_static/doctools.js?v=888ff710">
   </script>
-  <script src="../_static/underscore.js">
+  <script src="../_static/sphinx_highlight.js?v=dc90522c">
   </script>
-  <script src="../_static/doctools.js">
+  <script src="../_static/clipboard.min.js?v=a7894cd8">
   </script>
-  <script src="../_static/clipboard.min.js">
+  <script src="../_static/copybutton.js?v=f281be69">
   </script>
-  <script src="../_static/copybutton.js">
+  <script src="../_static/js/rtd_search_config.js">
   </script>
   <script src="../_static/js/rtd_sphinx_search.min.js">
   </script>
   <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js">
   </script>
-  <link href="../_static/favicon.ico" rel="shortcut icon"/>
+  <link href="../_static/favicon.ico" rel="icon"/>
   <link href="../genindex.html" rel="index" title="Index"/>
   <link href="../search.html" rel="search" title="Search"/>
   <link href="compspec.lp.html" rel="next" title="compspec.lp package"/>
@@ -141,7 +141,7 @@
        </label>
        <div class="md-search__inner" role="search">
         <form action="../search.html" class="md-search__form" method="get" name="search">
-         <input autocapitalize="off" autocomplete="off" class="md-search__input" data-md-component="query" data-md-state="active" name="q" placeholder="Search" spellcheck="false" type="text"/>
+         <input autocapitalize="off" autocomplete="off" class="md-search__input" data-md-component="query" data-md-state="active" name="q" placeholder="" search="" spellcheck="false" type="text"/>
          <label class="md-icon md-search__icon" for="__search">
          </label>
          <button class="md-icon md-search__icon" data-md-component="reset" tabindex="-1" type="reset">
@@ -263,11 +263,6 @@
            </a>
           </li>
           <li class="md-nav__item">
-           <a class="md-nav__link" href="../spec.html">
-            Composition Spec
-           </a>
-          </li>
-          <li class="md-nav__item">
            <span class="md-nav__link caption">
             <span class="caption-text">
              API
@@ -289,7 +284,7 @@
              </a>
              <nav class="md-nav md-nav--secondary">
               <label class="md-nav__title" for="__toc">
-               Contents
+               "Contents"
               </label>
               <ul class="md-nav__list" data-md-scrollfix="">
                <li class="md-nav__item">
@@ -312,26 +307,762 @@
                    <a class="md-nav__link" href="#module-compspec.entity">
                     compspec.entity module
                    </a>
+                   <nav class="md-nav">
+                    <ul class="md-nav__list">
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#compspec.entity.Counter">
+                       <code class="docutils literal notranslate">
+                        <span class="pre">
+                         Counter
+                        </span>
+                       </code>
+                      </a>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#compspec.entity.get_counter">
+                       <code class="docutils literal notranslate">
+                        <span class="pre">
+                         get_counter()
+                        </span>
+                       </code>
+                      </a>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#compspec.entity.node">
+                       <code class="docutils literal notranslate">
+                        <span class="pre">
+                         node
+                        </span>
+                       </code>
+                      </a>
+                      <nav class="md-nav">
+                       <ul class="md-nav__list">
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.entity.node.args">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            node.args
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.entity.node.describe">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            node.describe()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.entity.node.to_dict">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            node.to_dict()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                       </ul>
+                      </nav>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#compspec.entity.relation">
+                       <code class="docutils literal notranslate">
+                        <span class="pre">
+                         relation
+                        </span>
+                       </code>
+                      </a>
+                      <nav class="md-nav">
+                       <ul class="md-nav__list">
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.entity.relation.args">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            relation.args
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.entity.relation.to_dict">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            relation.to_dict()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                       </ul>
+                      </nav>
+                     </li>
+                    </ul>
+                   </nav>
                   </li>
                   <li class="md-nav__item">
                    <a class="md-nav__link" href="#module-compspec.graph">
                     compspec.graph module
                    </a>
+                   <nav class="md-nav">
+                    <ul class="md-nav__list">
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#compspec.graph.Graph">
+                       <code class="docutils literal notranslate">
+                        <span class="pre">
+                         Graph
+                        </span>
+                       </code>
+                      </a>
+                      <nav class="md-nav">
+                       <ul class="md-nav__list">
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.graph.Graph.add_node">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            Graph.add_node()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.graph.Graph.add_relation">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            Graph.add_relation()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.graph.Graph.from_dict">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            Graph.from_dict()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.graph.Graph.gen">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            Graph.gen()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.graph.Graph.iter_connectors">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            Graph.iter_connectors()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.graph.Graph.iter_nodes">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            Graph.iter_nodes()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.graph.Graph.iter_relations">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            Graph.iter_relations()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.graph.Graph.new_node">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            Graph.new_node()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.graph.Graph.new_relation">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            Graph.new_relation()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.graph.Graph.next">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            Graph.next()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.graph.Graph.to_dict">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            Graph.to_dict()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                       </ul>
+                      </nav>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#compspec.graph.GraphGroup">
+                       <code class="docutils literal notranslate">
+                        <span class="pre">
+                         GraphGroup
+                        </span>
+                       </code>
+                      </a>
+                      <nav class="md-nav">
+                       <ul class="md-nav__list">
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.graph.GraphGroup.extract">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            GraphGroup.extract()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                       </ul>
+                      </nav>
+                     </li>
+                    </ul>
+                   </nav>
                   </li>
                   <li class="md-nav__item">
                    <a class="md-nav__link" href="#module-compspec.logger">
                     compspec.logger module
                    </a>
+                   <nav class="md-nav">
+                    <ul class="md-nav__list">
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#compspec.logger.ColorizingStreamHandler">
+                       <code class="docutils literal notranslate">
+                        <span class="pre">
+                         ColorizingStreamHandler
+                        </span>
+                       </code>
+                      </a>
+                      <nav class="md-nav">
+                       <ul class="md-nav__list">
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.logger.ColorizingStreamHandler.BLACK">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            ColorizingStreamHandler.BLACK
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.logger.ColorizingStreamHandler.BLUE">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            ColorizingStreamHandler.BLUE
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.logger.ColorizingStreamHandler.BOLD_SEQ">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            ColorizingStreamHandler.BOLD_SEQ
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.logger.ColorizingStreamHandler.COLOR_SEQ">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            ColorizingStreamHandler.COLOR_SEQ
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.logger.ColorizingStreamHandler.CYAN">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            ColorizingStreamHandler.CYAN
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.logger.ColorizingStreamHandler.GREEN">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            ColorizingStreamHandler.GREEN
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.logger.ColorizingStreamHandler.MAGENTA">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            ColorizingStreamHandler.MAGENTA
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.logger.ColorizingStreamHandler.RED">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            ColorizingStreamHandler.RED
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.logger.ColorizingStreamHandler.RESET_SEQ">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            ColorizingStreamHandler.RESET_SEQ
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.logger.ColorizingStreamHandler.WHITE">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            ColorizingStreamHandler.WHITE
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.logger.ColorizingStreamHandler.YELLOW">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            ColorizingStreamHandler.YELLOW
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.logger.ColorizingStreamHandler.can_color_tty">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            ColorizingStreamHandler.can_color_tty()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.logger.ColorizingStreamHandler.colors">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            ColorizingStreamHandler.colors
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.logger.ColorizingStreamHandler.decorate">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            ColorizingStreamHandler.decorate()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.logger.ColorizingStreamHandler.emit">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            ColorizingStreamHandler.emit()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.logger.ColorizingStreamHandler.is_tty">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            ColorizingStreamHandler.is_tty
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                       </ul>
+                      </nav>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#compspec.logger.Logger">
+                       <code class="docutils literal notranslate">
+                        <span class="pre">
+                         Logger
+                        </span>
+                       </code>
+                      </a>
+                      <nav class="md-nav">
+                       <ul class="md-nav__list">
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.logger.Logger.cleanup">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            Logger.cleanup()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.logger.Logger.debug">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            Logger.debug()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.logger.Logger.error">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            Logger.error()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.logger.Logger.exit">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            Logger.exit()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.logger.Logger.handler">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            Logger.handler()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.logger.Logger.info">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            Logger.info()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.logger.Logger.location">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            Logger.location()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.logger.Logger.progress">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            Logger.progress()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.logger.Logger.set_level">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            Logger.set_level()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.logger.Logger.set_stream_handler">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            Logger.set_stream_handler()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.logger.Logger.shellcmd">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            Logger.shellcmd()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.logger.Logger.text_handler">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            Logger.text_handler()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.logger.Logger.warning">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            Logger.warning()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                       </ul>
+                      </nav>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#compspec.logger.setup_logger">
+                       <code class="docutils literal notranslate">
+                        <span class="pre">
+                         setup_logger()
+                        </span>
+                       </code>
+                      </a>
+                     </li>
+                    </ul>
+                   </nav>
                   </li>
                   <li class="md-nav__item">
                    <a class="md-nav__link" href="#module-compspec.solver">
                     compspec.solver module
                    </a>
+                   <nav class="md-nav">
+                    <ul class="md-nav__list">
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#compspec.solver.AspFunction">
+                       <code class="docutils literal notranslate">
+                        <span class="pre">
+                         AspFunction
+                        </span>
+                       </code>
+                      </a>
+                      <nav class="md-nav">
+                       <ul class="md-nav__list">
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.solver.AspFunction.symbol">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            AspFunction.symbol()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                       </ul>
+                      </nav>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#compspec.solver.AspFunctionBuilder">
+                       <code class="docutils literal notranslate">
+                        <span class="pre">
+                         AspFunctionBuilder
+                        </span>
+                       </code>
+                      </a>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#compspec.solver.PyclingoDriver">
+                       <code class="docutils literal notranslate">
+                        <span class="pre">
+                         PyclingoDriver
+                        </span>
+                       </code>
+                      </a>
+                      <nav class="md-nav">
+                       <ul class="md-nav__list">
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.solver.PyclingoDriver.comment">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            PyclingoDriver.comment()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.solver.PyclingoDriver.devnull">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            PyclingoDriver.devnull()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.solver.PyclingoDriver.fact">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            PyclingoDriver.fact()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.solver.PyclingoDriver.h1">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            PyclingoDriver.h1()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.solver.PyclingoDriver.h2">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            PyclingoDriver.h2()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.solver.PyclingoDriver.newline">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            PyclingoDriver.newline()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.solver.PyclingoDriver.set_verbosity">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            PyclingoDriver.set_verbosity()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.solver.PyclingoDriver.solve">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            PyclingoDriver.solve()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#compspec.solver.PyclingoDriver.title">
+                          <code class="docutils literal notranslate">
+                           <span class="pre">
+                            PyclingoDriver.title()
+                           </span>
+                          </code>
+                         </a>
+                        </li>
+                       </ul>
+                      </nav>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#compspec.solver.Result">
+                       <code class="docutils literal notranslate">
+                        <span class="pre">
+                         Result
+                        </span>
+                       </code>
+                      </a>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#compspec.solver.argify">
+                       <code class="docutils literal notranslate">
+                        <span class="pre">
+                         argify()
+                        </span>
+                       </code>
+                      </a>
+                     </li>
+                    </ul>
+                   </nav>
                   </li>
                   <li class="md-nav__item">
                    <a class="md-nav__link" href="#module-compspec.utils">
                     compspec.utils module
                    </a>
+                   <nav class="md-nav">
+                    <ul class="md-nav__list">
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#compspec.utils.normalize_key">
+                       <code class="docutils literal notranslate">
+                        <span class="pre">
+                         normalize_key()
+                        </span>
+                       </code>
+                      </a>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#compspec.utils.read_json">
+                       <code class="docutils literal notranslate">
+                        <span class="pre">
+                         read_json()
+                        </span>
+                       </code>
+                      </a>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#compspec.utils.read_yaml">
+                       <code class="docutils literal notranslate">
+                        <span class="pre">
+                         read_yaml()
+                        </span>
+                       </code>
+                      </a>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#compspec.utils.row">
+                       <code class="docutils literal notranslate">
+                        <span class="pre">
+                         row()
+                        </span>
+                       </code>
+                      </a>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#compspec.utils.run_command">
+                       <code class="docutils literal notranslate">
+                        <span class="pre">
+                         run_command()
+                        </span>
+                       </code>
+                      </a>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#compspec.utils.write_json">
+                       <code class="docutils literal notranslate">
+                        <span class="pre">
+                         write_json()
+                        </span>
+                       </code>
+                      </a>
+                     </li>
+                    </ul>
+                   </nav>
                   </li>
                   <li class="md-nav__item">
                    <a class="md-nav__link" href="#module-compspec.version">
@@ -366,7 +1097,7 @@
        <div class="md-sidebar__inner">
         <nav class="md-nav md-nav--secondary">
          <label class="md-nav__title" for="__toc">
-          Contents
+          "Contents"
          </label>
          <ul class="md-nav__list" data-md-scrollfix="">
           <li class="md-nav__item">
@@ -389,26 +1120,762 @@
               <a class="md-nav__link" href="#module-compspec.entity">
                compspec.entity module
               </a>
+              <nav class="md-nav">
+               <ul class="md-nav__list">
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#compspec.entity.Counter">
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    Counter
+                   </span>
+                  </code>
+                 </a>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#compspec.entity.get_counter">
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    get_counter()
+                   </span>
+                  </code>
+                 </a>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#compspec.entity.node">
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    node
+                   </span>
+                  </code>
+                 </a>
+                 <nav class="md-nav">
+                  <ul class="md-nav__list">
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.entity.node.args">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       node.args
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.entity.node.describe">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       node.describe()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.entity.node.to_dict">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       node.to_dict()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                  </ul>
+                 </nav>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#compspec.entity.relation">
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    relation
+                   </span>
+                  </code>
+                 </a>
+                 <nav class="md-nav">
+                  <ul class="md-nav__list">
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.entity.relation.args">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       relation.args
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.entity.relation.to_dict">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       relation.to_dict()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                  </ul>
+                 </nav>
+                </li>
+               </ul>
+              </nav>
              </li>
              <li class="md-nav__item">
               <a class="md-nav__link" href="#module-compspec.graph">
                compspec.graph module
               </a>
+              <nav class="md-nav">
+               <ul class="md-nav__list">
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#compspec.graph.Graph">
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    Graph
+                   </span>
+                  </code>
+                 </a>
+                 <nav class="md-nav">
+                  <ul class="md-nav__list">
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.graph.Graph.add_node">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       Graph.add_node()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.graph.Graph.add_relation">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       Graph.add_relation()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.graph.Graph.from_dict">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       Graph.from_dict()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.graph.Graph.gen">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       Graph.gen()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.graph.Graph.iter_connectors">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       Graph.iter_connectors()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.graph.Graph.iter_nodes">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       Graph.iter_nodes()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.graph.Graph.iter_relations">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       Graph.iter_relations()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.graph.Graph.new_node">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       Graph.new_node()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.graph.Graph.new_relation">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       Graph.new_relation()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.graph.Graph.next">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       Graph.next()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.graph.Graph.to_dict">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       Graph.to_dict()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                  </ul>
+                 </nav>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#compspec.graph.GraphGroup">
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    GraphGroup
+                   </span>
+                  </code>
+                 </a>
+                 <nav class="md-nav">
+                  <ul class="md-nav__list">
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.graph.GraphGroup.extract">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       GraphGroup.extract()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                  </ul>
+                 </nav>
+                </li>
+               </ul>
+              </nav>
              </li>
              <li class="md-nav__item">
               <a class="md-nav__link" href="#module-compspec.logger">
                compspec.logger module
               </a>
+              <nav class="md-nav">
+               <ul class="md-nav__list">
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#compspec.logger.ColorizingStreamHandler">
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    ColorizingStreamHandler
+                   </span>
+                  </code>
+                 </a>
+                 <nav class="md-nav">
+                  <ul class="md-nav__list">
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.logger.ColorizingStreamHandler.BLACK">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       ColorizingStreamHandler.BLACK
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.logger.ColorizingStreamHandler.BLUE">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       ColorizingStreamHandler.BLUE
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.logger.ColorizingStreamHandler.BOLD_SEQ">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       ColorizingStreamHandler.BOLD_SEQ
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.logger.ColorizingStreamHandler.COLOR_SEQ">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       ColorizingStreamHandler.COLOR_SEQ
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.logger.ColorizingStreamHandler.CYAN">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       ColorizingStreamHandler.CYAN
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.logger.ColorizingStreamHandler.GREEN">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       ColorizingStreamHandler.GREEN
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.logger.ColorizingStreamHandler.MAGENTA">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       ColorizingStreamHandler.MAGENTA
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.logger.ColorizingStreamHandler.RED">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       ColorizingStreamHandler.RED
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.logger.ColorizingStreamHandler.RESET_SEQ">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       ColorizingStreamHandler.RESET_SEQ
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.logger.ColorizingStreamHandler.WHITE">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       ColorizingStreamHandler.WHITE
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.logger.ColorizingStreamHandler.YELLOW">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       ColorizingStreamHandler.YELLOW
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.logger.ColorizingStreamHandler.can_color_tty">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       ColorizingStreamHandler.can_color_tty()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.logger.ColorizingStreamHandler.colors">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       ColorizingStreamHandler.colors
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.logger.ColorizingStreamHandler.decorate">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       ColorizingStreamHandler.decorate()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.logger.ColorizingStreamHandler.emit">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       ColorizingStreamHandler.emit()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.logger.ColorizingStreamHandler.is_tty">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       ColorizingStreamHandler.is_tty
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                  </ul>
+                 </nav>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#compspec.logger.Logger">
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    Logger
+                   </span>
+                  </code>
+                 </a>
+                 <nav class="md-nav">
+                  <ul class="md-nav__list">
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.logger.Logger.cleanup">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       Logger.cleanup()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.logger.Logger.debug">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       Logger.debug()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.logger.Logger.error">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       Logger.error()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.logger.Logger.exit">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       Logger.exit()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.logger.Logger.handler">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       Logger.handler()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.logger.Logger.info">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       Logger.info()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.logger.Logger.location">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       Logger.location()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.logger.Logger.progress">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       Logger.progress()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.logger.Logger.set_level">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       Logger.set_level()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.logger.Logger.set_stream_handler">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       Logger.set_stream_handler()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.logger.Logger.shellcmd">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       Logger.shellcmd()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.logger.Logger.text_handler">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       Logger.text_handler()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.logger.Logger.warning">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       Logger.warning()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                  </ul>
+                 </nav>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#compspec.logger.setup_logger">
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    setup_logger()
+                   </span>
+                  </code>
+                 </a>
+                </li>
+               </ul>
+              </nav>
              </li>
              <li class="md-nav__item">
               <a class="md-nav__link" href="#module-compspec.solver">
                compspec.solver module
               </a>
+              <nav class="md-nav">
+               <ul class="md-nav__list">
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#compspec.solver.AspFunction">
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    AspFunction
+                   </span>
+                  </code>
+                 </a>
+                 <nav class="md-nav">
+                  <ul class="md-nav__list">
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.solver.AspFunction.symbol">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       AspFunction.symbol()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                  </ul>
+                 </nav>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#compspec.solver.AspFunctionBuilder">
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    AspFunctionBuilder
+                   </span>
+                  </code>
+                 </a>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#compspec.solver.PyclingoDriver">
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    PyclingoDriver
+                   </span>
+                  </code>
+                 </a>
+                 <nav class="md-nav">
+                  <ul class="md-nav__list">
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.solver.PyclingoDriver.comment">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       PyclingoDriver.comment()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.solver.PyclingoDriver.devnull">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       PyclingoDriver.devnull()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.solver.PyclingoDriver.fact">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       PyclingoDriver.fact()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.solver.PyclingoDriver.h1">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       PyclingoDriver.h1()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.solver.PyclingoDriver.h2">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       PyclingoDriver.h2()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.solver.PyclingoDriver.newline">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       PyclingoDriver.newline()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.solver.PyclingoDriver.set_verbosity">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       PyclingoDriver.set_verbosity()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.solver.PyclingoDriver.solve">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       PyclingoDriver.solve()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#compspec.solver.PyclingoDriver.title">
+                     <code class="docutils literal notranslate">
+                      <span class="pre">
+                       PyclingoDriver.title()
+                      </span>
+                     </code>
+                    </a>
+                   </li>
+                  </ul>
+                 </nav>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#compspec.solver.Result">
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    Result
+                   </span>
+                  </code>
+                 </a>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#compspec.solver.argify">
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    argify()
+                   </span>
+                  </code>
+                 </a>
+                </li>
+               </ul>
+              </nav>
              </li>
              <li class="md-nav__item">
               <a class="md-nav__link" href="#module-compspec.utils">
                compspec.utils module
               </a>
+              <nav class="md-nav">
+               <ul class="md-nav__list">
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#compspec.utils.normalize_key">
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    normalize_key()
+                   </span>
+                  </code>
+                 </a>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#compspec.utils.read_json">
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    read_json()
+                   </span>
+                  </code>
+                 </a>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#compspec.utils.read_yaml">
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    read_yaml()
+                   </span>
+                  </code>
+                 </a>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#compspec.utils.row">
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    row()
+                   </span>
+                  </code>
+                 </a>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#compspec.utils.run_command">
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    run_command()
+                   </span>
+                  </code>
+                 </a>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#compspec.utils.write_json">
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    write_json()
+                   </span>
+                  </code>
+                 </a>
+                </li>
+               </ul>
+              </nav>
              </li>
              <li class="md-nav__item">
               <a class="md-nav__link" href="#module-compspec.version">
@@ -440,14 +1907,14 @@
        <section id="compspec-package">
         <h1 id="source-compspec--page-root">
          compspec package
-         <a class="headerlink" href="#source-compspec--page-root" title="Permalink to this headline">
+         <a class="headerlink" href="#source-compspec--page-root" title="Link to this heading">
           ¶
          </a>
         </h1>
         <section id="subpackages">
          <h2 id="subpackages">
           Subpackages
-          <a class="headerlink" href="#subpackages" title="Permalink to this headline">
+          <a class="headerlink" href="#subpackages" title="Link to this heading">
            ¶
           </a>
          </h2>
@@ -459,7 +1926,7 @@
             </a>
             <ul>
              <li class="toctree-l2">
-              <a class="reference internal" href="compspec.lp.html#module-compspec.lp">
+              <a class="reference internal" href="compspec.lp.html#module-contents">
                Module contents
               </a>
              </li>
@@ -476,27 +1943,27 @@
               </a>
              </li>
              <li class="toctree-l2">
-              <a class="reference internal" href="compspec.runner.html#module-compspec.runner.base">
+              <a class="reference internal" href="compspec.runner.html#compspec-runner-base-module">
                compspec.runner.base module
               </a>
              </li>
              <li class="toctree-l2">
-              <a class="reference internal" href="compspec.runner.html#module-compspec.runner.combination">
+              <a class="reference internal" href="compspec.runner.html#compspec-runner-combination-module">
                compspec.runner.combination module
               </a>
              </li>
              <li class="toctree-l2">
-              <a class="reference internal" href="compspec.runner.html#module-compspec.runner.composition">
+              <a class="reference internal" href="compspec.runner.html#compspec-runner-composition-module">
                compspec.runner.composition module
               </a>
              </li>
              <li class="toctree-l2">
-              <a class="reference internal" href="compspec.runner.html#module-compspec.runner.diff">
+              <a class="reference internal" href="compspec.runner.html#compspec-runner-diff-module">
                compspec.runner.diff module
               </a>
              </li>
              <li class="toctree-l2">
-              <a class="reference internal" href="compspec.runner.html#module-compspec.runner">
+              <a class="reference internal" href="compspec.runner.html#module-contents">
                Module contents
               </a>
              </li>
@@ -508,7 +1975,7 @@
         <section id="submodules">
          <h2 id="submodules">
           Submodules
-          <a class="headerlink" href="#submodules" title="Permalink to this headline">
+          <a class="headerlink" href="#submodules" title="Link to this heading">
            ¶
           </a>
          </h2>
@@ -518,7 +1985,7 @@
          </span>
          <h2 id="module-compspec.entity">
           compspec.entity module
-          <a class="headerlink" href="#module-compspec.entity" title="Permalink to this headline">
+          <a class="headerlink" href="#module-compspec.entity" title="Link to this heading">
            ¶
           </a>
          </h2>
@@ -571,7 +2038,7 @@
              </span>
             </span>
            </a>
-           <a class="headerlink" href="#compspec.entity.Counter" title="Permalink to this definition">
+           <a class="headerlink" href="#compspec.entity.Counter" title="Link to this definition">
             ¶
            </a>
           </dt>
@@ -631,7 +2098,7 @@
              </span>
             </span>
            </a>
-           <a class="headerlink" href="#compspec.entity.get_counter" title="Permalink to this definition">
+           <a class="headerlink" href="#compspec.entity.get_counter" title="Link to this definition">
             ¶
            </a>
           </dt>
@@ -714,7 +2181,7 @@
              </span>
             </span>
            </a>
-           <a class="headerlink" href="#compspec.entity.node" title="Permalink to this definition">
+           <a class="headerlink" href="#compspec.entity.node" title="Link to this definition">
             ¶
            </a>
           </dt>
@@ -744,7 +2211,7 @@
                args
               </span>
              </span>
-             <a class="headerlink" href="#compspec.entity.node.args" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.entity.node.args" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -771,7 +2238,7 @@
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.entity.node.describe" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.entity.node.describe" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -798,7 +2265,7 @@
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.entity.node.to_dict" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.entity.node.to_dict" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -872,7 +2339,7 @@
              </span>
             </span>
            </a>
-           <a class="headerlink" href="#compspec.entity.relation" title="Permalink to this definition">
+           <a class="headerlink" href="#compspec.entity.relation" title="Link to this definition">
             ¶
            </a>
           </dt>
@@ -902,7 +2369,7 @@
                args
               </span>
              </span>
-             <a class="headerlink" href="#compspec.entity.relation.args" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.entity.relation.args" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -929,7 +2396,7 @@
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.entity.relation.to_dict" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.entity.relation.to_dict" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -944,7 +2411,7 @@
          </span>
          <h2 id="module-compspec.graph">
           compspec.graph module
-          <a class="headerlink" href="#module-compspec.graph" title="Permalink to this headline">
+          <a class="headerlink" href="#module-compspec.graph" title="Link to this heading">
            ¶
           </a>
          </h2>
@@ -974,7 +2441,7 @@
              </span>
             </span>
            </a>
-           <a class="headerlink" href="#compspec.graph.Graph" title="Permalink to this definition">
+           <a class="headerlink" href="#compspec.graph.Graph" title="Link to this definition">
             ¶
            </a>
           </dt>
@@ -1017,7 +2484,7 @@
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.graph.Graph.add_node" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.graph.Graph.add_node" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -1054,7 +2521,7 @@
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.graph.Graph.add_relation" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.graph.Graph.add_relation" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -1098,7 +2565,7 @@
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.graph.Graph.from_dict" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.graph.Graph.from_dict" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -1205,7 +2672,7 @@
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.graph.Graph.gen" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.graph.Graph.gen" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -1236,7 +2703,7 @@ A parent is required.
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.graph.Graph.iter_connectors" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.graph.Graph.iter_connectors" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -1266,7 +2733,7 @@ A parent is required.
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.graph.Graph.iter_nodes" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.graph.Graph.iter_nodes" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -1303,7 +2770,7 @@ added (e.g., node, namespace,
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.graph.Graph.iter_relations" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.graph.Graph.iter_relations" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -1384,7 +2851,7 @@ added (e.g., node, namespace,
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.graph.Graph.new_node" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.graph.Graph.new_node" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -1441,7 +2908,7 @@ but itself should not be assessed for add/change/remove.
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.graph.Graph.new_relation" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.graph.Graph.new_relation" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -1473,7 +2940,7 @@ be required to compare between two graphs.
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.graph.Graph.next" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.graph.Graph.next" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -1503,7 +2970,7 @@ be required to compare between two graphs.
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.graph.Graph.to_dict" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.graph.Graph.to_dict" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -1541,7 +3008,7 @@ be required to compare between two graphs.
              </span>
             </span>
            </a>
-           <a class="headerlink" href="#compspec.graph.GraphGroup" title="Permalink to this definition">
+           <a class="headerlink" href="#compspec.graph.GraphGroup" title="Link to this definition">
             ¶
            </a>
           </dt>
@@ -1577,7 +3044,7 @@ be required to compare between two graphs.
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.graph.GraphGroup.extract" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.graph.GraphGroup.extract" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -1592,7 +3059,7 @@ be required to compare between two graphs.
          </span>
          <h2 id="module-compspec.logger">
           compspec.logger module
-          <a class="headerlink" href="#module-compspec.logger" title="Permalink to this headline">
+          <a class="headerlink" href="#module-compspec.logger" title="Link to this heading">
            ¶
           </a>
          </h2>
@@ -1660,7 +3127,7 @@ be required to compare between two graphs.
              </span>
             </span>
            </a>
-           <a class="headerlink" href="#compspec.logger.ColorizingStreamHandler" title="Permalink to this definition">
+           <a class="headerlink" href="#compspec.logger.ColorizingStreamHandler" title="Link to this definition">
             ¶
            </a>
           </dt>
@@ -1669,7 +3136,7 @@ be required to compare between two graphs.
             Bases:
             <code class="xref py py-class docutils literal notranslate">
              <span class="pre">
-              logging.StreamHandler
+              StreamHandler
              </span>
             </code>
            </p>
@@ -1694,7 +3161,7 @@ be required to compare between two graphs.
                0
               </span>
              </em>
-             <a class="headerlink" href="#compspec.logger.ColorizingStreamHandler.BLACK" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.logger.ColorizingStreamHandler.BLACK" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -1722,7 +3189,7 @@ be required to compare between two graphs.
                4
               </span>
              </em>
-             <a class="headerlink" href="#compspec.logger.ColorizingStreamHandler.BLUE" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.logger.ColorizingStreamHandler.BLUE" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -1750,7 +3217,7 @@ be required to compare between two graphs.
                '\x1b[1m'
               </span>
              </em>
-             <a class="headerlink" href="#compspec.logger.ColorizingStreamHandler.BOLD_SEQ" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.logger.ColorizingStreamHandler.BOLD_SEQ" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -1778,7 +3245,7 @@ be required to compare between two graphs.
                '\x1b[%dm'
               </span>
              </em>
-             <a class="headerlink" href="#compspec.logger.ColorizingStreamHandler.COLOR_SEQ" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.logger.ColorizingStreamHandler.COLOR_SEQ" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -1806,7 +3273,7 @@ be required to compare between two graphs.
                6
               </span>
              </em>
-             <a class="headerlink" href="#compspec.logger.ColorizingStreamHandler.CYAN" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.logger.ColorizingStreamHandler.CYAN" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -1834,7 +3301,7 @@ be required to compare between two graphs.
                2
               </span>
              </em>
-             <a class="headerlink" href="#compspec.logger.ColorizingStreamHandler.GREEN" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.logger.ColorizingStreamHandler.GREEN" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -1862,7 +3329,7 @@ be required to compare between two graphs.
                5
               </span>
              </em>
-             <a class="headerlink" href="#compspec.logger.ColorizingStreamHandler.MAGENTA" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.logger.ColorizingStreamHandler.MAGENTA" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -1890,7 +3357,7 @@ be required to compare between two graphs.
                1
               </span>
              </em>
-             <a class="headerlink" href="#compspec.logger.ColorizingStreamHandler.RED" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.logger.ColorizingStreamHandler.RED" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -1918,7 +3385,7 @@ be required to compare between two graphs.
                '\x1b[0m'
               </span>
              </em>
-             <a class="headerlink" href="#compspec.logger.ColorizingStreamHandler.RESET_SEQ" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.logger.ColorizingStreamHandler.RESET_SEQ" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -1946,7 +3413,7 @@ be required to compare between two graphs.
                7
               </span>
              </em>
-             <a class="headerlink" href="#compspec.logger.ColorizingStreamHandler.WHITE" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.logger.ColorizingStreamHandler.WHITE" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -1974,7 +3441,7 @@ be required to compare between two graphs.
                3
               </span>
              </em>
-             <a class="headerlink" href="#compspec.logger.ColorizingStreamHandler.YELLOW" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.logger.ColorizingStreamHandler.YELLOW" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -2001,7 +3468,7 @@ be required to compare between two graphs.
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.logger.ColorizingStreamHandler.can_color_tty" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.logger.ColorizingStreamHandler.can_color_tty" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -2056,7 +3523,7 @@ be required to compare between two graphs.
                3}
               </span>
              </em>
-             <a class="headerlink" href="#compspec.logger.ColorizingStreamHandler.colors" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.logger.ColorizingStreamHandler.colors" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -2090,7 +3557,7 @@ be required to compare between two graphs.
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.logger.ColorizingStreamHandler.decorate" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.logger.ColorizingStreamHandler.decorate" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -2124,7 +3591,7 @@ be required to compare between two graphs.
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.logger.ColorizingStreamHandler.emit" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.logger.ColorizingStreamHandler.emit" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -2156,7 +3623,7 @@ output to the stream.
                is_tty
               </span>
              </span>
-             <a class="headerlink" href="#compspec.logger.ColorizingStreamHandler.is_tty" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.logger.ColorizingStreamHandler.is_tty" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -2191,7 +3658,7 @@ output to the stream.
              </span>
             </span>
            </a>
-           <a class="headerlink" href="#compspec.logger.Logger" title="Permalink to this definition">
+           <a class="headerlink" href="#compspec.logger.Logger" title="Link to this definition">
             ¶
            </a>
           </dt>
@@ -2224,7 +3691,7 @@ output to the stream.
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.logger.Logger.cleanup" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.logger.Logger.cleanup" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -2258,7 +3725,7 @@ output to the stream.
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.logger.Logger.debug" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.logger.Logger.debug" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -2292,7 +3759,7 @@ output to the stream.
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.logger.Logger.error" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.logger.Logger.error" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -2344,7 +3811,7 @@ output to the stream.
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.logger.Logger.exit" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.logger.Logger.exit" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -2378,7 +3845,7 @@ output to the stream.
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.logger.Logger.handler" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.logger.Logger.handler" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -2412,7 +3879,7 @@ output to the stream.
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.logger.Logger.info" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.logger.Logger.info" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -2446,7 +3913,7 @@ output to the stream.
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.logger.Logger.location" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.logger.Logger.location" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -2508,7 +3975,7 @@ output to the stream.
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.logger.Logger.progress" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.logger.Logger.progress" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -2542,7 +4009,7 @@ output to the stream.
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.logger.Logger.set_level" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.logger.Logger.set_level" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -2576,7 +4043,7 @@ output to the stream.
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.logger.Logger.set_stream_handler" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.logger.Logger.set_stream_handler" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -2610,7 +4077,7 @@ output to the stream.
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.logger.Logger.shellcmd" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.logger.Logger.shellcmd" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -2644,7 +4111,7 @@ output to the stream.
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.logger.Logger.text_handler" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.logger.Logger.text_handler" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -2690,7 +4157,7 @@ Args:
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.logger.Logger.warning" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.logger.Logger.warning" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -2849,7 +4316,7 @@ Args:
              </span>
             </span>
            </a>
-           <a class="headerlink" href="#compspec.logger.setup_logger" title="Permalink to this definition">
+           <a class="headerlink" href="#compspec.logger.setup_logger" title="Link to this definition">
             ¶
            </a>
           </dt>
@@ -2862,7 +4329,7 @@ Args:
          </span>
          <h2 id="module-compspec.solver">
           compspec.solver module
-          <a class="headerlink" href="#module-compspec.solver" title="Permalink to this headline">
+          <a class="headerlink" href="#module-compspec.solver" title="Link to this heading">
            ¶
           </a>
          </h2>
@@ -2923,7 +4390,7 @@ Args:
              </span>
             </span>
            </a>
-           <a class="headerlink" href="#compspec.solver.AspFunction" title="Permalink to this definition">
+           <a class="headerlink" href="#compspec.solver.AspFunction" title="Link to this definition">
             ¶
            </a>
           </dt>
@@ -2976,7 +4443,7 @@ Args:
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.solver.AspFunction.symbol" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.solver.AspFunction.symbol" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -3011,7 +4478,7 @@ Args:
              </span>
             </span>
            </a>
-           <a class="headerlink" href="#compspec.solver.AspFunctionBuilder" title="Permalink to this definition">
+           <a class="headerlink" href="#compspec.solver.AspFunctionBuilder" title="Link to this definition">
             ¶
            </a>
           </dt>
@@ -3111,7 +4578,7 @@ Args:
              </span>
             </span>
            </a>
-           <a class="headerlink" href="#compspec.solver.PyclingoDriver" title="Permalink to this definition">
+           <a class="headerlink" href="#compspec.solver.PyclingoDriver" title="Link to this definition">
             ¶
            </a>
           </dt>
@@ -3151,7 +4618,7 @@ Args:
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.solver.PyclingoDriver.comment" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.solver.PyclingoDriver.comment" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -3178,7 +4645,7 @@ Args:
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.solver.PyclingoDriver.devnull" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.solver.PyclingoDriver.devnull" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -3212,7 +4679,7 @@ Args:
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.solver.PyclingoDriver.fact" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.solver.PyclingoDriver.fact" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -3249,7 +4716,7 @@ Args:
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.solver.PyclingoDriver.h1" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.solver.PyclingoDriver.h1" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -3283,7 +4750,7 @@ Args:
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.solver.PyclingoDriver.h2" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.solver.PyclingoDriver.h2" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -3310,7 +4777,7 @@ Args:
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.solver.PyclingoDriver.newline" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.solver.PyclingoDriver.newline" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -3362,7 +4829,7 @@ Args:
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.solver.PyclingoDriver.set_verbosity" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.solver.PyclingoDriver.set_verbosity" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -3471,7 +4938,7 @@ Args:
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.solver.PyclingoDriver.solve" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.solver.PyclingoDriver.solve" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -3516,7 +4983,7 @@ Args:
                </span>
               </span>
              </a>
-             <a class="headerlink" href="#compspec.solver.PyclingoDriver.title" title="Permalink to this definition">
+             <a class="headerlink" href="#compspec.solver.PyclingoDriver.title" title="Link to this definition">
               ¶
              </a>
             </dt>
@@ -3574,7 +5041,7 @@ Args:
              </span>
             </span>
            </a>
-           <a class="headerlink" href="#compspec.solver.Result" title="Permalink to this definition">
+           <a class="headerlink" href="#compspec.solver.Result" title="Link to this definition">
             ¶
            </a>
           </dt>
@@ -3624,7 +5091,7 @@ Args:
              </span>
             </span>
            </a>
-           <a class="headerlink" href="#compspec.solver.argify" title="Permalink to this definition">
+           <a class="headerlink" href="#compspec.solver.argify" title="Link to this definition">
             ¶
            </a>
           </dt>
@@ -3640,10 +5107,52 @@ Args:
          </span>
          <h2 id="module-compspec.utils">
           compspec.utils module
-          <a class="headerlink" href="#module-compspec.utils" title="Permalink to this headline">
+          <a class="headerlink" href="#module-compspec.utils" title="Link to this heading">
            ¶
           </a>
          </h2>
+         <dl class="py function">
+          <dt class="sig sig-object py" id="compspec.utils.normalize_key">
+           <span class="sig-prename descclassname">
+            <span class="pre">
+             compspec.utils.
+            </span>
+           </span>
+           <span class="sig-name descname">
+            <span class="pre">
+             normalize_key
+            </span>
+           </span>
+           <span class="sig-paren">
+            (
+           </span>
+           <em class="sig-param">
+            <span class="n">
+             <span class="pre">
+              key
+             </span>
+            </span>
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="reference internal" href="../_modules/compspec/utils.html#normalize_key">
+            <span class="viewcode-link">
+             <span class="pre">
+              [source]
+             </span>
+            </span>
+           </a>
+           <a class="headerlink" href="#compspec.utils.normalize_key" title="Link to this definition">
+            ¶
+           </a>
+          </dt>
+          <dd>
+           <p>
+            A key needs to be all lowercase, ideally with no spaces, etc.
+           </p>
+          </dd>
+         </dl>
          <dl class="py function">
           <dt class="sig sig-object py" id="compspec.utils.read_json">
            <span class="sig-prename descclassname">
@@ -3676,7 +5185,7 @@ Args:
              </span>
             </span>
            </a>
-           <a class="headerlink" href="#compspec.utils.read_json" title="Permalink to this definition">
+           <a class="headerlink" href="#compspec.utils.read_json" title="Link to this definition">
             ¶
            </a>
           </dt>
@@ -3715,7 +5224,7 @@ Args:
              </span>
             </span>
            </a>
-           <a class="headerlink" href="#compspec.utils.read_yaml" title="Permalink to this definition">
+           <a class="headerlink" href="#compspec.utils.read_yaml" title="Link to this definition">
             ¶
            </a>
           </dt>
@@ -3754,7 +5263,7 @@ Args:
              </span>
             </span>
            </a>
-           <a class="headerlink" href="#compspec.utils.row" title="Permalink to this definition">
+           <a class="headerlink" href="#compspec.utils.row" title="Link to this definition">
             ¶
            </a>
           </dt>
@@ -3787,24 +5296,6 @@ Args:
            <em class="sig-param">
             <span class="n">
              <span class="pre">
-              sudo
-             </span>
-            </span>
-            <span class="o">
-             <span class="pre">
-              =
-             </span>
-            </span>
-            <span class="default_value">
-             <span class="pre">
-              False
-             </span>
-            </span>
-           </em>
-           ,
-           <em class="sig-param">
-            <span class="n">
-             <span class="pre">
               stream
              </span>
             </span>
@@ -3829,19 +5320,25 @@ Args:
              </span>
             </span>
            </a>
-           <a class="headerlink" href="#compspec.utils.run_command" title="Permalink to this definition">
+           <a class="headerlink" href="#compspec.utils.run_command" title="Link to this definition">
             ¶
            </a>
           </dt>
           <dd>
            <p>
-            run_command uses subprocess to send a command to the terminal.
+            use subprocess to send a command to the terminal.
            </p>
-           <p>
-            cmd: the command to send, should be a list for subprocess
-error_message: the error message to give to user if fails,
-if none specified, will alert that command failed.
-           </p>
+           <section id="parameters">
+            <h3 id="parameters">
+             Parameters
+             <a class="headerlink" href="#parameters" title="Link to this heading">
+              ¶
+             </a>
+            </h3>
+            <p>
+             cmd: the command to send
+            </p>
+           </section>
           </dd>
          </dl>
          <dl class="py function">
@@ -3884,7 +5381,7 @@ if none specified, will alert that command failed.
              </span>
             </span>
            </a>
-           <a class="headerlink" href="#compspec.utils.write_json" title="Permalink to this definition">
+           <a class="headerlink" href="#compspec.utils.write_json" title="Link to this definition">
             ¶
            </a>
           </dt>
@@ -3897,7 +5394,7 @@ if none specified, will alert that command failed.
          </span>
          <h2 id="module-compspec.version">
           compspec.version module
-          <a class="headerlink" href="#module-compspec.version" title="Permalink to this headline">
+          <a class="headerlink" href="#module-compspec.version" title="Link to this heading">
            ¶
           </a>
          </h2>
@@ -3907,7 +5404,7 @@ if none specified, will alert that command failed.
          </span>
          <h2 id="module-compspec">
           Module contents
-          <a class="headerlink" href="#module-compspec" title="Permalink to this headline">
+          <a class="headerlink" href="#module-compspec" title="Link to this heading">
            ¶
           </a>
          </h2>
@@ -3929,7 +5426,7 @@ if none specified, will alert that command failed.
       <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
        <span class="md-flex__ellipsis">
         <span class="md-footer-nav__direction">
-         Previous
+         "Previous"
         </span>
         compspec
        </span>
@@ -3939,7 +5436,7 @@ if none specified, will alert that command failed.
       <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
        <span class="md-flex__ellipsis">
         <span class="md-footer-nav__direction">
-         Next
+         "Next"
         </span>
         compspec.lp package
        </span>
@@ -3958,13 +5455,13 @@ if none specified, will alert that command failed.
        © Copyright 2022, Vanessa Sochat.
       </div>
       Last updated on
-              May 28, 2022.
+              Feb 22, 2024.
       <br/>
       Created using
       <a href="http://www.sphinx-doc.org/">
        Sphinx
       </a>
-      4.5.0.
+      7.2.6.
              and
       <a href="https://github.com/bashtage/sphinx-material/">
        Material for

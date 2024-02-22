@@ -10,10 +10,10 @@ Welcome to Compspec!
 
 Compspec (Composition spec) is a specification and model for comparing things. This means
 that we take an abstract and simple approach to model complex systems as graphs (nodes
-and relaionshps) and then can compare between graphs or extract corpora (groups of facts) to use later. 
+and relaionshps) and then can compare between graphs or extract corpora (groups of facts) to use later.
 While our development library is implemented in Python, you can implement this in any language
 that works best for you. To continue your exploration, you might want to read about:
- 
+
 To get started, see the :ref:`getting-started` page. Would you like to request a feature or contribute?
 `Open an issue <https://github.com/compspec/compspec/issues>`_.
 
@@ -23,7 +23,6 @@ To get started, see the :ref:`getting-started` page. Would you like to request a
 
     getting_started/index.rst
     contributing.md
-    spec.md
 
 .. toctree::
     :caption: API

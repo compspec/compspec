@@ -1,4 +1,4 @@
-.. _getting_started-user-guide:
+.. _getting_started-abi-user-guide:
 
 ==========
 User Guide
@@ -12,24 +12,24 @@ If you haven't read  :ref:`getting_started-installation` you should do that firs
 Examples
 ========
 
-For full examples, try running the scripts under `examples <https://github.com/compspec/compspec/tree/main/examples>`_ after you install
+For full examples, try running the scripts under `examples <https://github.com/compspec/compspec/tree/main/examples/asp>`_ after you install
 compspec. We will be adding a sphinx gallery with full examples here.
 
 .. code-block:: console
 
-    $ python examples/basic-graph/run.py
-    $ python examples/basic-diff/run.py
-    $ python examples/combine-graphs/run.py
+    $ python examples/asp/basic-graph/run.py
+    $ python examples/asp/basic-diff/run.py
+    $ python examples/asp/combine-graphs/run.py
 
 The dwarf examples have a Makefile to build with ``make`` and then can be run
-based on the name. See the `README.md for dwarf <https://github.com/compspec/compspec/tree/main/examples/dwarf>`_ for how to do this.
+based on the name. See the `README.md for dwarf <https://github.com/compspec/compspec/tree/main/examples/asp/dwarf>`_ for how to do this.
 We also have an example that takes an iterative approach to compare groups:
 
 .. code-block:: console
 
-    $ python examples/python/tensorflow-module-example.py
-    $ python examples/python/tensorflow-function-example.py
-    $ python examples/python/tensorflow-example.py
+    $ python examples/asp/python/tensorflow-module-example.py
+    $ python examples/asp/python/tensorflow-function-example.py
+    $ python examples/asp/python/tensorflow-example.py
 
 That example is best if you are interested in breaking a problem space into
 multiple graphs.
@@ -78,5 +78,5 @@ And given that loaded (e.g., from json), we can then populate a new graph!
 
 These are very simple operations to define graphs, and primarily the work is done
 manually to create the nodes, relations, and identifiers. It is expected that specific
-domains that intend to create graphs will load in some object (e.g., a binary file) and 
+domains that intend to create graphs will load in some object (e.g., a binary file) and
 do this creation on behalf of the user.

@@ -19,7 +19,7 @@ or for two libraries, for example that we want to compare:
 .. code-block:: console
 
     [library A] -- extract facts --> [facts A]
-                                           -- facts diff --> [change set] 
+                                           -- facts diff --> [change set]
     [library B] -- extract facts --> [facts B]
 
 
@@ -29,7 +29,7 @@ or binaries. Or even more simply:
 
 .. code-block:: console
 
-    A 
+    A
        --> A-B --> change set
     B
 
@@ -46,7 +46,7 @@ it might look like this:
 If you look at the above steps, you might guess the problem - our modern day tools
 like libabigail started at step 5, and as a result the process and rules are a black box and
 largely the output is "snowflake special" to libabigail and we can't easily understand,
-extend, or programatically use it.
+extend, or programmatically use it.
 
 Rationale
 =========
@@ -55,7 +55,7 @@ I want to step back and work on steps 1-4. I believe that if we can better
 define a language to express changes, and not just for one domain but any domain,
 this will empower creators of tools to create implementations for software that can
 easily perform a diff or extraction of facts. The only thing that would need to
-be decided by the implementer are the domain specific details. 
+be decided by the implementer are the domain specific details.
 
 Application Binary Interfaces
 -----------------------------
