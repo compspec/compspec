@@ -106,10 +106,10 @@ class PluginRegistry:
             raise ValueError(f"{invalid},'description' attribute is not defined")
 
         # Validate that schema.json is available - validation of structure happens elsewhere
-        response = requests.head(module.schema_url)
+        response = requests.head(module.defaults.schema_url)
         if response.status_code != 200:
             raise ValueError(
-                f"{invalid}, schema_url {module.schema_url} returned response {response.status_code}"
+                f"{invalid}, schema_url {module.defaults.schema_url} returned response {response.status_code}"
             )
 
         # First look for schema.json
