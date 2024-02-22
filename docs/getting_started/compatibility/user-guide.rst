@@ -61,7 +61,7 @@ Here are some early tips to writing plugins.
 
  - Your plugin name should be ``compspec-<name>`` (for the repository / pypi package) and the module name ``compspec_<name>``
  - If you'd like to be under the compspec org please open an issue on any repository, we'd love to have you!
- 
+
 Organization
 ------------
 
@@ -160,7 +160,7 @@ You should also provide an "extract" function that takes "args" and "extra" expe
         return meta
 
 It's entirely up to you how you want to implement this! For IOR, by default we assume running IOR (with user specific command line options).
-But we also provide an ``--ior-load`` parameter that the user can specify to just load pre-generated data from file. As a design strategy, we 
+But we also provide an ``--ior-load`` parameter that the user can specify to just load pre-generated data from file. As a design strategy, we
 expose the function to parse this metadata into a flat list of attributes as a courtesy function, in case it is useful outside of using compspec.
 Finally, you might want to provide an "in Python" example for using your plugin.
 
@@ -186,7 +186,7 @@ We provide `GitHub actions <https://github.com/compspec/actions>`_ that you can 
             with:
               schema: ./compspec_myname/schema.json
 
-You should also provide tests that validate installing and using your plugin with compspec. 
+You should also provide tests that validate installing and using your plugin with compspec.
 As an example, this installs both, runs compspec with a few different configurations, and then runs
 an "in Python" example that doesn't rely on the compspec command line utility:
 
