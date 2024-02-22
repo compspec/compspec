@@ -18,7 +18,7 @@ jobs:
     - name: Check Spelling
       uses: crate-ci/typos@7ad296c72fa8265059cc03d1eda562fbdfcd6df2 # v1.9.0
       with:
-        files: ./docs/getting_started/*.rst ./docs/index.rst ./docs/getting-started/ast/*.rst ./docs/getting-started/compatibility/*.rst
+        files: ./docs/getting_started/*.rst ./docs/index.rst ./docs/getting_started/asp/*.rst ./docs/getting_started/compatibility/*.rst
 
     - name: Lint and format Python code
       run: |
