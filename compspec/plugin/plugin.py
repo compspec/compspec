@@ -19,4 +19,6 @@ class PluginBase:
         """
         The extract interface allows for extraction of metadata into an artifact.
         """
-        raise NotImplementedError(f"The {self.name} plugin is missing a 'run' function")
+        raise NotImplementedError(
+            f"The {self.name} plugin is missing an 'extract' function"
+        )

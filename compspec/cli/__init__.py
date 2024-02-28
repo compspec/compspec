@@ -56,7 +56,7 @@ def get_parser():
     extract = subparsers.add_parser(
         "extract",
         formatter_class=argparse.RawTextHelpFormatter,
-        description="extraction plugins for compspec",
+        description="extraction and creation plugins for compspec",
     )
     extract.add_argument("--outfile", help="output json file to write artifact")
     extract.add_argument(
@@ -69,7 +69,7 @@ def get_parser():
     )
 
     # Add plugin parsers
-    parsers.add_executor_parsers(extractors)
+    parsers.add_plugin_parsers(extractors)
     return parser
 
 
@@ -113,6 +113,9 @@ def run_compspec():
     # Here we can assume instantiated to get args
     if args.command == "extract":
         from .extract import main
+
+    if args.command == "create":
+        from .create import main
 
     main(args, extra)
 

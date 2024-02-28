@@ -1,13 +1,13 @@
-extractor_registry = None
+plugin_registry = None
 
 
-def add_executor_parsers(subparser):
+def add_plugin_parsers(subparser):
     """
     Dynamically add discovered plugin parsers.
     """
-    global extractor_registry
-    from . import get_extractor_registry
+    global plugin_registry
+    from . import get_plugin_registry
 
-    extractor_registry = get_extractor_registry()
-    for _, plugin in extractor_registry.plugins.items():
+    plugin_registry = get_plugin_registry()
+    for _, plugin in plugin_registry.plugins.items():
         plugin.add_arguments(subparser)
