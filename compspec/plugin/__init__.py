@@ -5,7 +5,7 @@ from .registry import PluginRegistry
 registry = None
 
 
-def get_extractor_registry():
+def get_plugin_registry():
     global registry
     if registry is None:
         registry = PluginRegistry()

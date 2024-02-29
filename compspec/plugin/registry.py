@@ -9,7 +9,7 @@ import compspec.utils as utils
 from compspec.schema import jgf_v2
 
 # Required module attributes
-module_attributes = ["schema_url", "spec_version", "namespace"]
+module_attributes = ["spec_version", "namespace"]
 
 
 class PluginRegistry:
@@ -70,7 +70,7 @@ class PluginRegistry:
 
     def load_plugin(self, name, module):
         """
-        Load an extractor plugin
+        Load a plugin
         """
         cls = getattr(module, self.plugin_class)
         return cls(name)
@@ -106,6 +106,16 @@ class PluginRegistry:
             raise ValueError(f"{invalid},'description' attribute is not defined")
 
         # Validate that schema.json is available - validation of structure happens elsewhere
+        # If we do have a schema, check it here
+        if hasattr(module.defaults, "schema_url"):
+            self.validate_schema(name, module)
+
+    def validate_schema(self, name, module):
+        """
+        If relevant for the plugin, validate a schema
+        """
+        invalid = f"Plugin {name} is not valid"
+
         response = requests.head(module.defaults.schema_url)
         if response.status_code != 200:
             raise ValueError(
@@ -124,6 +134,6 @@ class PluginRegistry:
         if not os.path.exists(schema_file):
             raise ValueError(f"{invalid} schema file {schema_file} does not exist")
 
-        # 3. Load and validate JGF
-        schema = utils.read_json(schema_file)
-        jsonschema.validate(schema, schema=jgf_v2)
+            # 3. Load and validate JGF
+            schema = utils.read_json(schema_file)
+            jsonschema.validate(schema, schema=jgf_v2)

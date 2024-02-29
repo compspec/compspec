@@ -8,6 +8,7 @@ Compspec provides a plugin-based strategy to extract metadata about some applica
 We currently support the following extractor plugins:
 
  - `compspec-ior <https://github.com/compspec/compspec-ior>`_: for I/O metadata
+ - `compspec-flux <https://github.com/compspec/compspec-flux>`_: for Flux resource graphs
 
 If you haven't read  :ref:`getting_started-installation` you should do that first.
 We will give an example in the context of using IOR.
