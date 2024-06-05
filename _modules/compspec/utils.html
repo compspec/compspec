@@ -317,6 +317,15 @@
 
 
 
+<div class="viewcode-block" id="read_file">
+<a class="viewcode-back" href="../../source/compspec.html#compspec.utils.read_file">[docs]</a>
+<span class="k">def</span> <span class="nf">read_file</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fd</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">data</span></div>
+
+
+
 <div class="viewcode-block" id="write_json">
 <a class="viewcode-back" href="../../source/compspec.html#compspec.utils.write_json">[docs]</a>
 <span class="k">def</span> <span class="nf">write_json</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
