@@ -14,6 +14,7 @@ and **Merged pull requests**. Critical items to know are:
 The versions coincide with releases on pip. Only major versions will be released as tags on Github.
 
 ## [0.0.x](https://github.com/compspec/compspec/tree/main) (0.0.x)
+ - jgf (json graph format) generation added (0.0.11)
  - add support for generic create (not compat artifact) (0.1.1)
  - new release with compatibility artifacts (0.1.0)
  - added is_connector type of node fact to skip irrelevant roots (0.0.14)
