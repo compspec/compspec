@@ -3,6 +3,8 @@ __copyright__ = "Copyright 2022-2024, Vanessa Sochat"
 __license__ = "MIT"
 
 import json
+import os
+import re
 import shlex
 import subprocess
 
@@ -35,6 +37,22 @@ def read_yaml(filepath):
 
 def row(cols):
     return "|" + "|".join(cols) + "|\n"
+
+
+def recursive_find(base, pattern="*.py"):
+    """recursive find will yield python files in all directory levels
+    below a base path.
+
+    Arguments:
+      - base (str) : the base directory to search
+      - pattern: a pattern to match, defaults to *.py
+    """
+    for root, _, filenames in os.walk(base):
+        for filename in filenames:
+            filepath = os.path.join(root, filename)
+            if not re.search(pattern, filepath):
+                continue
+            yield filepath
 
 
 def run_command(cmd, stream=False):

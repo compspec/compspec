@@ -5,9 +5,11 @@ User Guide
 ==========
 
 Compspec provides a plugin-based strategy to extract metadata about some application or environment.
-We currently support the following extractor plugins:
+This can include compatibility metadata about an application, or a graph of subsystem metadata about a resource like software,
+network, or similar. We currently support the following extractor plugins:
 
  - `compspec-ior <https://github.com/compspec/compspec-ior>`_: for I/O metadata
+ - `compspec-spack <https://github.com/compspec/compspec-spack>`_: for a spack software subsystem graph
  - `compspec-flux <https://github.com/compspec/compspec-flux>`_: for Flux resource graphs
 
 If you haven't read  :ref:`getting_started-installation` you should do that first.
