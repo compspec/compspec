@@ -47,7 +47,7 @@
   <link href="../_static/custom.css?v=2e4958f2" rel="stylesheet" type="text/css"/>
   <script src="../_static/documentation_options.js?v=0e525676">
   </script>
-  <script src="../_static/doctools.js?v=888ff710">
+  <script src="../_static/doctools.js?v=9a2dae69">
   </script>
   <script src="../_static/sphinx_highlight.js?v=dc90522c">
   </script>
@@ -1035,6 +1035,15 @@
                       </a>
                      </li>
                      <li class="md-nav__item">
+                      <a class="md-nav__link" href="#compspec.utils.recursive_find">
+                       <code class="docutils literal notranslate">
+                        <span class="pre">
+                         recursive_find()
+                        </span>
+                       </code>
+                      </a>
+                     </li>
+                     <li class="md-nav__item">
                       <a class="md-nav__link" href="#compspec.utils.row">
                        <code class="docutils literal notranslate">
                         <span class="pre">
@@ -1843,6 +1852,15 @@
                   <code class="docutils literal notranslate">
                    <span class="pre">
                     read_yaml()
+                   </span>
+                  </code>
+                 </a>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#compspec.utils.recursive_find">
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    recursive_find()
                    </span>
                   </code>
                  </a>
@@ -5232,6 +5250,92 @@ Args:
           </dd>
          </dl>
          <dl class="py function">
+          <dt class="sig sig-object py" id="compspec.utils.recursive_find">
+           <span class="sig-prename descclassname">
+            <span class="pre">
+             compspec.utils.
+            </span>
+           </span>
+           <span class="sig-name descname">
+            <span class="pre">
+             recursive_find
+            </span>
+           </span>
+           <span class="sig-paren">
+            (
+           </span>
+           <em class="sig-param">
+            <span class="n">
+             <span class="pre">
+              base
+             </span>
+            </span>
+           </em>
+           ,
+           <em class="sig-param">
+            <span class="n">
+             <span class="pre">
+              pattern
+             </span>
+            </span>
+            <span class="o">
+             <span class="pre">
+              =
+             </span>
+            </span>
+            <span class="default_value">
+             <span class="pre">
+              '*.py'
+             </span>
+            </span>
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="reference internal" href="../_modules/compspec/utils.html#recursive_find">
+            <span class="viewcode-link">
+             <span class="pre">
+              [source]
+             </span>
+            </span>
+           </a>
+           <a class="headerlink" href="#compspec.utils.recursive_find" title="Link to this definition">
+            ¶
+           </a>
+          </dt>
+          <dd>
+           <p>
+            recursive find will yield python files in all directory levels
+below a base path.
+           </p>
+           <dl class="simple">
+            <dt>
+             Arguments:
+            </dt>
+            <dd>
+             <ul class="simple">
+              <li>
+               <p>
+                base (str) : the base directory to search
+               </p>
+              </li>
+              <li>
+               <p>
+                pattern: a pattern to match, defaults to
+                <a href="#id3">
+                 <span class="problematic" id="id4">
+                  *
+                 </span>
+                </a>
+                .py
+               </p>
+              </li>
+             </ul>
+            </dd>
+           </dl>
+          </dd>
+         </dl>
+         <dl class="py function">
           <dt class="sig sig-object py" id="compspec.utils.row">
            <span class="sig-prename descclassname">
             <span class="pre">
@@ -5455,13 +5559,13 @@ Args:
        © Copyright 2022-2024, Vanessa Sochat.
       </div>
       Last updated on
-              Feb 29, 2024.
+              Jun 05, 2024.
       <br/>
       Created using
       <a href="http://www.sphinx-doc.org/">
        Sphinx
       </a>
-      7.2.6.
+      7.3.7.
              and
       <a href="https://github.com/bashtage/sphinx-material/">
        Material for
