@@ -6,8 +6,8 @@
 
 A compspec (Composition spec) is a specification and model for comparing things. This means
 that we take an abstract and simple approach to model complex systems as graphs (nodes
-and relaionshps) and then can compare between graphs. Note that the library has been developed over time
-to handle different kinds of speifications, including:
+and relationships) and then can compare between graphs. Note that the library has been developed over time
+to handle different kinds of specifications, including:
 
  - [Answer Set Programming (asp)](https://github.com/compspec/spec/tree/main/abi): read about the background, concepts, and design of this simple specification.
  - [Compatibility](https://github.com/compspec/spec/tree/main/compatibility): of container images and applications to a host environment. This is supported by way of generating compatibility artifacts and other assets.
