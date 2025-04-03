@@ -133,9 +133,11 @@ class JsonGraph:
         self.add_edge(source, target, "contains")
         self.add_edge(target, source, "in")
 
-    def generate_root(self):
+    def generate_root(self, attributes=None):
         """
         Generate the root cluster node
         """
         idx = self.next_count
-        return self.add_node(typ=self.name, path=f"/{self.name}{idx}", idx=idx)
+        return self.add_node(
+            typ=self.name, path=f"/{self.name}{idx}", idx=idx, attributes=attributes
+        )
