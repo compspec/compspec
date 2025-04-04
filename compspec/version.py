@@ -2,7 +2,7 @@ __author__ = "Vanessa Sochat"
 __copyright__ = "Copyright 2022-2024, Vanessa Sochat"
 __license__ = "MIT"
 
-__version__ = "0.1.12"
+__version__ = "0.1.13"
 AUTHOR = "Vanessa Sochat"
 AUTHOR_EMAIL = "vsoch@users.noreply.github.com"
 NAME = "compspec"
