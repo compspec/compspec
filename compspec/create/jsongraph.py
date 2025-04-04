@@ -23,6 +23,7 @@ class JsonGraph:
         self.counter = 0
         self.nodes = {}
         self.edges = []
+        self.metadata = {}
 
         # Keep track of count for each type
         self.resource_counts = {}
@@ -37,7 +38,7 @@ class JsonGraph:
         """
         Render generates the artifact, adding all unique schemas and compatibility sections
         """
-        metadata = metadata or {}
+        metadata = self.metadata or {}
         g = {"graph": {"nodes": self.nodes, "edges": self.edges}}
         if metadata:
             g["metadata"] = metadata
@@ -133,9 +134,14 @@ class JsonGraph:
         self.add_edge(source, target, "contains")
         self.add_edge(target, source, "in")
 
-    def generate_root(self):
+    def generate_root(self, attributes=None, typ=None):
         """
         Generate the root cluster node
         """
         idx = self.next_count
-        return self.add_node(typ=self.name, path=f"/{self.name}{idx}", idx=idx)
+        return self.add_node(
+            typ=typ or self.name,
+            path=f"/{self.name}{idx}",
+            idx=idx,
+            attributes=attributes,
+        )
