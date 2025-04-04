@@ -39,14 +39,14 @@
   <title>
    compspec.entity — Compspec Python
   </title>
-  <link href="../../_static/pygments.css?v=83e35b93" rel="stylesheet" type="text/css"/>
+  <link href="../../_static/pygments.css?v=75810a84" rel="stylesheet" type="text/css"/>
   <link href="../../_static/material.css?v=79c92029" rel="stylesheet" type="text/css"/>
   <link href="../../_static/copybutton.css?v=76b2166b" rel="stylesheet" type="text/css"/>
   <link href="../../_static/css/rtd_sphinx_search.min.css" rel="stylesheet" type="text/css"/>
   <link href="../../_static/custom.css?v=2e4958f2" rel="stylesheet" type="text/css"/>
   <script src="../../_static/documentation_options.js?v=0e525676">
   </script>
-  <script src="../../_static/doctools.js?v=9a2dae69">
+  <script src="../../_static/doctools.js?v=9bcbadda">
   </script>
   <script src="../../_static/sphinx_highlight.js?v=dc90522c">
   </script>
@@ -302,19 +302,19 @@
 
 <div class="viewcode-block" id="Counter">
 <a class="viewcode-back" href="../../source/compspec.html#compspec.entity.Counter">[docs]</a>
-<span class="k">class</span> <span class="nc">Counter</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Counter</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    A simple counter (iterator) that will yield the next number with some prefix.</span>
 <span class="sd">    """</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">"id"</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">"id"</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">prefix</span> <span class="o">=</span> <span class="n">prefix</span>
 
-    <span class="k">def</span> <span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="k">return</span> <span class="s2">"</span><span class="si">%s%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">count</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># Actually start counting at 0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
         <span class="k">return</span> <span class="bp">self</span></div>
@@ -323,7 +323,7 @@
 
 <div class="viewcode-block" id="get_counter">
 <a class="viewcode-back" href="../../source/compspec.html#compspec.entity.get_counter">[docs]</a>
-<span class="k">def</span> <span class="nf">get_counter</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s2">"id"</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_counter</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s2">"id"</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Return an iterable counter.</span>
 <span class="sd">    """</span>
@@ -334,73 +334,73 @@
 
 <div class="viewcode-block" id="relation">
 <a class="viewcode-back" href="../../source/compspec.html#compspec.entity.relation">[docs]</a>
-<span class="k">class</span> <span class="nc">relation</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">relation</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    A relation in a graph.</span>
 <span class="sd">    """</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fromid</span><span class="p">,</span> <span class="n">toid</span><span class="p">,</span> <span class="n">relation</span><span class="o">=</span><span class="s2">"has"</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fromid</span><span class="p">,</span> <span class="n">toid</span><span class="p">,</span> <span class="n">relation</span><span class="o">=</span><span class="s2">"has"</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fromid</span> <span class="o">=</span> <span class="n">fromid</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">toid</span> <span class="o">=</span> <span class="n">toid</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">relation</span> <span class="o">=</span> <span class="n">relation</span>
 
-    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">iter</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">fromid</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">relation</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">toid</span><span class="p">))</span>
 
 <div class="viewcode-block" id="relation.to_dict">
 <a class="viewcode-back" href="../../source/compspec.html#compspec.entity.relation.to_dict">[docs]</a>
-    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">{</span><span class="s2">"fromid"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">fromid</span><span class="p">,</span> <span class="s2">"relation"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">relation</span><span class="p">,</span> <span class="s2">"toid"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">toid</span><span class="p">}</span></div>
 
 
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">fromid</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">relation</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">toid</span><span class="si">}</span><span class="s2">"</span>
 
-    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">args</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">args</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fromid</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">relation</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">toid</span></div>
 
 
 
 <div class="viewcode-block" id="node">
 <a class="viewcode-back" href="../../source/compspec.html#compspec.entity.node">[docs]</a>
-<span class="k">class</span> <span class="nc">node</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">node</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    A node in a graph.</span>
 <span class="sd">    """</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nodeid</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">is_connector</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nodeid</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">is_connector</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nodeid</span> <span class="o">=</span> <span class="n">nodeid</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">is_connector</span> <span class="o">=</span> <span class="n">is_connector</span>
 
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nodeid</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span>
 
 <div class="viewcode-block" id="node.describe">
 <a class="viewcode-back" href="../../source/compspec.html#compspec.entity.node.describe">[docs]</a>
-    <span class="k">def</span> <span class="nf">describe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">describe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span></div>
 
 
-    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">iter</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">nodeid</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>
 
-    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
 <div class="viewcode-block" id="node.to_dict">
 <a class="viewcode-back" href="../../source/compspec.html#compspec.entity.node.to_dict">[docs]</a>
-    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">{</span><span class="s2">"nodeid"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodeid</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s2">"value"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">}</span></div>
 
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">args</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">args</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodeid</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span></div>
 
 </pre>
@@ -422,13 +422,13 @@
        © Copyright 2022-2024, Vanessa Sochat.
       </div>
       Last updated on
-              Aug 15, 2024.
+              Apr 04, 2025.
       <br/>
       Created using
       <a href="http://www.sphinx-doc.org/">
        Sphinx
       </a>
-      8.0.2.
+      8.1.3.
              and
       <a href="https://github.com/bashtage/sphinx-material/">
        Material for

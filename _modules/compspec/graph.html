@@ -39,14 +39,14 @@
   <title>
    compspec.graph — Compspec Python
   </title>
-  <link href="../../_static/pygments.css?v=83e35b93" rel="stylesheet" type="text/css"/>
+  <link href="../../_static/pygments.css?v=75810a84" rel="stylesheet" type="text/css"/>
   <link href="../../_static/material.css?v=79c92029" rel="stylesheet" type="text/css"/>
   <link href="../../_static/copybutton.css?v=76b2166b" rel="stylesheet" type="text/css"/>
   <link href="../../_static/css/rtd_sphinx_search.min.css" rel="stylesheet" type="text/css"/>
   <link href="../../_static/custom.css?v=2e4958f2" rel="stylesheet" type="text/css"/>
   <script src="../../_static/documentation_options.js?v=0e525676">
   </script>
-  <script src="../../_static/doctools.js?v=9a2dae69">
+  <script src="../../_static/doctools.js?v=9bcbadda">
   </script>
   <script src="../../_static/sphinx_highlight.js?v=dc90522c">
   </script>
@@ -299,33 +299,33 @@
 <span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">"Copyright 2022-2024, Vanessa Sochat"</span>
 <span class="n">__license__</span> <span class="o">=</span> <span class="s2">"MIT"</span>
 
-<span class="kn">import</span> <span class="nn">compspec.entity</span> <span class="k">as</span> <span class="nn">entity</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">compspec.entity</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">entity</span>
 
 
 <div class="viewcode-block" id="GraphGroup">
 <a class="viewcode-back" href="../../source/compspec.html#compspec.graph.GraphGroup">[docs]</a>
-<span class="k">class</span> <span class="nc">GraphGroup</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">GraphGroup</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    A graph group is intended to hold and yield named graphs.</span>
 <span class="sd">    """</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">graphs</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">extract</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="fm">__contains__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__contains__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">graphs</span>
 
-    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">group</span><span class="p">,</span> <span class="n">graph</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">graphs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="k">yield</span> <span class="n">group</span><span class="p">,</span> <span class="n">graph</span>
 
-    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">graphs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 
 <div class="viewcode-block" id="GraphGroup.extract">
 <a class="viewcode-back" href="../../source/compspec.html#compspec.graph.GraphGroup.extract">[docs]</a>
-    <span class="k">def</span> <span class="nf">extract</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">extract</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 </div>
 
@@ -333,12 +333,12 @@
 
 <div class="viewcode-block" id="Graph">
 <a class="viewcode-back" href="../../source/compspec.html#compspec.graph.Graph">[docs]</a>
-<span class="k">class</span> <span class="nc">Graph</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Graph</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    A graph implicitly is scoped to one namespace</span>
 <span class="sd">    """</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># A counter to keep track of ids in this space</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="n">entity</span><span class="o">.</span><span class="n">get_counter</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ids</span> <span class="o">=</span> <span class="p">{}</span>
@@ -348,7 +348,7 @@
 
 <div class="viewcode-block" id="Graph.to_dict">
 <a class="viewcode-back" href="../../source/compspec.html#compspec.graph.Graph.to_dict">[docs]</a>
-    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Output dictionary representation of nodes and relations.</span>
 <span class="sd">        """</span>
@@ -361,7 +361,7 @@
 <div class="viewcode-block" id="Graph.from_dict">
 <a class="viewcode-back" href="../../source/compspec.html#compspec.graph.Graph.from_dict">[docs]</a>
     <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">from_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return a new graph loaded from a dictionary.</span>
 <span class="sd">        """</span>
@@ -375,7 +375,7 @@
 
 <div class="viewcode-block" id="Graph.next">
 <a class="viewcode-back" href="../../source/compspec.html#compspec.graph.Graph.next">[docs]</a>
-    <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return next id in the counter.</span>
 <span class="sd">        """</span>
@@ -384,7 +384,7 @@
 
 <div class="viewcode-block" id="Graph.add_node">
 <a class="viewcode-back" href="../../source/compspec.html#compspec.graph.Graph.add_node">[docs]</a>
-    <span class="k">def</span> <span class="nf">add_node</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_node</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Add an already generated node.</span>
 <span class="sd">        """</span>
@@ -393,7 +393,7 @@
 
 <div class="viewcode-block" id="Graph.add_relation">
 <a class="viewcode-back" href="../../source/compspec.html#compspec.graph.Graph.add_relation">[docs]</a>
-    <span class="k">def</span> <span class="nf">add_relation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">relation</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_relation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">relation</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Add an already generated relation.</span>
 <span class="sd">        """</span>
@@ -412,7 +412,7 @@
 
 <div class="viewcode-block" id="Graph.new_node">
 <a class="viewcode-back" href="../../source/compspec.html#compspec.graph.Graph.new_node">[docs]</a>
-    <span class="k">def</span> <span class="nf">new_node</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">nodeid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">is_connector</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">new_node</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">nodeid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">is_connector</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Generate a node with a name (type) and value</span>
 
@@ -428,7 +428,7 @@
 
 <div class="viewcode-block" id="Graph.new_relation">
 <a class="viewcode-back" href="../../source/compspec.html#compspec.graph.Graph.new_relation">[docs]</a>
-    <span class="k">def</span> <span class="nf">new_relation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fromid</span><span class="p">,</span> <span class="n">relation</span><span class="p">,</span> <span class="n">toid</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">new_relation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fromid</span><span class="p">,</span> <span class="n">relation</span><span class="p">,</span> <span class="n">toid</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Generate a relation between parent (fromid) and child (toid).</span>
 <span class="sd">        The relation here does not hard code a namespace, but it will</span>
@@ -441,7 +441,7 @@
 
 <div class="viewcode-block" id="Graph.gen">
 <a class="viewcode-back" href="../../source/compspec.html#compspec.graph.Graph.gen">[docs]</a>
-    <span class="k">def</span> <span class="nf">gen</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">nodeid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">relation</span><span class="o">=</span><span class="s2">"has"</span><span class="p">,</span> <span class="n">is_connector</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">gen</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">nodeid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">relation</span><span class="o">=</span><span class="s2">"has"</span><span class="p">,</span> <span class="n">is_connector</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Generate a node and relation in one swoop!</span>
 <span class="sd">        A parent is required.</span>
@@ -459,7 +459,7 @@
 
 <div class="viewcode-block" id="Graph.iter_connectors">
 <a class="viewcode-back" href="../../source/compspec.html#compspec.graph.Graph.iter_connectors">[docs]</a>
-    <span class="k">def</span> <span class="nf">iter_connectors</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">iter_connectors</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Yield connector nodes only</span>
 <span class="sd">        """</span>
@@ -470,7 +470,7 @@
 
 <div class="viewcode-block" id="Graph.iter_nodes">
 <a class="viewcode-back" href="../../source/compspec.html#compspec.graph.Graph.iter_nodes">[docs]</a>
-    <span class="k">def</span> <span class="nf">iter_nodes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">iter_nodes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Yield nodes. If a comparison is being done, a namespace needs to be</span>
 <span class="sd">        added (e.g., node, namespace, *args)</span>
@@ -481,7 +481,7 @@
 
 <div class="viewcode-block" id="Graph.iter_relations">
 <a class="viewcode-back" href="../../source/compspec.html#compspec.graph.Graph.iter_relations">[docs]</a>
-    <span class="k">def</span> <span class="nf">iter_relations</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">iter_relations</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Yield relations in the same manner.</span>
 <span class="sd">        """</span>
@@ -508,13 +508,13 @@
        © Copyright 2022-2024, Vanessa Sochat.
       </div>
       Last updated on
-              Aug 15, 2024.
+              Apr 04, 2025.
       <br/>
       Created using
       <a href="http://www.sphinx-doc.org/">
        Sphinx
       </a>
-      8.0.2.
+      8.1.3.
              and
       <a href="https://github.com/bashtage/sphinx-material/">
        Material for
