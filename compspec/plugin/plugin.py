@@ -11,7 +11,7 @@ class PluginBase:
         """
         Add arguments for the plugin to show up in argparse
 
-        This is added by the plugin clas
+        This is added by the plugin class
         """
         pass
 
