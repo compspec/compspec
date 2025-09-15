@@ -69,6 +69,7 @@ class JsonGraph:
         rank=0,
         path=None,
         idx=None,
+        count=None,
         attributes=None,
     ):
         """
@@ -84,7 +85,8 @@ class JsonGraph:
             idx = self.next_count
 
         # This is the resource count
-        count = self.next_resource_count(typ)
+        if count is None:
+            count = self.next_resource_count(typ)
         containment = {"paths": path}
 
         # The label is the subsystem name plus global identifier
@@ -100,7 +102,8 @@ class JsonGraph:
             "name": f"{typ}{count}",
             # The id is the global graph id
             "id": idx,
-            "uniq_id": idx,
+            # Unique id within the resource?
+            "uniq_id": count,
             "containment": containment,
             "size": size,
             "unit": "",

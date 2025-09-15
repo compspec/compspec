@@ -14,6 +14,7 @@ and **Merged pull requests**. Critical items to know are:
 The versions coincide with releases on pip. Only major versions will be released as tags on Github.
 
 ## [0.0.x](https://github.com/compspec/compspec/tree/main) (0.0.x)
+ - add support for uniq_id (0.1.14)
  - support for attributes when creating root (0.1.13)
  - read_file added to utils (0.1.12)
  - jgf (json graph format) generation added (0.1.11)
