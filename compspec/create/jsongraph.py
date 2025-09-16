@@ -118,17 +118,21 @@ class JsonGraph:
         self.nodes[label] = new_node
         return new_node
 
-    def add_edge(self, source, target, relation="contains"):
+    def add_edge(self, source, target, relation="contains", metadata=None):
         """
         Add an edge with a specific kind of relationship
         """
-        self.edges.append(
-            {
-                "source": source,
-                "target": target,
-                "metadata": {"name": {"containment": relation}},
-            }
+        metadata = (
+            metadata if metadata is not None else {"name": {"containment": relation}}
         )
+        new_edge = {
+            "source": source,
+            "target": target,
+        }
+        if metadata:
+            new_edge["metadata"] = metadata
+
+        self.edges.append(new_edge)
 
     def add_bidirectional_edge(self, source, target):
         """
