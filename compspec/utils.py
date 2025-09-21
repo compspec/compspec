@@ -1,14 +1,29 @@
 __author__ = "Vanessa Sochat"
-__copyright__ = "Copyright 2022-2024, Vanessa Sochat"
+__copyright__ = "Copyright 2022-2026, Vanessa Sochat"
 __license__ = "MIT"
 
 import json
 import os
+import platform
 import re
 import shlex
 import subprocess
 
 import yaml
+
+
+def get_hostname():
+    """
+    Guess the local cluster based on the hostname
+    """
+    return platform.node()
+
+
+def get_local_cluster():
+    """
+    Guess the local cluster based on the hostname
+    """
+    return get_hostname().split("-")[0]
 
 
 def read_json(filename):

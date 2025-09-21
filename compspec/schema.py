@@ -1,5 +1,5 @@
 __author__ = "Vanessa Sochat"
-__copyright__ = "Copyright 2024, Vanessa Sochat"
+__copyright__ = "Copyright 2024-2026, Vanessa Sochat"
 __license__ = "MIT"
 
 jgf_v2 = {
