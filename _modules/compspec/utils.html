@@ -296,16 +296,37 @@
        <div class="highlight">
         <pre>
 <span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s2">"Vanessa Sochat"</span>
-<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">"Copyright 2022-2024, Vanessa Sochat"</span>
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">"Copyright 2022-2026, Vanessa Sochat"</span>
 <span class="n">__license__</span> <span class="o">=</span> <span class="s2">"MIT"</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">platform</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">shlex</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
+
+
+<div class="viewcode-block" id="get_hostname">
+<a class="viewcode-back" href="../../source/compspec.html#compspec.utils.get_hostname">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_hostname</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Guess the local cluster based on the hostname</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">platform</span><span class="o">.</span><span class="n">node</span><span class="p">()</span></div>
+
+
+
+<div class="viewcode-block" id="get_local_cluster">
+<a class="viewcode-back" href="../../source/compspec.html#compspec.utils.get_local_cluster">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_local_cluster</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Guess the local cluster based on the hostname</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">get_hostname</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"-"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span></div>
+
 
 
 <div class="viewcode-block" id="read_json">
@@ -422,7 +443,7 @@
        © Copyright 2022-2024, Vanessa Sochat.
       </div>
       Last updated on
-              Sep 17, 2025.
+              Sep 21, 2025.
       <br/>
       Created using
       <a href="http://www.sphinx-doc.org/">
